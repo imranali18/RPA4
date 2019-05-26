@@ -1,102 +1,45 @@
 Lecture 1 — Introduction
 =========================================================
 
-People
-------
 
--  Instructor: Konstantin Kuzmin
+What is RPA?
+-----------
 
--  Humanities Focused Section: James Malazita
+-  RPA is an acronym for Robotic Process Automation
 
--  Instructional Support Coordinator: Erica Eberwein
-
--  TAs and programming mentors:  see course Website
-
-Learning Outcomes
------------------
-
-#. Demonstrate proficiency in the purpose and behavior of basic
-   programming constructs.
-
-#. Design algorithms and programs to solve small-scale computational
-   programs.
-
-#. Write, test and debug small-scale programs
-
-#. Demonstrate an understanding of the widespread application of
-   computational thinking to real-world problems.
-
-Textbook
---------
-
--  *Practical Programming: An Introduction to Computer Science Using
-   Python* by Campbell, Gries, and Montojo
-
-   -  Available in e-book form
-
--  We will be using **second edition** but if you have third edition, it should also be fine.
+-  Robotic Process Automation is the technology that allows anyone today to configure computer software, or a “robot”
+   to emulate and integrate the actions of a human interacting within digital systems to 
+   execute a business process. RPA robots utilize the user interface to capture data and manipulate 
+   applications just like humans do. They interpret, trigger responses and communicate with other systems 
+   in order to perform on a vast variety of repetitive tasks. Only substantially better: an RPA software robot never sleeps, makes zero mistakes and costs a lot less than an employee.
 
 
-Website and Online Resources
------------------------------
+How does Robotic Process Automation Work ? 
+------------------------------------------
 
--  Course notes and lecture exercises will be posted at:
-
-       http://www.cs.rpi.edu/academics/courses/spring19/csci1100
-
--  Submitty will be used for posting homework assignments and labs, and as a
-   public discussion site:
-
-       https://submitty.cs.rpi.edu/index.php?semester=s19&course=csci1100&component=forum&page=view_thread
-       
-   You will be automatically added when you enroll. Let an instructor or TA know if you cannot log into this site more than **48 hours** after you receive notice from the registrar that you are enrolled. The site is updated daily, not immediately, so there might be some lag.
+-  RPA robots are capable of mimicking many–if not most–human user actions. They log into applications, move files and folders, 
+   copy and paste data,  fill in forms, extract structured and semi-structured data from documents, scrape browsers, and more.
 
 
-Other items from the syllabus
------------------------------
+What are the Business Benefits of RPA ?
+---------------------------------------
 
--  Dr. Kuzmin's office hours are:
+- Robots are here to stay. The faster you harvest their potential, the faster you create a competitive edge for your business.
+  Robotic Process Automation delivers direct profitability while improving accuracy across organizations and industries. Enabling RPA to handle any processes will not only transform and streamline your organization’s workflow. It will allow for superior scalability and flexibility within the enterprise, doubled by fast, tailored response to specific needs. Software robots are easy to train and they integrate seamlessly into any system. Multiply them, and instantly deploy more as you go. They constantly report on their progress so you can go even bigger and better by using operational and business predictability, while improving strategically.
+  
+  - Better Accuracy: Robotic Process Automation software robots are programmed to follow rules. 
+    They never get tired and never make mistakes. They are compliant and consistent.
+  - Improved Compliance: Once instructed, RPA robots execute reliably, reducing risk. Everything they do is monitored. 
+    You have the full control to operate in accordance with existing regulations and standards.
+  - Fast Cost Savings: RPA can reduce processing costs by up to 80%. In less than 12 months, most enterprises already 
+    have a positive return on investment, and potential further accumulative cost reductions can reach 20% in time.
+  - Super Scalable: Across business units and geographies, RPA performs a massive amount of operations in parallel, 
+    from desktop to cloud environments. Additional robots can be deployed quickly with minimal costs, according to work flux and seasonality.
+  - Increased Speed and Productivity: Employees are the first to appreciate the benefits of RPA as it removes non-value-add 
+    activities and relieves them from the rising pressure of work       
 
-   -  Tues 4:00 pm - 5:30 pm and Thurs 11:30 am - 1:00 pm, both in AE112
+.. image:: RPA1.jpg
 
--  Other office hours are posted online
-
--  Lab sections are held Tuesdays and Wednesdays. Full credit will be given for 
-   finishing the lab within your lab period. Checkpoints completed before your 
-   next lab will receive half credit.
-
-   -  **Important exception:** For the last checkpoint only... If you show up on time and work through the entire lab period, we will give you full credit for a **final** checkpoint that is completed before your next lab.
-
-
--  Requirements and grading: lecture exercises, labs, homework assignments, tests; letter grades
-
--  Appealing grades
-
--  Class attendance and participation; lecture notes
-
--  Homework late policy:
-
-   - 6 LATE DAYS FOR THE WHOLE SEMESTER
-   - 2 LATE DAYS ON ANY ONE ASSIGNMENT
-
--  Academic integrity
-
--  Other exceptions: report to me right now or as soon as you know
-
--  Notes on schedule:
-
-   -  Labs start next week. As of the end of that lab (Lab 0) you should
-      have all the pieces you need to successfully complete 
-      the remaining labs and homework assignments for the semester. If you have problems 
-      completing Lab 0, please get help. You have to get it done to proceed and you really need to be 
-      finished before Lab 1.
-
-   -  No labs during the weeks of February 17 (President's Day), March 3 (Spring break), and March 24 (GM week).
-
-   -  Test dates are February 7, March 14, and April 11, all from 6:15 pm to 7:45 pm (90 minutes). You must be here or have an excused absence from Student Experience. If you do not have an excused absence for a test, you will get a 0. **No exceptions**!
-
-   -  Final exam will be held during finals week.  **No exceptions**!  So,
-      don't make departure plans until the final exam schedule is posted.
 
 
 The Magic of Programming
@@ -241,70 +184,4 @@ Programs, Compilers, Interpreters, Abstractions
    -  Thinking in terms of abstractions is fundamental to computer
       science.
 
-Why Python?
------------
-
--  Python has a very simple syntax
-
-   -  The roles of indentation and blank lines cause the most confusion.
-
--  Interpreted languages provide immediate, useful feedback
-
--  Python has a powerful set of tools — abstractions
-
--  Python is widely used in science, engineering, and industry.
-
--  Python is good for rapid prototyping
-
-   - Sometimes, after a Python program is written and working, the
-     most time-consuming steps are rewritten in either C or C++ and
-     then integrated with the Python code.
-
-Two Types of Errors in Our Python Programs
-------------------------------------------
-
--  A *syntax error* is a mistake in the form of the Python code that
-   will not allow it to run.
-
--  A *semantic error* is a mistake in the “meaning” of the program,
-   causing it to produce incorrect output, even if it runs.
-
--  We will demonstrate both types of errors by deliberately introducing
-   errors in our triple double example program.
-
-Python Versions
----------------
-
--  Python, like all programming languages, is continually under
-   development.
-
--  We will be using the latest version installed by the *conda* package.
-
-Lab 0 — Tuesday and Wednesday next week!
-----------------------------------------
-
-By the end of Lab 0, you should have:
-
-#. Visited the Submitty site and browsed the forum and file repositories
-
-      https://submitty.cs.rpi.edu/index.php?semester=s19&course=csci1100
-
-#. Gone to the course page
-
-      http://www.cs.rpi.edu/academics/courses/spring19/csci1100/python_environment.html
-
-   and followed the instructions to install the Python environment on
-   your computer.
-
-   -  There are installers for “native” versions of the environment for
-      Windows, Mac OS X, and Linux machines. 
-
-#. Created a Dropbox account to store back-up copies “in the cloud” of
-   homework and lab solutions and lab for the course.
-
-   -  Other cloud-based back-up copies are acceptable.
-
-   -  This is required. Do not come to us the day your homework is due and tell us you lost your data! Dropbox gives you a **private** cloud backup and version control. 
-
-   -  I love *github* and *gitlab*. **Do not use them for your coursework**. We take academic integrity seriously in this course. If you publish your code online and someone copies it, you are responsible. 
 

@@ -1,10 +1,10 @@
 .. _calendar:
 
-Computer Science 1 Semester Calendar for Spring 2019
-=====================================================
+Fundamentals of Robotic Process Automation Using UI Path
+========================================================
 
 We will follow this schedule quite closely as we proceed through the
-semester.  The only changes we anticipate are to lab topics.
+course.  The only changes we anticipate are to lab topics.
 
 .. image::
    _images/calendar.png
