@@ -1,0 +1,6 @@
+python part2.py < p2_in1.txt > p2_out1.txt
+python part2.py < p2_in2.txt > p2_out2.txt
+python part2.py < p2_in3.txt > p2_out3.txt
+python part2.py < p2_in4.txt > p2_out4.txt
+python part2.py < p2_in5.txt > p2_out5.txt
+python part2.py < p2_in6.txt > p2_out6.txt

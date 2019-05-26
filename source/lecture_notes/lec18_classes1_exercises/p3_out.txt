@@ -1,0 +1,5 @@
+Celebi is at row 4, column 6.
+Celebi is at row 9, column 11.
+Ditto is at row 1, column 0.
+Ditto is at row 1, column 0.
+Unknown is at row 0, column 0.

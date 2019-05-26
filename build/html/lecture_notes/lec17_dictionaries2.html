@@ -1,0 +1,611 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lecture 17 — Dictionaries, Part 2 &mdash; RPA  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 17 — Exercises" href="lec17_dictionaries2_exercises/exercises.html" />
+    <link rel="prev" title="Lecture 16 — Exercises" href="lec16_dictionaries1_exercises/exercises.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RPA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Detailed schedule of topics for this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_lecture_lab.html">Weekly lecture and lab schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_oh_alac.html">Weekly office hour and tutoring schedule</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../lecture_notes.html">Lecture notes and exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lec01_intro.html">Lecture 1 — Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator.html">Lecture 2 — Python as a Calculator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator_exercises/exercises.html">Lecture 2 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings.html">Lecture 3 — Python Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings_exercises/exercises.html">Lecture 3 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1.html">Lecture 4 — Using functions and modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1_exercises/exercises.html">Lecture 4 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2.html">Lecture 5 — Python Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2_exercises/exercises.html">Lecture 5 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1.html">Lecture 6 — Decisions Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1_exercises/exercises.html">Lecture 6 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images.html">Lecture 7 — Tuples, Modules, and Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images_exercises/exercises.html">Lecture 7 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1.html">Lecture 8 — Lists Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1_exercises/exercises.html">Lecture 8 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while.html">Lecture 9 — While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while_exercises/exercises.html">Lecture 9 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2.html">Lecture 10 — Lists Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2_exercises/exercises.html">Lecture 10 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals2.html">Lecture 11 — Decisions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals_exercises/exercises.html">Lecture 11 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_for_double.html">Lecture 12 — Controlling Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_exercises/exercises.html">Lecture 12 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_web.html">Lecture 13 — Data from Files and Web Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_exercises/exercises.html">Lecture 13 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec14_design_part1.html">Lecture 14 — Problem Solving and Design, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets.html">Lecture 15 — Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets_exercises/exercises.html">Lecture 15 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1.html">Lecture 16 — Dictionaries, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1_exercises/exercises.html">Lecture 16 — Exercises</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lecture 17 — Dictionaries, Part 2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recap-of-dictionaries">Recap of dictionaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#copying-and-aliasing-dictionaries">Copying and Aliasing Dictionaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#back-to-imdb-dictionaries-whose-values-are-sets">Back to IMDB: Dictionaries Whose Values Are Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#converting-to-other-dictionaries-the-n-busiest-individuals">Converting to Other Dictionaries:  The N Busiest Individuals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#more-that-we-can-do-with-the-imdb">More That We Can Do With the IMDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#attribute-value-pairs">Attribute / Value Pairs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-apis">Accessing APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#final-example">Final Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-dictionary-practice-problems">Additional Dictionary Practice Problems</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2_exercises/exercises.html">Lecture 17 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1.html">Lecture 18 — Classes, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1_exercises/exercises.html">Lecture 18 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2.html">Lecture 19 — Classes, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2_exercises/exercises.html">Lecture 19 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching.html">Lecture 20 — Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching_exercises/exercises.html">Lecture 20 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting.html">Lecture 21 — Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting_exercises/exercises.html">Lecture 21 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter.html">Lecture 22 — TKInter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter_exercises/exercises.html">Lecture 22 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion.html">Lecture 23 — Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion_exercises/exercises.html">Lecture 23 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional.html">Lecture 24 — Advanced Python Topics and Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional_exercises/exercises.html">Lecture 24 — Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../class_code.html">Code written in class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_environment.html">Software installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../lecture_notes.html">Lecture Notes</a> &raquo;</li>
+        
+      <li>Lecture 17 — Dictionaries, Part 2</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/lecture_notes/lec17_dictionaries2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lecture-17-dictionaries-part-2">
+<h1>Lecture 17 — Dictionaries, Part 2<a class="headerlink" href="#lecture-17-dictionaries-part-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Recap.</li>
+<li>More IMDB examples:<ul>
+<li>Dictionaries of string/set pairs</li>
+<li>Converting dictionaries with one key to another</li>
+<li>Combining information from multiple dictionaries</li>
+</ul>
+</li>
+<li>A different view of dictionaries: storing attribute/value pairs.</li>
+<li>Accessing APIs and getting data back as a dictionary.</li>
+</ul>
+</div>
+<div class="section" id="recap-of-dictionaries">
+<h2>Recap of dictionaries<a class="headerlink" href="#recap-of-dictionaries" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">On the surface, dictionaries look like lists, except, you can have
+anything for indices (keys), not just numbers starting with 0.</p>
+</li>
+<li><p class="first">The following two store the same information:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">listoption</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dictoption</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Note that this is a new way for us to initialize a dictionary.</p>
+</li>
+<li><p class="first">You would access them in the same way:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">listoption</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">&#39;b&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dictoption</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">&#39;b&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">You would update them in the same way:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">listoption</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;d&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dictoption</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;d&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">But you can’t extend them in the same way. For example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">listoption</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;e&#39;</span>
+</pre></div>
+</div>
+<p>is illegal, but:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dictoption</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;e&#39;</span>
+</pre></div>
+</div>
+<p>is perfectly fine. Be sure you can explain why.</p>
+</li>
+<li><p class="first">Of course the power of a dictionary is that keys can be anything, or at least anything
+<em>hashable</em>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Gru&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Margo&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;Gru&#39;</span><span class="p">]</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">This dictionary has strings as keys and integers as values.
+The values can really be anything:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Gru&#39;</span><span class="p">:</span> <span class="nb">set</span><span class="p">([</span><span class="mi">123</span><span class="p">,</span> <span class="mi">456</span><span class="p">]),</span> <span class="s1">&#39;Margo&#39;</span><span class="p">:</span> <span class="nb">set</span><span class="p">([</span><span class="mi">456</span><span class="p">])}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d2</span><span class="p">[</span><span class="s1">&#39;Gru&#39;</span><span class="p">]</span>
+<span class="go">{456, 123}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Note that since keys can be anything, we need to know how to print or iterate through the
+values in a dictionary. This is actually quite trivial using a dictionary:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d2</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="go">dict_keys([&#39;Gru&#39;, &#39;Margo&#39;])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">d2</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="go">[&#39;Gru&#39;, &#39;Margo&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d2</span><span class="p">:</span>   <span class="c1">#  or, for key in d2.keys():</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">d2</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+<span class="go">Gru {[123, 456]}</span>
+<span class="go">Margo {[456]}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="copying-and-aliasing-dictionaries">
+<h2>Copying and Aliasing Dictionaries<a class="headerlink" href="#copying-and-aliasing-dictionaries" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">We’ll take a few minutes in class for you to try to predict the
+output of the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">d</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;hi&#39;</span>
+<span class="n">L</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">L</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">d</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;bye&#39;</span>
+<span class="n">L</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+<span class="n">d</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span>
+<span class="k">del</span> <span class="n">d</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">The result may surprise you, but it reflects the difference between
+making an alias to an object and making a full copy of an object.</p>
+<ul class="simple">
+<li>An alias is also sometimes known as a <em>shallow copy</em></li>
+<li>A full copy is also sometimes known as a <em>deep copy</em></li>
+</ul>
+</li>
+<li><p class="first">Assignment between lists, between sets, and between dictionaries all
+involve aliasing / shallow copying!</p>
+</li>
+<li><p class="first">At this point we will take a few minutes for you to work on the
+first lecture exercise.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="back-to-imdb-dictionaries-whose-values-are-sets">
+<h2>Back to IMDB: Dictionaries Whose Values Are Sets<a class="headerlink" href="#back-to-imdb-dictionaries-whose-values-are-sets" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>In our IMDB data, an individual may be listed more than once for
+each movie. For example, Tom Hanks is listed six times for <em>Polar
+Express</em>.</li>
+<li>In order to determine who was involved in the most different
+movies, we need to keep a set of movies for each individual instead
+of a count.</li>
+<li>We will modify our solution to the IMDB example to find out who was
+involved in the most different movies.<ul>
+<li>The solution will be posted on the Course Website.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="converting-to-other-dictionaries-the-n-busiest-individuals">
+<h2>Converting to Other Dictionaries:  The N Busiest Individuals<a class="headerlink" href="#converting-to-other-dictionaries-the-n-busiest-individuals" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Suppose we want to find the top 10 or 25 busiest individuals in the
+IMDB, based on the number of different movies they are involved in.</li>
+<li>Now we need a different dictionary:<ul>
+<li>Keys are integers representing the number of movies.</li>
+<li>Values are lists of actors.<ul>
+<li>Why don’t we need sets here?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>We will show how to extend our code to build this dictionary from
+our original dictionary.</li>
+<li>Next, we will need to access the keys from this dictionary in
+reverse order and print out names of the individuals, stopping when
+we’ve printed the top <code class="docutils literal"><span class="pre">N</span></code> busiest (allowing more in the case of
+ties).</li>
+</ul>
+</div>
+<div class="section" id="more-that-we-can-do-with-the-imdb">
+<h2>More That We Can Do With the IMDB<a class="headerlink" href="#more-that-we-can-do-with-the-imdb" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>We now have an actors dictionary whose keys are actor names and
+whose values are sets of movies.</li>
+<li>We can also construct a different dictionary whose keys are movies
+and whose values are sets of actors.</li>
+<li>Using this we can find all sorts of information:<ul>
+<li>What movie involved the most people?</li>
+<li>How many different people have been in movies that included
+Meryl Streep?</li>
+<li>Solve the “degrees of Kevin Bacon” problem:<ol class="arabic">
+<li>Who has been in a movie with Kevin Bacon? These people are
+degree 1.</li>
+<li>Who is not a degree 1 individual and has been in a movie with
+a person who was in a movie with Kevin Bacon? These people
+are degree 2 individuals.</li>
+<li>Who is not a degree 1 or 2 individual, and has been in a
+movie with a degree 2 individual (in a movie with a person
+who has been in a movie with a person who was in a movie with
+Kevin Bacon)? These people are degree 3 individuals.</li>
+<li>Etc.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="attribute-value-pairs">
+<h2>Attribute / Value Pairs<a class="headerlink" href="#attribute-value-pairs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>We can use dictionaries to construct even more complicated data
+structures: dictionaries as values, lists of dictionaries, etc.</li>
+<li>Consider the problem of representing all the houses a real estate
+company is trying to sell.</li>
+<li>We could keep a list with information about each property, but a list
+of what?</li>
+<li>We will look at describing each house as a dictionary, with the keys
+being the “attributes”, and the values being, well, the values of the
+attributes.</li>
+<li>Examples include the listing reference number, the address, the
+number of bedrooms, the price, whether or not it has a pool, the
+style of the house, the age, etc.<ul>
+<li>Some properties will not be known and therefore they will not be
+represented in the dictionary.</li>
+</ul>
+</li>
+<li>We will work through a made-up example in class, producing a list of
+dictionaries. This list will be called <code class="docutils literal"><span class="pre">houses</span></code>.</li>
+<li>As an exercise you can think about write code that finds all
+houses in our house list that have at least 4 bedrooms (attribute
+is <code class="docutils literal"><span class="pre">bedrooms</span></code>, value is an integer), a pool (attribute is
+<code class="docutils literal"><span class="pre">pool</span></code>, value a string describing if the pool is above ground or
+below), for a price below $300,000 (attribute is <code class="docutils literal"><span class="pre">price</span></code>, value
+is an integer).</li>
+<li>Overall, this a simple Python implementation of the storage and
+access to information in a <em>database</em>.</li>
+</ul>
+</div>
+<div class="section" id="accessing-apis">
+<h2>Accessing APIs<a class="headerlink" href="#accessing-apis" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Many APIs (Application Programming Interfaces) accessible on the
+Internet return values that are <strong>JSON</strong> (Java Script Object
+Notation) strings. These are easily loaded into Python objects,
+often involving dictionaries.</p>
+</li>
+<li><p class="first">The best way to understand the dictionary structure returned by an API
+is to seek documentation. If that fails, you can print the top
+level keys and values to explore.</p>
+</li>
+<li><p class="first">Public APIs, which do not not require authentication, are accessed
+as follows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;enter your public url here&quot;</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">rawcontent</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">rawcontent</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">An example of a public API (used in our image lab):</p>
+<ul>
+<li><p class="first"><strong>nominatim</strong> gives you a bounding box of geolocation for a given
+location. Let’s see this for ‘Troy, NY’:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://nominatim.openstreetmap.org/&quot;</span>\
+      <span class="s2">&quot;search?q=</span><span class="si">{}</span><span class="s2">&amp;format=json&amp;polygon_geojson=1&amp;addressdetails=0&quot;</span>\
+      <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;Troy,NY&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first">Many sources require authentication with an API key through the
+<code class="docutils literal"><span class="pre">oauth2</span></code> authentication module. But, the overall method of access
+remains the same after authentication.</p>
+</li>
+<li><p class="first">Once we understand the structure, we can write code to extract the
+information we want.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="final-example">
+<h2>Final Example<a class="headerlink" href="#final-example" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Given the following dictionary for hobbies for people:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">hobby</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Gru&#39;</span><span class="p">:</span><span class="nb">set</span><span class="p">([</span><span class="s1">&#39;Hiking&#39;</span><span class="p">,</span><span class="s1">&#39;Cooking&#39;</span><span class="p">]),</span> <span class="s1">&#39;Edith&#39;</span><span class="p">:</span><span class="nb">set</span><span class="p">([</span><span class="s1">&#39;Hiking&#39;</span><span class="p">,</span><span class="s1">&#39;Board Games&#39;</span><span class="p">])}</span>
+</pre></div>
+</div>
+<p>create a new dictionary that lists people for each hobby:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;Hiking&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;Gru&#39;</span><span class="p">,</span><span class="s1">&#39;Edith&#39;</span><span class="p">},</span> <span class="s1">&#39;Cooking&#39;</span><span class="p">:{</span><span class="s1">&#39;Gru&#39;</span><span class="p">},</span> <span class="s1">&#39;Board Games&#39;</span><span class="p">:{</span><span class="s1">&#39;Edith&#39;</span><span class="p">}}</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Dictionaries of sets.</li>
+<li>Dictionaries where the keys are numbers.</li>
+<li>A variety of examples to extract information from the IMDB data set.</li>
+<li>Dictionaries as database — storing attribute / value pairs.</li>
+<li>Accessing information from public APIs.</li>
+</ul>
+</div>
+<div class="section" id="additional-dictionary-practice-problems">
+<h2>Additional Dictionary Practice Problems<a class="headerlink" href="#additional-dictionary-practice-problems" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Create a dictionary to store the favorite colors of the following
+individuals:</p>
+<ul class="simple">
+<li>Thomas prefers red</li>
+<li>Ashok prefers green</li>
+<li>Sandy prefers red</li>
+<li>Alison prefers orange</li>
+<li>Fei prefers green</li>
+<li>Natasha prefers blue</li>
+</ul>
+<p>Then add some others of your own. Now, write code to change Fei’s
+preference to green and to remove Sandy’s preference from the
+dictionary.</p>
+</li>
+<li><p class="first">Using the dictionary from the first problem, write code to find which
+color is most commonly preferred. Use a second dictionary, one that
+associates strings (representing the colors) with the counts. Output
+the most common color. If there are ties, output all tied colors.</p>
+</li>
+<li><p class="first">Complete a fast list solution to the movie counting problem based
+on sorting, as outlined at the start of the lecture notes.</p>
+</li>
+<li><p class="first">Write a program that uses a dictionary that associates integers
+(the key) and sets of strings (the values) to find the number of
+movies in each year of the IMDB. Start from any of the IMDB examples.
+Write additional code
+that uses the <code class="docutils literal"><span class="pre">years_and_movies</span></code> dictionary to find the year that
+has the most movies.</p>
+</li>
+<li><p class="first">Use a dictionary to determine which last names are most common in the
+IMDB data we have provided. Count individual people not the movies
+they appear in. For example, <code class="docutils literal"><span class="pre">'Hanks,</span> <span class="pre">Tom'</span></code> counts as one instance
+of the name <code class="docutils literal"><span class="pre">'Hanks&quot;</span></code> despite the fact that he is in many movies.
+Assume that the last name ends with the first <code class="docutils literal"><span class="pre">','</span></code> in the actual
+name. Start this problem by thinking about what the dictionary keys
+and values should be.</p>
+</li>
+<li><p class="first">Which two individuals have the most movies in common? To solve this
+you will need to start from the dictionary that associates each
+individual with the set of movies s/he is involved in. Then you will
+need double for loops. At first glance this appears that it might
+be very, very slow, but it can be made much faster by intelligently
+terminating loops. To illustrate, if you find a pair of
+individuals with k movies in common then you never have to even
+consider an individual involved in fewer than k movies!</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lec17_dictionaries2_exercises/exercises.html" class="btn btn-neutral float-right" title="Lecture 17 — Exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lec16_dictionaries1_exercises/exercises.html" class="btn btn-neutral float-left" title="Lecture 16 — Exercises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Imran Ali
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

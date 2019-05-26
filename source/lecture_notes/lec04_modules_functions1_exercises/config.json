@@ -1,0 +1,82 @@
+{
+    "assignment_message" : "Submit each part of your Lecture 4 exercises to the right bucket.",
+    "part_names" : [ "Problem 1: Hash Tag", "Problem 2: Area 2x" ],
+
+    // FIXME:  This section of resource limits should go away soon
+    "resource_limits" : {
+        "RLIMIT_CPU" : 60,
+        "RLIMIT_NPROC" : 100,
+        "RLIMIT_AS" : "RLIM_INFINITY"
+    },
+
+    "testcases" : [
+        {
+            "title" : "Generate a hashtag",
+            "command" : [ "python3 part1/*.py",
+                          "submitty_count_function -l python3 print part1/*.py",
+                          "submitty_count_token -l python3 hashtag part1/*.py",
+                          "submitty_count_token -l python3 phrase part1/*.py" ],
+            "points" : 4,
+            "validation" : [
+                {
+                    // verify program output
+                    "method" : "myersDiffbyLinebyChar",
+                    "actual_file" : "STDOUT_0.txt",
+                    "description" : "Program Output",
+                    "expected_file" : "p1_out.txt"
+                }
+            ]
+        },
+
+        {
+            "title" : "Two ways to compute area",
+            "command" : [ "python3 part2/*.py",
+                          "submitty_count_function -l python3 pow part2/*.py",
+                          "submitty_count_function -l python3 round part2/*.py",
+                          "submitty_count_function -l python3 format part2/*.py",
+                          "submitty_count_node -l python3 pow part2/*.py" ],
+            "points" : 5,
+            "validation" : [
+                {
+                    // verify program output
+                    "method" : "myersDiffbyLinebyChar",
+                    "actual_file" : "STDOUT_0.txt",
+                    "description" : "Program Output",
+                    "expected_file" : "p2_out.txt"
+                },
+                {
+                    // number of pow function calls must be == 1
+                    "method" : "intComparison",
+                    "actual_file" : "STDOUT_1.txt",
+                    "description" : "Number of pow calls",
+		    "comparison" : "eq",
+                    "term" : 1
+                },
+                {
+                    // number of round function calls must be == 1
+                    "method" : "intComparison",
+                    "actual_file" : "STDOUT_2.txt",
+                    "description" : "Number of round calls",
+		    "comparison" : "eq",
+                    "term" : 1
+                },
+                {
+                    // number of format calls  must be == 3
+                    "method" : "intComparison",
+                    "actual_file" : "STDOUT_3.txt",
+                    "description" : "Number of format calls",
+		    "comparison" : "eq",
+                    "term" : 1
+                },
+                {
+                    // number of format calls  must be == 3
+                    "method" : "intComparison",
+                    "actual_file" : "STDOUT_4.txt",
+                    "description" : "Number of uses of **",
+		    "comparison" : "eq",
+                    "term" : 1
+                }
+            ]
+        }
+    ]
+}

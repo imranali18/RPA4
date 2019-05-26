@@ -1,0 +1,15 @@
+Magnitude 11.18
+Distance is 7.81
+After scaling p = (0,12)
+After scaling r = (6,11.0)
+p dominates r: False
+r dominates p: False
+r dominates q: True
+As a string p is (0,12)
+As a string r is (6,11.0)
+p - q = (-5,2)
+q - r = (-1,-1.0)
+new_q is (20,40)
+p == t True
+t == u False
+t == v False

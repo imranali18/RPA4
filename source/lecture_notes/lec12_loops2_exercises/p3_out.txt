@@ -1,0 +1,2 @@
+Min of list v: 2
+Min of list u: ball

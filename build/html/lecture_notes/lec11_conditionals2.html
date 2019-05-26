@@ -1,0 +1,819 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lecture 11 — Decisions Part 2 &mdash; RPA  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 11 — Exercises" href="lec11_conditionals_exercises/exercises.html" />
+    <link rel="prev" title="Lecture 10 — Exercises" href="lec10_lists2_exercises/exercises.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RPA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Detailed schedule of topics for this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_lecture_lab.html">Weekly lecture and lab schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_oh_alac.html">Weekly office hour and tutoring schedule</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../lecture_notes.html">Lecture notes and exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lec01_intro.html">Lecture 1 — Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator.html">Lecture 2 — Python as a Calculator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator_exercises/exercises.html">Lecture 2 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings.html">Lecture 3 — Python Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings_exercises/exercises.html">Lecture 3 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1.html">Lecture 4 — Using functions and modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1_exercises/exercises.html">Lecture 4 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2.html">Lecture 5 — Python Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2_exercises/exercises.html">Lecture 5 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1.html">Lecture 6 — Decisions Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1_exercises/exercises.html">Lecture 6 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images.html">Lecture 7 — Tuples, Modules, and Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images_exercises/exercises.html">Lecture 7 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1.html">Lecture 8 — Lists Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1_exercises/exercises.html">Lecture 8 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while.html">Lecture 9 — While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while_exercises/exercises.html">Lecture 9 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2.html">Lecture 10 — Lists Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2_exercises/exercises.html">Lecture 10 — Exercises</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lecture 11 — Decisions Part 2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview-logic-and-decision-making-part-2">Overview — Logic and Decision Making, Part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-1-program-structure">Part 1: Program Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#help-with-debugging">Help with Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#program-organization">Program Organization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-2-extended-example-of-a-random-walk">Part 2:  Extended Example of a Random Walk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-3-review-of-boolean-logic">Part 3:  Review of Boolean Logic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#truth-tables">Truth Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#demorgans-laws-relating-and-or-and-not">DeMorgan’s Laws Relating and, or, and not</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-do-we-care">Why Do We Care?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-4-additional-techniques-in-logic-and-decision-making">Part 4: Additional Techniques in Logic and Decision Making</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#short-circuited-boolean-expressions">Short-Circuited Boolean Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nested-if-statements">Nested if Statements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#storing-the-result-of-a-boolean-expression">Storing the Result of a Boolean Expression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples-for-the-lecture">Examples for the Lecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary-of-discussion-of-if-statements-and-logic">Summary of Discussion of if Statements and Logic</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals_exercises/exercises.html">Lecture 11 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_for_double.html">Lecture 12 — Controlling Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_exercises/exercises.html">Lecture 12 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_web.html">Lecture 13 — Data from Files and Web Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_exercises/exercises.html">Lecture 13 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec14_design_part1.html">Lecture 14 — Problem Solving and Design, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets.html">Lecture 15 — Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets_exercises/exercises.html">Lecture 15 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1.html">Lecture 16 — Dictionaries, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1_exercises/exercises.html">Lecture 16 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2.html">Lecture 17 — Dictionaries, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2_exercises/exercises.html">Lecture 17 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1.html">Lecture 18 — Classes, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1_exercises/exercises.html">Lecture 18 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2.html">Lecture 19 — Classes, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2_exercises/exercises.html">Lecture 19 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching.html">Lecture 20 — Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching_exercises/exercises.html">Lecture 20 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting.html">Lecture 21 — Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting_exercises/exercises.html">Lecture 21 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter.html">Lecture 22 — TKInter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter_exercises/exercises.html">Lecture 22 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion.html">Lecture 23 — Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion_exercises/exercises.html">Lecture 23 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional.html">Lecture 24 — Advanced Python Topics and Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional_exercises/exercises.html">Lecture 24 — Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../class_code.html">Code written in class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_environment.html">Software installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../lecture_notes.html">Lecture Notes</a> &raquo;</li>
+        
+      <li>Lecture 11 — Decisions Part 2</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/lecture_notes/lec11_conditionals2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lecture-11-decisions-part-2">
+<h1>Lecture 11 — Decisions Part 2<a class="headerlink" href="#lecture-11-decisions-part-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview-logic-and-decision-making-part-2">
+<h2>Overview — Logic and Decision Making, Part 2<a class="headerlink" href="#overview-logic-and-decision-making-part-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Program structure</li>
+<li>Debugging and “hardening” a simple function</li>
+<li>A bit of design and a bit of a random walk</li>
+<li>More on logic - the key to getting programs right<ul>
+<li>Boolean logic</li>
+<li>Nested if statements</li>
+<li>Assigning boolean variables</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="part-1-program-structure">
+<h2>Part 1: Program Structure<a class="headerlink" href="#part-1-program-structure" title="Permalink to this headline">¶</a></h2>
+<p>Programming requires four basic skills:</p>
+<ol class="arabic">
+<li><p class="first">Develop a solution.</p>
+<ul class="simple">
+<li>Start with small steps, solve them, and then add complexity.</li>
+</ul>
+</li>
+<li><p class="first">Structure your code.</p>
+<ul>
+<li><p class="first">Move repeated code into functions.</p>
+</li>
+<li><p class="first">Make your code easy to read and modify. Use meaningful variable names
+and break complex operations into smaller parts.</p>
+</li>
+<li><p class="first">Place values in variables so they are easy to change.</p>
+</li>
+<li><p class="first">Include comments for important functions, but do not clutter
+your code with unnecessary comments. A classic example of a
+completely unnecessary comment is:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>   <span class="c1"># increment x</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Document assumptions about what is passed to a function.</p>
+</li>
+<li><p class="first">If your function is meant to return a value, make sure it always
+does.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Test your code.</p>
+<ul class="simple">
+<li>Find all possible cases that your program should handle, including typos
+in the input. As
+programs get larger, this is increasingly hard.</li>
+<li>If you cannot check for all inputs, then you must check your code
+for meaningful inputs: regular (expected inputs) and edge cases (inputs
+that can break your code).</li>
+</ul>
+</li>
+<li><p class="first">Debug your code.</p>
+<ul class="simple">
+<li>Never assume an untested part of your code is bug free. “If it ain’t tested, it’s broken.”</li>
+<li>Learn syntax well so that you can spot and fix syntax errors
+fast.</li>
+<li>Semantic errors are much harder to find and fix. You need
+strategies to isolate where the error is.</li>
+<li>Print output before and after crucial steps.</li>
+<li>Look at where your program crashed.</li>
+<li>Fix the first error first, not the biggest error. The first
+error may be the cause of bigger errors later in your code.</li>
+<li>Use a debugger.</li>
+<li>Simplify the problem: remove (by commenting out) parts of your
+code until you no longer have an error. Look at the last code
+removed for a source of at least part of your errors.</li>
+<li>Test parts of your code separately and once you are convinced
+they are bug free, concentrate on other parts.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="help-with-debugging">
+<h2>Help with Debugging<a class="headerlink" href="#help-with-debugging" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Consider the following code to add the first <code class="docutils literal"><span class="pre">n</span></code> integers:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a positive integer ==&gt; &quot;</span><span class="p">))</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">n</span><span class="p">:</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="n">i</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sum is&#39;</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Does it work?  For all inputs? Might it run forever? (We’ll
+ignore the fact that a <code class="docutils literal"><span class="pre">for</span></code> loop would be better here.)</p>
+</li>
+<li><p class="first">How might we find such an error?</p>
+<ul class="simple">
+<li>Careful reading of the code.</li>
+<li>Insert <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a> statements.</li>
+<li>Use the Wing IDE 101 debugger.</li>
+</ul>
+</li>
+<li><p class="first">We will practice with the Wing IDE 101 debugger in class, using it to
+understand the behavior of the program. We will explain the following
+picture:</p>
+<img alt="../_images/debugger.png" src="../_images/debugger.png" />
+<p>and note the use of:</p>
+<ul class="simple">
+<li>The hand, bug, and stop symbols at the top of the screen, and</li>
+<li>The Debug I/O and Stack Data at the bottom of the screen.</li>
+</ul>
+</li>
+<li><p class="first">Debugging becomes crucial in tracking logic errors, as well.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="program-organization">
+<h2>Program Organization<a class="headerlink" href="#program-organization" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Envision your code as having two main parts: the main body and the
+functions that help the main code.</p>
+</li>
+<li><p class="first">Make sure your functions accomplish one well-defined task. This
+makes them both easy to test and useful in many places.</p>
+</li>
+<li><p class="first">As we will see in an example below, in Python it is good practice to
+separate the functions and the main body with the following
+addition to the program structure:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Put the main body of the program below this line</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">This will have no apparent effect when a program is run.
+However, if a program is imported as a module into another program
+(like the utility code we have been giving you), any code within the
+above <code class="docutils literal"><span class="pre">if</span></code> block is skipped!</p>
+</li>
+<li><p class="first">This allows programs to work both as modules and stand alone
+code.</p>
+</li>
+<li><p class="first">When the primary purpose of your code is to provide functionality
+as a module, it is best to use the code in the main body to test
+the module functions.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="part-2-extended-example-of-a-random-walk">
+<h2>Part 2:  Extended Example of a Random Walk<a class="headerlink" href="#part-2-extended-example-of-a-random-walk" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Many numerical simulations, including many video games, involve random
+events.</p>
+</li>
+<li><p class="first">Python includes a module to generate numbers at random. For
+example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="c1"># Print three numbers randomly generated between 0 and 1.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">())</span>
+
+<span class="c1"># Print a random integer in the range 0..5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">We’d like to use this to simulate a “random walk”:</p>
+<ul class="simple">
+<li>Hypothetically, a person takes a step forward or backward,
+completely at random (equally likely to go either way). This
+can be repeated over and over again until some stopping point is
+reached.</li>
+<li>Suppose the person is on a platform with <span class="math">\(N\)</span> steps and the person
+starts in the middle, this random forward/backward stepping
+process is repeated until they fall off (reach step 0 or step
+<span class="math">\(N+1\)</span>).<ul>
+<li>“forward” is represented by an increasing step, while
+“backward” is represented by a decreasing step</li>
+</ul>
+</li>
+<li>How many steps does it take to fall off?</li>
+</ul>
+</li>
+<li><p class="first">Many variations on this problem appear in physical simulations.</p>
+</li>
+<li><p class="first">We can simulate a step in several ways:</p>
+<ol class="arabic simple">
+<li>If <code class="docutils literal"><span class="pre">random.random()</span></code> returns a value less than 0.5, step backward;
+otherwise step forward.</li>
+<li>If <code class="docutils literal"><span class="pre">random.randint(0,</span> <span class="pre">1)</span></code> returns 1 then step forward; otherwise,
+step backward.</li>
+<li>Eliminate the <code class="docutils literal"><span class="pre">if</span></code> entirely and just increment by whatever <code class="docutils literal"><span class="pre">random.choice([-1,</span> <span class="pre">1])</span></code>
+returns (it will return either -1 (step backward) or 1 (step forward)).</li>
+</ol>
+</li>
+<li><p class="first">So, in summary, we want to start a random walk at position <span class="math">\(N/2\)</span> and
+repeatedly take a step forward or backward based on the
+output of the random number generator until the walker falls off.</p>
+</li>
+<li><p class="first">We will solve this problem together during lecture.
+We we start by enumerating some of the needed steps and then
+solving them individually before putting together the whole
+program.</p>
+<ul class="simple">
+<li>Once we see the result we can think of several ways to change
+things and explore new questions and ideas. Remember, a program
+is never done!</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="part-3-review-of-boolean-logic">
+<h2>Part 3:  Review of Boolean Logic<a class="headerlink" href="#part-3-review-of-boolean-logic" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Invented / discovered by George Boole in the 1840’s to reduce
+classical logic to an algebra.<ul>
+<li>This was a crucial mathematical step on the road to computation
+and computers.</li>
+</ul>
+</li>
+<li>Values (in Python) are <code class="docutils literal"><span class="pre">True</span></code> and <code class="docutils literal"><span class="pre">False</span></code>.</li>
+<li>Operators:<ul>
+<li>Comparisons: <code class="docutils literal"><span class="pre">&lt;,</span> <span class="pre">&gt;,</span> <span class="pre">&lt;=,</span> <span class="pre">&gt;=,</span> <span class="pre">==</span> <span class="pre">!=</span></code>.</li>
+<li>Logic: <code class="docutils literal"><span class="pre">and</span></code>, <code class="docutils literal"><span class="pre">or</span></code>, <code class="docutils literal"><span class="pre">not</span></code>.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="truth-tables">
+<h2>Truth Tables<a class="headerlink" href="#truth-tables" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Aside to recall the syntax: <code class="docutils literal"><span class="pre">and,</span> <span class="pre">or,</span> <span class="pre">not</span></code> are lower case!</p>
+</li>
+<li><p class="first">If we have two boolean expressions, which we will refer to as <code class="docutils literal"><span class="pre">ex1</span></code>
+and <code class="docutils literal"><span class="pre">ex2</span></code>, and if we combine their “truth” values using <code class="docutils literal"><span class="pre">and</span></code> we
+have the following “truth table” to describe the result:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="30%" />
+<col width="43%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><code class="docutils literal"><span class="pre">ex1</span></code></th>
+<th class="head"><code class="docutils literal"><span class="pre">ex2</span></code></th>
+<th class="head"><code class="docutils literal"><span class="pre">ex1</span> <span class="pre">and</span> <span class="pre">ex2</span></code></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">False</span></code></td>
+<td><code class="docutils literal"><span class="pre">False</span></code></td>
+<td><code class="docutils literal"><span class="pre">False</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">False</span></code></td>
+<td><code class="docutils literal"><span class="pre">True</span></code></td>
+<td><code class="docutils literal"><span class="pre">False</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">True</span></code></td>
+<td><code class="docutils literal"><span class="pre">False</span></code></td>
+<td><code class="docutils literal"><span class="pre">False</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">True</span></code></td>
+<td><code class="docutils literal"><span class="pre">True</span></code></td>
+<td><code class="docutils literal"><span class="pre">True</span></code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p class="first">If we combine the two expressions using <code class="docutils literal"><span class="pre">or</span></code>, we have:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="28%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><code class="docutils literal"><span class="pre">ex1</span></code></th>
+<th class="head"><code class="docutils literal"><span class="pre">ex2</span></code></th>
+<th class="head"><code class="docutils literal"><span class="pre">ex1</span> <span class="pre">or</span> <span class="pre">ex2</span></code></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">False</span></code></td>
+<td><code class="docutils literal"><span class="pre">False</span></code></td>
+<td><code class="docutils literal"><span class="pre">False</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">False</span></code></td>
+<td><code class="docutils literal"><span class="pre">True</span></code></td>
+<td><code class="docutils literal"><span class="pre">True</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">True</span></code></td>
+<td><code class="docutils literal"><span class="pre">False</span></code></td>
+<td><code class="docutils literal"><span class="pre">True</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">True</span></code></td>
+<td><code class="docutils literal"><span class="pre">True</span></code></td>
+<td><code class="docutils literal"><span class="pre">True</span></code></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p class="first">Finally, using <code class="docutils literal"><span class="pre">not</span></code> we have:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="46%" />
+<col width="54%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><code class="docutils literal"><span class="pre">ex1</span></code></th>
+<th class="head"><code class="docutils literal"><span class="pre">not</span> <span class="pre">ex1</span></code></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">False</span></code></td>
+<td><code class="docutils literal"><span class="pre">True</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">True</span></code></td>
+<td><code class="docutils literal"><span class="pre">False</span></code></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+<div class="section" id="demorgans-laws-relating-and-or-and-not">
+<h2>DeMorgan’s Laws Relating and, or, and not<a class="headerlink" href="#demorgans-laws-relating-and-or-and-not" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Using <code class="docutils literal"><span class="pre">ex1</span></code> and <code class="docutils literal"><span class="pre">ex2</span></code> once again to represent boolean
+expressions, we have:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="p">(</span><span class="n">ex1</span> <span class="ow">and</span> <span class="n">ex2</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="ow">not</span> <span class="n">ex1</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">ex2</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">And:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="p">(</span><span class="n">ex1</span> <span class="ow">or</span> <span class="n">ex2</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="ow">not</span> <span class="n">ex1</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="n">ex2</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Also, distribution laws:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ex1</span> <span class="ow">and</span> <span class="p">(</span><span class="n">ex2</span> <span class="ow">or</span> <span class="n">ex3</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">ex1</span> <span class="ow">and</span> <span class="n">ex2</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">ex1</span> <span class="ow">and</span> <span class="n">ex3</span><span class="p">)</span>
+<span class="n">ex1</span> <span class="ow">or</span> <span class="p">(</span><span class="n">ex2</span> <span class="ow">and</span> <span class="n">ex3</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">ex1</span> <span class="ow">or</span> <span class="n">ex2</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">ex1</span> <span class="ow">or</span> <span class="n">ex3</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">We can prove these using truth tables.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="why-do-we-care">
+<h2>Why Do We Care?<a class="headerlink" href="#why-do-we-care" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>When we’ve written logical expressions into our programs, it no
+longer matters what we intended; it matters what the logic actually
+does.</li>
+<li>For complicated boolean expressions, we may need to almost prove that
+they are correct.</li>
+</ul>
+</div>
+<div class="section" id="part-4-additional-techniques-in-logic-and-decision-making">
+<h2>Part 4: Additional Techniques in Logic and Decision Making<a class="headerlink" href="#part-4-additional-techniques-in-logic-and-decision-making" title="Permalink to this headline">¶</a></h2>
+<p>We will examine:</p>
+<ul class="simple">
+<li>Short-circuiting</li>
+<li>Nested conditionals</li>
+<li>Storing the result of boolean expressions in variables</li>
+</ul>
+<p>and then apply them to several problems.</p>
+</div>
+<div class="section" id="short-circuited-boolean-expressions">
+<h2>Short-Circuited Boolean Expressions<a class="headerlink" href="#short-circuited-boolean-expressions" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Python only evaluates expressions as far as needed to make a
+decision.</p>
+</li>
+<li><p class="first">Therefore, in a boolean expression of the form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ex1</span> <span class="ow">and</span> <span class="n">ex2</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">ex2</span></code> will not be evaluated if <code class="docutils literal"><span class="pre">ex1</span></code> evaluates to <code class="docutils literal"><span class="pre">False</span></code>.
+Think about why.</p>
+</li>
+<li><p class="first">Also, in a boolean expression of the form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ex1</span> <span class="ow">or</span> <span class="n">ex2</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">ex2</span></code> will not be evaluated if <code class="docutils literal"><span class="pre">ex1</span></code> evaluates to <code class="docutils literal"><span class="pre">True</span></code>.</p>
+</li>
+<li><p class="first">This “short-circuiting” is common across many programming languages.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="nested-if-statements">
+<h2>Nested if Statements<a class="headerlink" href="#nested-if-statements" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">We can place <code class="docutils literal"><span class="pre">if</span></code> statements inside of other <code class="docutils literal"><span class="pre">if</span></code> statements.</p>
+</li>
+<li><p class="first">To illustrate, consider the following where <code class="docutils literal"><span class="pre">ex1</span></code>, <code class="docutils literal"><span class="pre">ex2</span></code>,
+<code class="docutils literal"><span class="pre">ex3</span></code>, and <code class="docutils literal"><span class="pre">ex4</span></code> are all boolean expressions, and <code class="docutils literal"><span class="pre">blockA</span></code>,
+<code class="docutils literal"><span class="pre">blockB</span></code>, <code class="docutils literal"><span class="pre">blockD</span></code>, and <code class="docutils literal"><span class="pre">blockE</span></code> are sections of code.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">ex1</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">ex2</span><span class="p">:</span>
+       <span class="n">blockA</span>
+    <span class="k">elif</span> <span class="n">ex3</span><span class="p">:</span>
+       <span class="n">blockB</span>
+<span class="k">elif</span> <span class="n">ex4</span><span class="p">:</span>
+    <span class="n">blockD</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">blockE</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">We will examine this example in class and answer the following
+questions:</p>
+<ul class="simple">
+<li>Under what conditions is each block executed?</li>
+<li>Is it possible that no blocks are executed?</li>
+<li>What is the equivalent non-nested if-elif-else structure?</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="storing-the-result-of-a-boolean-expression">
+<h2>Storing the Result of a Boolean Expression<a class="headerlink" href="#storing-the-result-of-a-boolean-expression" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Sometimes we store the result of boolean expressions in a variable
+for later use:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a Fahrenheit temperature: &quot;</span><span class="p">))</span>
+<span class="n">is_below_freezing</span> <span class="o">=</span> <span class="n">f</span> <span class="o">&lt;</span> <span class="mf">32.0</span>
+<span class="k">if</span> <span class="n">is_below_freezing</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Brrr. It is cold&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">We use this to:</p>
+<ul class="simple">
+<li>Make code clearer.</li>
+<li>Avoid repeated evaluation of the same expression, especially if
+the expression requires a lot of computation.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="examples-for-the-lecture">
+<h2>Examples for the Lecture<a class="headerlink" href="#examples-for-the-lecture" title="Permalink to this headline">¶</a></h2>
+<p>We will work on the following examples during class, as time permits.</p>
+<ol class="arabic">
+<li><p class="first">In the following code, for what values of <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> does the
+code print 1, for what values does the code print 2, and for what
+values does the code print nothing at all?</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="ow">or</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The moral of the story is that you should be careful to ensure that
+your logic and if structures <strong>cover the entire range of
+possibilities</strong>!</p>
+</li>
+<li><p class="first">Doctors sometimes assess a patient’s risk of heart disease in terms of a
+combination of the BMI (body mask index) and age using the following
+table:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="34%" />
+<col width="29%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">Age <span class="math">\(\leq 45\)</span></th>
+<th class="head">Age <span class="math">\(&gt; 45\)</span></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>BMI <span class="math">\(&lt; 22.0\)</span></td>
+<td>Low</td>
+<td>Medium</td>
+</tr>
+<tr class="row-odd"><td>BMI <span class="math">\(\geq 22.0\)</span></td>
+<td>Medium</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<p>Assuming the values for a patient are stored in variables <code class="docutils literal"><span class="pre">age</span></code> and
+<code class="docutils literal"><span class="pre">bmi</span></code>, we can write the following code:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">slim</span> <span class="o">=</span> <span class="n">bmi</span> <span class="o">&lt;</span> <span class="mf">22.0</span>
+<span class="n">young</span> <span class="o">=</span> <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">45</span>
+</pre></div>
+</div>
+<p>We will work out two different ways of printing <em>Low</em>, <em>Medium</em> or
+<em>High</em> according to the table based on the values of the boolean
+variables <code class="docutils literal"><span class="pre">slim</span></code> and <code class="docutils literal"><span class="pre">young</span></code>.</p>
+</li>
+<li><p class="first">Challenge example: Suppose two rectangles are determined by their
+corner points - <code class="docutils literal"><span class="pre">(x0,</span> <span class="pre">y0)</span></code> and <code class="docutils literal"><span class="pre">(x1,</span> <span class="pre">y1)</span></code> for one rectangle and
+<code class="docutils literal"><span class="pre">(u0,</span> <span class="pre">v0)</span></code> and <code class="docutils literal"><span class="pre">(u1,</span> <span class="pre">v1)</span></code> for the other. Write a function that
+takes these four tuples as arguments and returns <code class="docutils literal"><span class="pre">True</span></code> when the
+two rectangles intersect and <code class="docutils literal"><span class="pre">False</span></code> otherwise.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="summary-of-discussion-of-if-statements-and-logic">
+<h2>Summary of Discussion of if Statements and Logic<a class="headerlink" href="#summary-of-discussion-of-if-statements-and-logic" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Logic is a crucial component of every program.</li>
+<li>Basic rules of logic, including DeMorgan’s laws, help us to write and
+understand boolean expressions.</li>
+<li>It sometimes requires careful, precise thinking, even at the level of
+a proof, to ensure logical expressions and if statement structures
+are correct.<ul>
+<li>Many bugs in supposedly-working programs are caused by conditions
+that the programmers did not fully consider.</li>
+</ul>
+</li>
+<li>If statements can be structured in many ways, sometimes nested several
+levels deep.<ul>
+<li>Nesting deeply can lead to confusing code, however.</li>
+<li>Warning specifically for Python: you can easily change the meaning of
+your program by accidentally changing indentation. It is very
+hard to debug these changes.</li>
+</ul>
+</li>
+<li>Using variables to store boolean values can make code easier to
+understand and avoids repeated tests.</li>
+<li>Make sure your logic and resulting expressions cover the universe of
+possibilities!</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lec11_conditionals_exercises/exercises.html" class="btn btn-neutral float-right" title="Lecture 11 — Exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lec10_lists2_exercises/exercises.html" class="btn btn-neutral float-left" title="Lecture 10 — Exercises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Imran Ali
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

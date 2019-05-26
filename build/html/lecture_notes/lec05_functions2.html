@@ -1,0 +1,692 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lecture 5 — Python Functions &mdash; RPA  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 5 — Exercises" href="lec05_functions2_exercises/exercises.html" />
+    <link rel="prev" title="Lecture 4 — Exercises" href="lec04_modules_functions1_exercises/exercises.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RPA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Detailed schedule of topics for this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_lecture_lab.html">Weekly lecture and lab schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_oh_alac.html">Weekly office hour and tutoring schedule</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../lecture_notes.html">Lecture notes and exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lec01_intro.html">Lecture 1 — Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator.html">Lecture 2 — Python as a Calculator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator_exercises/exercises.html">Lecture 2 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings.html">Lecture 3 — Python Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings_exercises/exercises.html">Lecture 3 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1.html">Lecture 4 — Using functions and modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1_exercises/exercises.html">Lecture 4 — Exercises</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lecture 5 — Python Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reading">Reading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-functions">Why Functions?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-function-to-compute-the-area-of-a-circle">A Function to Compute the Area of a Circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-does-python-do-when-we-run-this-code">What does Python do when we run this code?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flow-of-control">Flow of Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arguments-parameters-and-local-variables">Arguments, Parameters, and Local Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exercise-example">Exercise / Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-more-complicated-example">A More Complicated Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#computing-the-surface-area-of-a-cylinder-using-two-functions">Computing the Surface Area of A Cylinder Using Two Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#practice-problems">Practice Problems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#more-on-program-structure">More on program structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thinking-about-what-you-see">Thinking About What You See</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lets-make-some-mistakes">Let’s Make Some Mistakes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-final-example-including-documentation">A Final Example, Including Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Why Functions?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-practice">Additional Practice:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2_exercises/exercises.html">Lecture 5 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1.html">Lecture 6 — Decisions Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1_exercises/exercises.html">Lecture 6 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images.html">Lecture 7 — Tuples, Modules, and Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images_exercises/exercises.html">Lecture 7 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1.html">Lecture 8 — Lists Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1_exercises/exercises.html">Lecture 8 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while.html">Lecture 9 — While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while_exercises/exercises.html">Lecture 9 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2.html">Lecture 10 — Lists Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2_exercises/exercises.html">Lecture 10 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals2.html">Lecture 11 — Decisions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals_exercises/exercises.html">Lecture 11 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_for_double.html">Lecture 12 — Controlling Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_exercises/exercises.html">Lecture 12 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_web.html">Lecture 13 — Data from Files and Web Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_exercises/exercises.html">Lecture 13 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec14_design_part1.html">Lecture 14 — Problem Solving and Design, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets.html">Lecture 15 — Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets_exercises/exercises.html">Lecture 15 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1.html">Lecture 16 — Dictionaries, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1_exercises/exercises.html">Lecture 16 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2.html">Lecture 17 — Dictionaries, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2_exercises/exercises.html">Lecture 17 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1.html">Lecture 18 — Classes, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1_exercises/exercises.html">Lecture 18 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2.html">Lecture 19 — Classes, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2_exercises/exercises.html">Lecture 19 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching.html">Lecture 20 — Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching_exercises/exercises.html">Lecture 20 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting.html">Lecture 21 — Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting_exercises/exercises.html">Lecture 21 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter.html">Lecture 22 — TKInter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter_exercises/exercises.html">Lecture 22 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion.html">Lecture 23 — Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion_exercises/exercises.html">Lecture 23 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional.html">Lecture 24 — Advanced Python Topics and Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional_exercises/exercises.html">Lecture 24 — Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../class_code.html">Code written in class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_environment.html">Software installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../lecture_notes.html">Lecture Notes</a> &raquo;</li>
+        
+      <li>Lecture 5 — Python Functions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/lecture_notes/lec05_functions2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lecture-5-python-functions">
+<h1>Lecture 5 — Python Functions<a class="headerlink" href="#lecture-5-python-functions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="reading">
+<h2>Reading<a class="headerlink" href="#reading" title="Permalink to this headline">¶</a></h2>
+<p>Most of this is covered late in Chapter 3 of <em>Practical Programming</em>.</p>
+</div>
+<div class="section" id="why-functions">
+<h2>Why Functions?<a class="headerlink" href="#why-functions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The purpose of today’s class is to introduce the basics of writing
+and running Python functions.<ul>
+<li>Repeating code is painful.</li>
+<li>It is also hard to distinguish between the same code
+repeated three times and three different computations.</li>
+<li>It is easy to find a mistake in one copy of a section of code
+and forget to fix it in the other copies.</li>
+</ul>
+</li>
+<li>Learn a programmer’s motto: DRY – don’t repeat yourself.<ul>
+<li>Define it once and use it multiple times.</li>
+</ul>
+</li>
+<li>Functions are extremely useful for writing complex programs:<ul>
+<li>They divide complex operations into a combination of simpler steps.</li>
+<li>They make programs easier to read and debug by abstracting out frequently
+repeated code.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">As we have learned, a function:</p>
+<ul class="simple">
+<li>Takes as input one or more arguments.</li>
+<li>Computes a new value, a string, or a number.</li>
+<li>Returns the value, so that it can be assigned to a variable or
+output.</li>
+</ul>
+</li>
+<li><p class="first">Let’s recall this with a built-in function:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;RPI Puckman&#39;</span><span class="p">)</span>
+<span class="go">11</span>
+</pre></div>
+</div>
+<p>Can you identify the input argument, the computation, and the
+returned value?</p>
+</li>
+</ul>
+</div>
+<div class="section" id="a-function-to-compute-the-area-of-a-circle">
+<h2>A Function to Compute the Area of a Circle<a class="headerlink" href="#a-function-to-compute-the-area-of-a-circle" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">In mathematics, many functions are given as formulas. You might
+write a function to calculate the area of a circle as:</p>
+<div class="math">
+\[a(r) = \pi r^2\]</div>
+</li>
+<li><p class="first">In Python, typing into a file (in the upper pane of the Wing IDE 101),
+we write:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">area_circle</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+    <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">area</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Note that the <code class="docutils literal"><span class="pre">def</span></code> is not indented and the other lines are
+indented four spaces.</p>
+</li>
+<li><p class="first">We add unindented code to the file below the definition of
+<code class="xref py py-func docutils literal"><span class="pre">area_circle()</span></code> to execute the function and calculate
+the area:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">area_circle</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A circle with radius 2 has area </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">area_circle</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">75.1</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">area_circle</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A circle with radius </span><span class="si">{:.2f}</span><span class="s2"> has area </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Note that by using examples with small values for the radius we can
+easily check that our function is correct.</p>
+</li>
+<li><p class="first">Important syntax includes:</p>
+<ul class="simple">
+<li>Use of the keyword <code class="docutils literal"><span class="pre">def</span></code> and the <code class="docutils literal"><span class="pre">:</span></code> to indicate the start of
+the function.</li>
+<li>Indentation for the lines after the <code class="docutils literal"><span class="pre">def</span></code> line.</li>
+<li>Unindented lines for code outside the function to indicate the end of the function.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="what-does-python-do-when-we-run-this-code">
+<h2>What does Python do when we run this code?<a class="headerlink" href="#what-does-python-do-when-we-run-this-code" title="Permalink to this headline">¶</a></h2>
+<p>We can visualize this using the Website &lt;<a class="reference external" href="http://www.pythontutor.com">http://www.pythontutor.com</a>&gt;</p>
+<ol class="arabic">
+<li><p class="first">Reads the keyword <code class="docutils literal"><span class="pre">def</span></code> and notes that a function is being defined.</p>
+<ul class="simple">
+<li>The line that starts with <code class="docutils literal"><span class="pre">def</span></code> is called the function <em>header</em>.</li>
+</ul>
+</li>
+<li><p class="first">Reads the rest of the function definition, checking its syntax.</p>
+</li>
+<li><p class="first">Notes the end of the definition when the unindented code is reached.</p>
+</li>
+<li><p class="first">Sees the function call inside the assignment statement:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">area_circle</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>at what’s known as the “top level” or “main level” of execution
+and:</p>
+<ul class="simple">
+<li>Jumps back up to the function.</li>
+<li>Assigns 1 to parameter <code class="docutils literal"><span class="pre">radius</span></code>.</li>
+<li>Runs the code inside the function using <code class="docutils literal"><span class="pre">radius</span></code> as a variable
+inside the function.</li>
+<li>Returns the result of the calculation back to the top level and
+assigns value 3.14159 to variable <code class="docutils literal"><span class="pre">a</span></code>.</li>
+</ul>
+</li>
+<li><p class="first">Repeats the process of running the function at the second
+<a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a>, this time with the parameter value 2 and therefore a
+new value for <code class="docutils literal"><span class="pre">radius</span></code> inside the function.</p>
+</li>
+<li><p class="first">Repeats the process of running the function right after we reassign
+<code class="docutils literal"><span class="pre">a</span></code>, this time with parameter value 75.1 taken from the variable
+<code class="docutils literal"><span class="pre">r</span></code>.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="flow-of-control">
+<h2>Flow of Control<a class="headerlink" href="#flow-of-control" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>To re-iterate, the “flow of control” of Python here involves:<ul>
+<li>Reading the function definition without executing the function.</li>
+<li>Seeing a “call” to the function, jumping up to the start of the
+function, and executing its code.</li>
+<li>Returning the result of the function back to the place in the
+program that called the function and continuing the execution.</li>
+</ul>
+</li>
+<li>Functions can compute many different things and return any data type
+Python supports.</li>
+</ul>
+</div>
+<div class="section" id="arguments-parameters-and-local-variables">
+<h2>Arguments, Parameters, and Local Variables<a class="headerlink" href="#arguments-parameters-and-local-variables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><em>Arguments</em> are the values 1, 2, and 75.1 in our examples above.</li>
+<li>These are each passed to the <em>parameter</em> called <code class="docutils literal"><span class="pre">radius</span></code> named in
+the function header. This parameter is used just like a variable in
+the function.</li>
+<li>Variables <code class="docutils literal"><span class="pre">pi</span></code> and <code class="docutils literal"><span class="pre">area</span></code> are <em>local variables</em> to the
+function (though we should probably use the <a class="reference external" href="https://docs.python.org/3/library/math.html#module-math" title="(in Python v3.7)"><code class="xref py py-mod docutils literal"><span class="pre">math</span></code></a> module for <code class="docutils literal"><span class="pre">pi</span></code>
+in the future).</li>
+<li>Neither <code class="docutils literal"><span class="pre">pi</span></code>, nor <code class="docutils literal"><span class="pre">radius</span></code>, nor <code class="docutils literal"><span class="pre">area</span></code> exist at the top / main
+level. At this level, they are ‘’undefined variables’‘. Try it out.</li>
+</ul>
+</div>
+<div class="section" id="exercise-example">
+<h2>Exercise / Example<a class="headerlink" href="#exercise-example" title="Permalink to this headline">¶</a></h2>
+<p>As some basic practice, we’ll write a function to convert miles per
+hour to kilometers per day, and then we’ll write several calls to
+demonstrate its use.  Then we will give you time to work on the first
+lecture exercise.</p>
+</div>
+<div class="section" id="a-more-complicated-example">
+<h2>A More Complicated Example<a class="headerlink" href="#a-more-complicated-example" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>We’ll use the example below to illustrate two important concepts:<ol class="arabic">
+<li>Functions can call other functions, ones that we write ourselves
+or that Python provides.</li>
+<li>Functions may have multiple parameters.  One argument in the
+function call is required for each parameter. Arguments and
+parameters are matched up <em>in order</em>.<ul>
+<li>There are ways to override this, but we will not study them
+yet.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>In the example we will switch to the use of <code class="docutils literal"><span class="pre">math.pi</span></code>, and we will
+use this from now on.</li>
+</ul>
+</div>
+<div class="section" id="computing-the-surface-area-of-a-cylinder-using-two-functions">
+<h2>Computing the Surface Area of A Cylinder Using Two Functions<a class="headerlink" href="#computing-the-surface-area-of-a-cylinder-using-two-functions" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Here is Python code, in file <code class="docutils literal"><span class="pre">lec05_surface_area.py</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">area_circle</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="k">def</span> <span class="nf">area_cylinder</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+    <span class="n">circle_area</span> <span class="o">=</span> <span class="n">area_circle</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span>
+    <span class="n">height_area</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">height</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">circle_area</span> <span class="o">+</span> <span class="n">height_area</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The area of a circle of radius 1 is&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">area_circle</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">height</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The surface area of a cylinder with radius&#39;</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;and height&#39;</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">area_cylinder</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">height</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Now we’ve defined two functions, one of which calls the other.</p>
+</li>
+<li><p class="first">Flow of control proceeds in two different ways here:</p>
+<ol class="arabic simple">
+<li>Starting at the first <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a> function call at the top
+level, into <code class="xref py py-func docutils literal"><span class="pre">area_circle()</span></code> and back.</li>
+<li>At the third <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a>:<ol class="arabic">
+<li>into <code class="xref py py-func docutils literal"><span class="pre">area_cylinder()</span></code></li>
+<li>into <code class="xref py py-func docutils literal"><span class="pre">area_circle()</span></code></li>
+<li>back to <code class="xref py py-func docutils literal"><span class="pre">area_cylinder()</span></code>, and</li>
+<li>back to the top level (and then into <a class="reference external" href="https://docs.python.org/3/library/functions.html#round" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">round()</span></code></a> and
+finally into <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a>).</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p class="first">Python interpreter keeps track of where it is working and where
+to return to when it is done with a function, even if it is back into
+another function.</p>
+</li>
+<li><p class="first">What are the arguments, the parameters, the local variables, and the
+global variables?</p>
+</li>
+</ul>
+</div>
+<div class="section" id="practice-problems">
+<h2>Practice Problems<a class="headerlink" href="#practice-problems" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Write a function that computes the area of a rectangle. Then, write
+a second function that calls this function three times to
+compute the surface area of a rectangular solid.</li>
+<li>Write a function that returns the middle value among three
+integers.  (Hint: make use of <a class="reference external" href="https://docs.python.org/3/library/functions.html#min" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">min()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/functions.html#max" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">max()</span></code></a>).  Write
+code to test this function with different inputs.</li>
+</ol>
+<p>You will notice that the solution to the first problem in particular
+is longer than the solution without using functions.  While we don’t
+often write such short functions in practice, here it is a good
+illustration.</p>
+</div>
+<div class="section" id="more-on-program-structure">
+<h2>More on program structure<a class="headerlink" href="#more-on-program-structure" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Let us revisit the program structure that will allow us to write
+readable programs.<ul>
+<li>First, a general comment describing the program.</li>
+<li>Second, all import statements.</li>
+<li>Third, all function definitions.</li>
+<li>Fourth, the main body of your program.</li>
+</ul>
+</li>
+<li>Well structured programs are easy to read and debug. We will work
+hard to help you develop good habits early on.</li>
+</ul>
+</div>
+<div class="section" id="thinking-about-what-you-see">
+<h2>Thinking About What You See<a class="headerlink" href="#thinking-about-what-you-see" title="Permalink to this headline">¶</a></h2>
+<p>Why is it NOT a mistake to use the same name, for example <code class="docutils literal"><span class="pre">radius</span></code>, in
+different functions (and sometimes at the top level)?</p>
+</div>
+<div class="section" id="lets-make-some-mistakes">
+<h2>Let’s Make Some Mistakes<a class="headerlink" href="#lets-make-some-mistakes" title="Permalink to this headline">¶</a></h2>
+<p>In order to check our understanding, we will play around with the code
+and make some mistakes on purpose:</p>
+<ul class="simple">
+<li>Removing <code class="docutils literal"><span class="pre">math</span></code> from <code class="docutils literal"><span class="pre">math.pi</span></code> in one definition.</li>
+<li>Changing the name of a function.</li>
+<li>Switching the order of the parameters in a function call.</li>
+<li>Making an error in our calculation.</li>
+<li>Calling <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a> with the result of a function that does not
+return a value.</li>
+</ul>
+</div>
+<div class="section" id="a-final-example-including-documentation">
+<h2>A Final Example, Including Documentation<a class="headerlink" href="#a-final-example-including-documentation" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">We will write a function that linearly scales a test score, so that
+if <code class="docutils literal"><span class="pre">raw</span></code> is the “raw score” then the scaled score will be:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">scaled</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">raw</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+<p>The values of <code class="docutils literal"><span class="pre">raw</span></code>, <code class="docutils literal"><span class="pre">a</span></code>, and <code class="docutils literal"><span class="pre">b</span></code> will be parameters of the
+function.  We will also want to cap the scaled score at 100.</p>
+</li>
+<li><p class="first">In writing our function we will be careful to document the meaning of
+the parameters and the assumptions.  You should get into the habit
+of doing this.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>Why Functions?<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Our goal in using functions is to write code that is:</p>
+<ul class="simple">
+<li>Easier to think about and write.</li>
+<li>Easier to test: we can check the correctness of <code class="docutils literal"><span class="pre">area_circle</span></code>
+before we test <code class="docutils literal"><span class="pre">area_cylinder</span></code>.</li>
+<li>Clearer for someone else to read.</li>
+<li>Reusable in other programs.</li>
+</ul>
+<p>Together these define the notion of <em>encapsulation</em>, another important
+idea in computer science!</p>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Functions for encapsulation and reuse.</li>
+<li>Function syntax.</li>
+<li>Arguments, parameters, and local variables.</li>
+<li>Flow of control, including functions that call other functions.</li>
+<li>You can find the code developed in this class under the class
+modules for Lecture 5.</li>
+</ul>
+</div>
+<div class="section" id="additional-practice">
+<h2>Additional Practice:<a class="headerlink" href="#additional-practice" title="Permalink to this headline">¶</a></h2>
+<p>Lecture exercises provide just the beginnings of what you need to
+do to practice with the concepts and with writing short problems.
+Here is some additional material for review before our next class.  It
+goes all the way back to Lecture 2…</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><strong>Expressions:</strong> What type of data do they return?</p>
+</li>
+<li><p class="first">Try typing simple math formulas to Python interpreter like:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<blockquote>
+<div>and manually find the output. Don’t be fooled by the spaces!
+Operator precedence is in effect. Try writing your own expressions.</div></blockquote>
+<ul>
+<li><p class="first"><strong>Variables:</strong> Do you know what are valid and invalid variable names?</p>
+</li>
+<li><p class="first">What is the difference in the output between:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span>     <span class="c1"># This causes an error...</span>
+</pre></div>
+</div>
+<p>Try to guess before typing them in, but make a habit of typing simple
+statements like this and looking at the result.</p>
+</li>
+<li><p class="first"><strong>Assignment:</strong> Can you trace the value of a variable after many
+different assignments? Don’t be fooled by names of variables.
+Try to do it manually:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">one</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">two</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">three</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">one</span> <span class="o">+=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">two</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">two</span> <span class="o">-=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">one</span> <span class="o">+</span> <span class="n">three</span>
+</pre></div>
+</div>
+<p>By the way, make a habit of picking nice variable names.  Your
+variables should be meaningful whenever possible both to you and to
+anyone else reading your code.</p>
+</li>
+<li><p class="first"><strong>Functions:</strong> Write the functions from class on your own using
+Python interpreter. Try to do it without looking at
+notes. Can you do it?</p>
+<ul class="simple">
+<li>Write a function that returns a value.</li>
+<li>Write a function with no return.</li>
+<li>Write a function where <code class="docutils literal"><span class="pre">return</span></code> is not the last statement in the
+function.</li>
+<li>Call these functions by either printing their result or assigning
+their results to a value. Here, I’ll get you started:</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">regenerate_doctor</span><span class="p">(</span><span class="n">doctor_number</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">doctor_number</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">regenerate_tardis</span><span class="p">(</span><span class="n">doctor_number</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tardis is now ready for doctor number&quot;</span><span class="p">,</span> <span class="n">doctor_number</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">eliminate_doctor</span><span class="p">(</span><span class="n">doctor_number</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">0</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You will be eliminated, doctor&quot;</span><span class="p">,</span> <span class="n">doctor_number</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Write functions that use built-in functions. Make sure you
+memorize what they are and how they are used.</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>Finally, write some functions to a file and call them from within
+the file. Now, execute the file. By next class, make sure all of this
+is quite easy to do without consulting the course notes.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lec05_functions2_exercises/exercises.html" class="btn btn-neutral float-right" title="Lecture 5 — Exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lec04_modules_functions1_exercises/exercises.html" class="btn btn-neutral float-left" title="Lecture 4 — Exercises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Imran Ali
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

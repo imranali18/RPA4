@@ -1,0 +1,690 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lecture 18 — Classes, Part 1 &mdash; RPA  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 18 — Exercises" href="lec18_classes1_exercises/exercises.html" />
+    <link rel="prev" title="Lecture 17 — Exercises" href="lec17_dictionaries2_exercises/exercises.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RPA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Detailed schedule of topics for this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_lecture_lab.html">Weekly lecture and lab schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_oh_alac.html">Weekly office hour and tutoring schedule</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../lecture_notes.html">Lecture notes and exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lec01_intro.html">Lecture 1 — Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator.html">Lecture 2 — Python as a Calculator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator_exercises/exercises.html">Lecture 2 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings.html">Lecture 3 — Python Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings_exercises/exercises.html">Lecture 3 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1.html">Lecture 4 — Using functions and modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1_exercises/exercises.html">Lecture 4 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2.html">Lecture 5 — Python Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2_exercises/exercises.html">Lecture 5 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1.html">Lecture 6 — Decisions Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1_exercises/exercises.html">Lecture 6 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images.html">Lecture 7 — Tuples, Modules, and Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images_exercises/exercises.html">Lecture 7 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1.html">Lecture 8 — Lists Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1_exercises/exercises.html">Lecture 8 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while.html">Lecture 9 — While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while_exercises/exercises.html">Lecture 9 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2.html">Lecture 10 — Lists Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2_exercises/exercises.html">Lecture 10 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals2.html">Lecture 11 — Decisions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals_exercises/exercises.html">Lecture 11 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_for_double.html">Lecture 12 — Controlling Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_exercises/exercises.html">Lecture 12 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_web.html">Lecture 13 — Data from Files and Web Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_exercises/exercises.html">Lecture 13 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec14_design_part1.html">Lecture 14 — Problem Solving and Design, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets.html">Lecture 15 — Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets_exercises/exercises.html">Lecture 15 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1.html">Lecture 16 — Dictionaries, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1_exercises/exercises.html">Lecture 16 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2.html">Lecture 17 — Dictionaries, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2_exercises/exercises.html">Lecture 17 — Exercises</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lecture 18 — Classes, Part 1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#potential-examples">Potential Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#an-example-from-earlier-in-the-semester">An Example from Earlier in the Semester</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#point2d-class">Point2d Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#assigning-attributes-to-each-instance">Assigning Attributes to Each Instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#defining-the-attributes-inside-the-class">Defining the Attributes Inside the Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#defining-the-attributes-through-an-initializer-constructor">Defining the Attributes Through An Initializer / Constructor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#methods-functions-associated-with-the-class">Methods — Functions Associated with the Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lecture-exercises-part-1">Lecture Exercises, Part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operators-and-other-special-functions">Operators and Other Special Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#classes-and-modules">Classes and Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#more-lecture-exercises">More Lecture Exercises</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#when-to-modify-when-to-create-new-object">When to Modify, When to Create New Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#programming-conventions">Programming Conventions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time-example">Time Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1_exercises/exercises.html">Lecture 18 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2.html">Lecture 19 — Classes, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2_exercises/exercises.html">Lecture 19 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching.html">Lecture 20 — Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching_exercises/exercises.html">Lecture 20 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting.html">Lecture 21 — Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting_exercises/exercises.html">Lecture 21 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter.html">Lecture 22 — TKInter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter_exercises/exercises.html">Lecture 22 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion.html">Lecture 23 — Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion_exercises/exercises.html">Lecture 23 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional.html">Lecture 24 — Advanced Python Topics and Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional_exercises/exercises.html">Lecture 24 — Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../class_code.html">Code written in class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_environment.html">Software installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../lecture_notes.html">Lecture Notes</a> &raquo;</li>
+        
+      <li>Lecture 18 — Classes, Part 1</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/lecture_notes/lec18_classes1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lecture-18-classes-part-1">
+<h1>Lecture 18 — Classes, Part 1<a class="headerlink" href="#lecture-18-classes-part-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Define our own types and associated functions</li>
+<li>Encapsulate data and functionality</li>
+<li>Raise the “level of abstraction” in our code</li>
+<li>Make code easier to write and test</li>
+<li>Reuse code</li>
+</ul>
+</div>
+<div class="section" id="potential-examples">
+<h2>Potential Examples<a class="headerlink" href="#potential-examples" title="Permalink to this headline">¶</a></h2>
+<p>In each of these, think about what data you might need to store to
+represent the “object” and what functionality you might need to apply to
+the data.</p>
+<ul class="simple">
+<li>Date</li>
+<li>Time</li>
+<li>Point</li>
+<li>Rectangle</li>
+<li>Student</li>
+<li>Animal</li>
+<li>Molecule</li>
+</ul>
+</div>
+<div class="section" id="an-example-from-earlier-in-the-semester">
+<h2>An Example from Earlier in the Semester<a class="headerlink" href="#an-example-from-earlier-in-the-semester" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Think about how difficult it was to keep track of the information
+about each restaurant in the Yelp data.</li>
+<li>You had to:<ul>
+<li>Remember the indices of (a) the restaurant name, (b) the latitude
+and longitude, (c) the type of restaurant, (d) the address, etc.</li>
+<li>Form a separate list inside the list for the ratings.</li>
+<li>Write additional functions to exploit this information.</li>
+</ul>
+</li>
+<li>If we used a class to represent each restaurant:<ul>
+<li>All of the information about the restaurant would be stored and
+accessed as named attributes.</li>
+<li>Information about the restaurants would be accessed through
+functions that we write for the class.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="point2d-class">
+<h2>Point2d Class<a class="headerlink" href="#point2d-class" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">The simplest step is to just tell Python that <code class="docutils literal"><span class="pre">Point2d</span></code> will exist as a
+class, deferring the addition of information until later:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point2d</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Python reserved word <code class="docutils literal"><span class="pre">pass</span></code> says that this is the end of the
+class definition.</p>
+<ul class="simple">
+<li>We will not need this later when we put information into the
+class.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Classes do not get interesting until we put something in them.</li>
+<li>The first thing we want is variables so that we can put data into a
+class.<ul>
+<li>In Python these variables are often called <em>attributes</em>.</li>
+<li>Other languages call them <em>member variables</em>.</li>
+</ul>
+</li>
+<li>We will see three different ways to specify attributes.</li>
+</ul>
+</div>
+<div class="section" id="assigning-attributes-to-each-instance">
+<h2>Assigning Attributes to Each Instance<a class="headerlink" href="#assigning-attributes-to-each-instance" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Points have an <code class="docutils literal"><span class="pre">x</span></code> and a <code class="docutils literal"><span class="pre">y</span></code> location, so we can write, for
+example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">sqrt</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Point2d</span><span class="p">()</span>
+<span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">p</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">dist_from_origin</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">We have to do this for each class instance.</p>
+</li>
+<li><p class="first">This is prone to mistakes:</p>
+<ul class="simple">
+<li>Could forget to assign the attributes.</li>
+<li>Could accidentally use different names for what is intended to be
+the same attribute.</li>
+</ul>
+</li>
+<li><p class="first">Example of an error:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">q</span> <span class="o">=</span> <span class="n">Point2d</span><span class="p">()</span>
+<span class="n">q</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+<span class="n">dist_from_origin</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">q</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>    <span class="c1"># q.y does not exist</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="defining-the-attributes-inside-the-class">
+<h2>Defining the Attributes Inside the Class<a class="headerlink" href="#defining-the-attributes-inside-the-class" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">The simplest way to make sure that all variables that are instances
+of a class have the appropriate attributes is to define them inside
+the class.</p>
+</li>
+<li><p class="first">For example, we could redefine our class as:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point2d</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">All instances of <code class="docutils literal"><span class="pre">Point2d</span></code> now have two attributes, <code class="docutils literal"><span class="pre">x</span></code> and
+<code class="docutils literal"><span class="pre">y</span></code>, and they are each initialized to 0.</p>
+</li>
+<li><p class="first">We no longer need the <code class="docutils literal"><span class="pre">pass</span></code> because there is now something in the
+class.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="defining-the-attributes-through-an-initializer-constructor">
+<h2>Defining the Attributes Through An Initializer / Constructor<a class="headerlink" href="#defining-the-attributes-through-an-initializer-constructor" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">We still need to initialize <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code> to values other than
+<code class="docutils literal"><span class="pre">0</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Point2d</span><span class="p">()</span>
+<span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">p</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">What we’d really like to do is initialize them at the time we
+actually create the <code class="docutils literal"><span class="pre">Point2d</span></code> object:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Point2d</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">We do this through a special function called an <em>initializer</em> in
+Python and a <em>constructor</em> in some other programming languages.</p>
+</li>
+<li><p class="first">Inside the class this looks like:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point2d</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y0</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Our code to create the point now becomes:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Point2d</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Notes:</p>
+<ul class="simple">
+<li>Python uses names that start and end with two <code class="docutils literal"><span class="pre">'_'</span></code> to indicate
+functions with a special meaning.  More on this later in the lecture.</li>
+<li>The name <code class="docutils literal"><span class="pre">self</span></code> is a special notation to indicate that the object
+itself is passed to the function.</li>
+</ul>
+</li>
+<li><p class="first">If we’d like to initialize the point to <span class="math">\((0, 0)\)</span> without passing
+these values to the constructor every time then we can specify
+default arguments:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point2d</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y0</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y0</span>
+</pre></div>
+</div>
+<p>allowing the initialization:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Point2d</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="methods-functions-associated-with-the-class">
+<h2>Methods — Functions Associated with the Class<a class="headerlink" href="#methods-functions-associated-with-the-class" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">We create functions that operate on the class objects inside the
+class definition:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">class</span> <span class="nc">Point2d</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y0</span>
+
+    <span class="k">def</span> <span class="nf">magnitude</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">dist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">o</span><span class="o">.</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">o</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>these are called <em>methods</em>.</p>
+</li>
+<li><p class="first">This is used as:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Point2d</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">Point2d</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">leng</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">magnitude</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitude </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">leng</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distance is </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">q</span><span class="p">)))</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">The method <code class="xref py py-func docutils literal"><span class="pre">magnitude()</span></code> takes a single argument, which is the
+<code class="docutils literal"><span class="pre">Point2d</span></code> object called <code class="docutils literal"><span class="pre">self</span></code>.  Let’s examine this:</p>
+<ul>
+<li><p class="first">The call <code class="docutils literal"><span class="pre">q.magnitude()</span></code> appears to have no arguments, but
+when Python sees this, it turns it into its equivalent:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Point2d</span><span class="o">.</span><span class="n">magnitude</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>which is completely legal Python syntax.</p>
+</li>
+<li><p class="first">The name <code class="docutils literal"><span class="pre">self</span></code> is not technically special in Python, but it
+is used by convention to refer to the object that the method is
+“called upon”.  This is <code class="docutils literal"><span class="pre">q</span></code> in the call <code class="docutils literal"><span class="pre">q.magnitude()</span></code>.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">The method <code class="xref py py-func docutils literal"><span class="pre">dist()</span></code> takes two <code class="docutils literal"><span class="pre">Point2d</span></code> objects as
+arguments. The example call:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>becomes:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Point2d</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>so now argument <code class="docutils literal"><span class="pre">p</span></code> maps to parameter <code class="docutils literal"><span class="pre">self</span></code> and argument <code class="docutils literal"><span class="pre">q</span></code>
+maps to parameters <code class="docutils literal"><span class="pre">o</span></code>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="lecture-exercises-part-1">
+<h2>Lecture Exercises, Part 1<a class="headerlink" href="#lecture-exercises-part-1" title="Permalink to this headline">¶</a></h2>
+<p>Our lecture exercises for today will involve adding to the <code class="docutils literal"><span class="pre">Point2d</span></code>
+class and testing it.  Make sure you have downloaded the
+<code class="docutils literal"><span class="pre">lecture18_files.zip</span></code> file (which contains your starter <code class="docutils literal"><span class="pre">Point2d.py</span></code> file)
+from the Course Materials section of Submitty.</p>
+<p>We will allow some time to work on the first lecture exercise.</p>
+</div>
+<div class="section" id="operators-and-other-special-functions">
+<h2>Operators and Other Special Functions<a class="headerlink" href="#operators-and-other-special-functions" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">We’d like to write code that uses our new objects in the most
+intuitive way possible.</p>
+</li>
+<li><p class="first">For our point class, this involves the use of operators such as:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Point2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">Point2d</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">p</span> <span class="o">+</span> <span class="n">q</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">p</span> <span class="o">-</span> <span class="n">q</span>
+<span class="n">t</span> <span class="o">=</span> <span class="o">-</span><span class="n">s</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Notice how in each case, we work with the <code class="docutils literal"><span class="pre">Point2d</span></code> variables
+(objects) just like we do with int and float variable (objects).</p>
+</li>
+<li><p class="first">We implement these by writing special functions <code class="xref py py-func docutils literal"><span class="pre">__add__()</span></code>,
+<code class="xref py py-func docutils literal"><span class="pre">__sub__()</span></code>, and <code class="xref py py-func docutils literal"><span class="pre">__neg__()</span></code>.</p>
+</li>
+<li><p class="first">For example, inside <code class="docutils literal"><span class="pre">Point2d</span></code> class we might have:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+     <span class="k">return</span> <span class="n">Point2d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Very important: this creates a new <code class="docutils literal"><span class="pre">Point2d</span></code> object.</p>
+</li>
+<li><p class="first">When Python sees <code class="docutils literal"><span class="pre">p</span> <span class="pre">+</span> <span class="pre">q</span></code>, it turns it into the function call:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Point2d</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>which is exactly the syntax of the function definition we created.</p>
+</li>
+<li><p class="first">We have already seen this with operators on integers and strings.
+As examples:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="o">+</span> <span class="mi">6</span>
+</pre></div>
+</div>
+<p>is equivalent to:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>is equivalent to:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="o">.</span><span class="fm">__str__</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Implicit in this discussion is the notion that <code class="docutils literal"><span class="pre">int</span></code> is in fact a
+class in Python.  The same is true for <code class="docutils literal"><span class="pre">str</span></code>, <code class="docutils literal"><span class="pre">float</span></code>, and
+<code class="docutils literal"><span class="pre">list</span></code>.</p>
+</li>
+<li><p class="first">Note that we can also define boolean operators such as <code class="docutils literal"><span class="pre">==</span></code> and <code class="docutils literal"><span class="pre">!=</span></code>
+through special functions <code class="xref py py-func docutils literal"><span class="pre">__eq__()</span></code> and <code class="xref py py-func docutils literal"><span class="pre">__ne__()</span></code>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="classes-and-modules">
+<h2>Classes and Modules<a class="headerlink" href="#classes-and-modules" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Each class should generally be put into its own module, or several
+closely-related classes should be combined in a single module.<ul>
+<li>We are already doing this with <code class="docutils literal"><span class="pre">Point2d</span></code>.</li>
+</ul>
+</li>
+<li>Doing so is good practice for languages like C++ and Java, where
+classes are placed in separate files.</li>
+<li>Testing code can be included in the module or placed in a separate
+module.</li>
+<li>We will demonstrate this in class and post the result on the Course
+Website.</li>
+</ul>
+</div>
+<div class="section" id="more-lecture-exercises">
+<h2>More Lecture Exercises<a class="headerlink" href="#more-lecture-exercises" title="Permalink to this headline">¶</a></h2>
+<p>At this point we will stop and take a bit of time to work on the next
+part of the lecture exercises.</p>
+</div>
+<div class="section" id="when-to-modify-when-to-create-new-object">
+<h2>When to Modify, When to Create New Object<a class="headerlink" href="#when-to-modify-when-to-create-new-object" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Some methods, such as <code class="xref py py-func docutils literal"><span class="pre">scale()</span></code>, modify a single <code class="docutils literal"><span class="pre">Point2d</span></code> object.</li>
+<li>Other methods, such as our operators, create new <code class="docutils literal"><span class="pre">Point2d</span></code> objects
+without modifying existing ones.</li>
+<li>The choice between these is made on a method-by-method basis by
+thinking about the meaning — the <em>semantics</em> — of the behavior of the
+method.</li>
+</ul>
+</div>
+<div class="section" id="programming-conventions">
+<h2>Programming Conventions<a class="headerlink" href="#programming-conventions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Don’t create attributes outside of the class.</li>
+<li>Don’t directly access or change attributes except through class
+methods.<ul>
+<li>Languages like C++ and Java have constructs that enforce this.</li>
+<li>In languages like Python it is not a hard-and-fast rule.</li>
+</ul>
+</li>
+<li>Class design is often most effective by thinking about the required
+methods rather than the required attributes.<ul>
+<li>As an example, we rarely think about how Python <code class="docutils literal"><span class="pre">list</span></code> and
+<code class="docutils literal"><span class="pre">dict</span></code> classes are implemented.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="time-example">
+<h2>Time Example<a class="headerlink" href="#time-example" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>In the remainder of the lecture, we will work through an extended
+example of a <code class="docutils literal"><span class="pre">Time</span></code> class.</li>
+<li>By this, we mean the time of day, measured in hours, minutes, and
+seconds.</li>
+<li>We’ll brainstorm some of the methods we might need to have.</li>
+<li>We’ll then consider several different ways to represent the time
+internally:<ul>
+<li>Hours, minutes, and seconds</li>
+<li>Seconds only</li>
+<li>Military time</li>
+</ul>
+</li>
+<li>Despite potential internal differences, the methods — or at least the
+way we call them — will remain the same.<ul>
+<li>This is an example of the notion of <em>encapsulation</em>, which we will
+discuss more in Lecture 19.</li>
+</ul>
+</li>
+<li>At the end of lecture, the resulting code will be posted and
+tests will be generated to complete the class definition.</li>
+</ul>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Define new types in Python by creating classes.</li>
+<li>Classes consist of <em>attributes</em> and <em>methods</em>.</li>
+<li>Attributes should be defined and initialized through the special
+method call <code class="xref py py-func docutils literal"><span class="pre">__init__()</span></code>. This is a <em>constructor</em>.</li>
+<li>Other special methods allow us to create operators for our classes.</li>
+<li>We looked at a <em>Point2d</em> and <em>Time</em> examples.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lec18_classes1_exercises/exercises.html" class="btn btn-neutral float-right" title="Lecture 18 — Exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lec17_dictionaries2_exercises/exercises.html" class="btn btn-neutral float-left" title="Lecture 17 — Exercises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Imran Ali
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

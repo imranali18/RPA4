@@ -1,0 +1,663 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lecture 23 — Recursion &mdash; RPA  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 23 — Exercises" href="lec23_recursion_exercises/exercises.html" />
+    <link rel="prev" title="Lecture 22 — Exercises" href="lec22_tkinter_exercises/exercises.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RPA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Detailed schedule of topics for this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_lecture_lab.html">Weekly lecture and lab schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_oh_alac.html">Weekly office hour and tutoring schedule</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../lecture_notes.html">Lecture notes and exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lec01_intro.html">Lecture 1 — Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator.html">Lecture 2 — Python as a Calculator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator_exercises/exercises.html">Lecture 2 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings.html">Lecture 3 — Python Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings_exercises/exercises.html">Lecture 3 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1.html">Lecture 4 — Using functions and modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1_exercises/exercises.html">Lecture 4 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2.html">Lecture 5 — Python Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2_exercises/exercises.html">Lecture 5 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1.html">Lecture 6 — Decisions Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1_exercises/exercises.html">Lecture 6 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images.html">Lecture 7 — Tuples, Modules, and Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images_exercises/exercises.html">Lecture 7 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1.html">Lecture 8 — Lists Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1_exercises/exercises.html">Lecture 8 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while.html">Lecture 9 — While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while_exercises/exercises.html">Lecture 9 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2.html">Lecture 10 — Lists Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2_exercises/exercises.html">Lecture 10 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals2.html">Lecture 11 — Decisions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals_exercises/exercises.html">Lecture 11 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_for_double.html">Lecture 12 — Controlling Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_exercises/exercises.html">Lecture 12 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_web.html">Lecture 13 — Data from Files and Web Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_exercises/exercises.html">Lecture 13 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec14_design_part1.html">Lecture 14 — Problem Solving and Design, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets.html">Lecture 15 — Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets_exercises/exercises.html">Lecture 15 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1.html">Lecture 16 — Dictionaries, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1_exercises/exercises.html">Lecture 16 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2.html">Lecture 17 — Dictionaries, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2_exercises/exercises.html">Lecture 17 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1.html">Lecture 18 — Classes, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1_exercises/exercises.html">Lecture 18 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2.html">Lecture 19 — Classes, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2_exercises/exercises.html">Lecture 19 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching.html">Lecture 20 — Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching_exercises/exercises.html">Lecture 20 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting.html">Lecture 21 — Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting_exercises/exercises.html">Lecture 21 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter.html">Lecture 22 — TKInter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter_exercises/exercises.html">Lecture 22 — Exercises</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lecture 23 — Recursion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#our-first-example">Our First Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythons-call-stack-mechanism">Python’s Call Stack Mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#practice-problems-to-illustrate-this">Practice Problems to Illustrate This</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#factorial">Factorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exploring-factorial">Exploring Factorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#guidelines-for-writing-recursive-functions">Guidelines for Writing Recursive Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fibonacci">Fibonacci</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dangers-of-recursion">Dangers of Recursion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-then-do-we-study-recursion">Why, Then, Do We Study Recursion?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-examples">Advanced Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recursive-geometric-shapes">Recursive Geometric Shapes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flattening-a-nested-list">Flattening a Nested List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#final-example-merge-sort">Final Example: Merge Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-practice-exercises">Additional Practice Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion_exercises/exercises.html">Lecture 23 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional.html">Lecture 24 — Advanced Python Topics and Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional_exercises/exercises.html">Lecture 24 — Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../class_code.html">Code written in class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_environment.html">Software installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../lecture_notes.html">Lecture Notes</a> &raquo;</li>
+        
+      <li>Lecture 23 — Recursion</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/lecture_notes/lec23_recursion.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lecture-23-recursion">
+<h1>Lecture 23 — Recursion<a class="headerlink" href="#lecture-23-recursion" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>When a function calls itself, it is known as a recursive function.</li>
+<li>Use of the function call stack allows Python to handle recursive
+functions correctly.</li>
+<li>Examples include factorial, Fibonacci, greatest common divisor,
+flattening a list of lists, and mergesort.</li>
+<li>We’ll think about how to hand-simulate a recursive function as well
+as rules for writing recursive functions.</li>
+</ul>
+</div>
+<div class="section" id="our-first-example">
+<h2>Our First Example<a class="headerlink" href="#our-first-example" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Consider the following Python function:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">blast</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">blast</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Blast off!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">What is the the output from the call?</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">blast</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="pythons-call-stack-mechanism">
+<h2>Python’s Call Stack Mechanism<a class="headerlink" href="#pythons-call-stack-mechanism" title="Permalink to this headline">¶</a></h2>
+<p>The following mechanism helps us understand what is happening:</p>
+<ul class="simple">
+<li>Each time the code makes a function call, Python puts information on
+the “call stack”, including:<ul>
+<li>All values of parameters and local variables.</li>
+<li>The location in the code where the function call is being made.</li>
+</ul>
+</li>
+<li>Python then makes the function call, switching execution to the start
+of the called function.</li>
+<li>This function in turn can make additional (potentially recursive)
+function calls, adding information to the top of the stack each time.</li>
+<li>When a function ends, Python looks at the top of the stack, and:<ul>
+<li>restores the values of the local variables and parameters of the
+most recent calling function,</li>
+<li>removes this information from the top of the stack,</li>
+<li>inserts the returned value of the called function (if any) in the
+appropriate location of the calling function’s code, and</li>
+<li>continues execution from the location where the call was made.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="practice-problems-to-illustrate-this">
+<h2>Practice Problems to Illustrate This<a class="headerlink" href="#practice-problems-to-illustrate-this" title="Permalink to this headline">¶</a></h2>
+<p>What are the outputs of the following?</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rp1</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+        <span class="n">rp1</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">rp2</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+        <span class="n">rp2</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">()</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+<span class="n">rp1</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">rp2</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that the entirety of list <code class="docutils literal"><span class="pre">L</span></code> is not copied to the top of the
+stack. Instead, a reference (an alias) to <code class="docutils literal"><span class="pre">L</span></code> is placed on the stack.</p>
+</div>
+<div class="section" id="factorial">
+<h2>Factorial<a class="headerlink" href="#factorial" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">The factorial function is:</p>
+<div class="math">
+\[n! = n (n-1) (n-2) \cdots 1\]</div>
+<p>and</p>
+<div class="math">
+\[0! = 1\]</div>
+</li>
+<li><p class="first">This is an imprecise definition because the … is not
+formally defined.</p>
+</li>
+<li><p class="first">Writing this recursively helps to clear it up:</p>
+<div class="math">
+\[n! = n \cdot (n-1)!\]</div>
+<p>and</p>
+<div class="math">
+\[0! = 1\]</div>
+<p>The factorial is now defined in terms of itself, but on a smaller
+number!</p>
+</li>
+<li><p class="first">Note how this definition now has a recursive part and a non-recursive
+part:</p>
+<ul class="simple">
+<li>The non-recursive part is called the <em>base case</em>. There must be
+<em>at least</em> one base case in every recursive function definition.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="exploring-factorial">
+<h2>Exploring Factorial<a class="headerlink" href="#exploring-factorial" title="Permalink to this headline">¶</a></h2>
+<p>We will:</p>
+<ul class="simple">
+<li>Write a recursive Python function to implement <span class="math">\(n!\)</span>.</li>
+<li>Hand-simulate the call stack for <span class="math">\(n=4\)</span>.</li>
+</ul>
+<p>We’ll add output code to the implementation to help visualize the
+recursive calls in a different way.</p>
+</div>
+<div class="section" id="guidelines-for-writing-recursive-functions">
+<h2>Guidelines for Writing Recursive Functions<a class="headerlink" href="#guidelines-for-writing-recursive-functions" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Define the problem you are trying to solve in terms of smaller /
+simpler instances of the problem. This includes:<ol class="loweralpha">
+<li>What needs to happen before making a recursive call?</li>
+<li>What recursive call(s) must be made?</li>
+<li>What needs to happen to combine or generate results after the
+recursive call (or calls) ends?</li>
+</ol>
+</li>
+<li>Define the base case or cases.</li>
+<li>Make sure the code is proceeding toward the base case in every step.</li>
+</ol>
+</div>
+<div class="section" id="fibonacci">
+<h2>Fibonacci<a class="headerlink" href="#fibonacci" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">The Fibonacci sequence starts with the values 0 and 1.</p>
+</li>
+<li><p class="first">Each new value in the sequence is obtained by adding the two previous
+values, producing:</p>
+<div class="math">
+\[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, \ldots\]</div>
+</li>
+<li><p class="first">Recursively, the <span class="math">\(n^\text{th}\)</span> value, <span class="math">\(f_n\)</span>, of the
+sequence is defined as:</p>
+<div class="math">
+\[f_n = f_{n-1} + f_{n-2}\]</div>
+</li>
+<li><p class="first">This leads naturally to a recursive function…</p>
+</li>
+</ul>
+</div>
+<div class="section" id="dangers-of-recursion">
+<h2>Dangers of Recursion<a class="headerlink" href="#dangers-of-recursion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Some recursive function implementations contain wasteful repeated
+computation.</li>
+<li>Recursive function calls — like any function calls — typically
+involve hidden overhead costs.</li>
+<li>Often, therefore, a recursive function can (and should) be replaced
+with a non-recursive, <em>iterative</em> function that is significantly more
+efficient.</li>
+<li>This is easy to do for both Factorial and Fibonacci, as we will see
+in class.</li>
+</ul>
+</div>
+<div class="section" id="why-then-do-we-study-recursion">
+<h2>Why, Then, Do We Study Recursion?<a class="headerlink" href="#why-then-do-we-study-recursion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Many of our definitions and even our logical structures (such as
+lists), are formalized using recursion.</li>
+<li>Sometimes recursive functions are the first ones we come up with and
+the easiest to write (at least after you are comfortable with
+recursion).<ul>
+<li>Only later do we write non-recursive versions.</li>
+</ul>
+</li>
+<li>Sometimes on harder problems it is difficult to even write non-recursive
+functions! The list flattening problem below is one such example.</li>
+</ul>
+</div>
+<div class="section" id="advanced-examples">
+<h2>Advanced Examples<a class="headerlink" href="#advanced-examples" title="Permalink to this headline">¶</a></h2>
+<p>We’ll spend the rest of class on three more advanced examples:</p>
+<ol class="arabic simple">
+<li>Recursive geometric shapes: the Sierpinski triangle</li>
+<li>Flattening a nested list</li>
+<li>A recursive version of merge sort</li>
+</ol>
+</div>
+<div class="section" id="recursive-geometric-shapes">
+<h2>Recursive Geometric Shapes<a class="headerlink" href="#recursive-geometric-shapes" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Fractals are often defined using recursion. How do we draw a
+Sierpinski triangle like the one shown below?</p>
+<img alt="../_images/sierpinski.jpg" src="../_images/sierpinski.jpg" />
+</li>
+<li><p class="first">We will look at this example in class and attempt to define the
+recursion.</p>
+</li>
+<li><p class="first">To aid us, we’ll look at a Tkinter Python program that implements
+the drawing of the Sierpinski triangle.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="flattening-a-nested-list">
+<h2>Flattening a Nested List<a class="headerlink" href="#flattening-a-nested-list" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Suppose we want to take a list such as:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="mi">6</span><span class="p">,</span> <span class="p">[[</span><span class="mi">2</span><span class="p">]],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">]]]]</span>
+</pre></div>
+</div>
+<p>and “flatten” it, converting it to just a list of values with no sublists.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">This is challenging because we don’t know when we write a function
+to solve this problem how “deep” the nesting of
+sublists goes.  The solution should handle arbitrary depths:</p>
+<ul class="simple">
+<li>Many, many data structures (containers) in computer
+science have this type of nested / recursive structure: an entry
+in a list may be another list….</li>
+</ul>
+</li>
+<li><p class="first">To solve this problem we will also need to know how to recognize
+when an entry in a list is another list. For this we need to use
+the <code class="xref py py-func docutils literal"><span class="pre">type()</span></code> function in Python. The following example should make
+this clear:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nb">list</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Now we are ready to solve the “flattening” problem. We’ll look at
+two different approaches. In both, the key will be to distinguish
+between handling elements that are lists (and therefore must be
+flattened recursively) and elements that are not lists. We’ll
+start from…</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">flatten</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+
+
+
+
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="mi">6</span><span class="p">,</span> <span class="p">[[</span><span class="mi">2</span><span class="p">]],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">]]]]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">flatten</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="final-example-merge-sort">
+<h2>Final Example: Merge Sort<a class="headerlink" href="#final-example-merge-sort" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">The fundamental idea of merge sort is recursive:</p>
+<ul class="simple">
+<li>Any list of length 1 is sorted</li>
+<li>Otherwise:<ul>
+<li>Split the list in half</li>
+<li>Recursively sort each half</li>
+<li>Merge the resulting sorted halves</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">We repeat our use of the <code class="xref py py-func docutils literal"><span class="pre">merge()</span></code> function from Lecture 20:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">):</span>
+    <span class="n">i1</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">i2</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">i1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span> <span class="ow">and</span> <span class="n">i2</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">L2</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">L1</span><span class="p">[</span><span class="n">i1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">L2</span><span class="p">[</span><span class="n">i2</span><span class="p">]:</span>
+            <span class="n">L</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L1</span><span class="p">[</span><span class="n">i1</span><span class="p">])</span>
+            <span class="n">i1</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">L</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L2</span><span class="p">[</span><span class="n">i2</span><span class="p">])</span>
+            <span class="n">i2</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">L</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">L1</span><span class="p">[</span><span class="n">i1</span><span class="p">:])</span>
+    <span class="n">L</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">L2</span><span class="p">[</span><span class="n">i2</span><span class="p">:])</span>
+    <span class="k">return</span> <span class="n">L</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Using this, we will write the main <code class="xref py py-func docutils literal"><span class="pre">merge_sort()</span></code> function in class:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge_sort</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>The solution will be posted on-line.</li>
+<li>We will also see how a minor mistake can cause the recursion to
+go into an infinite loop.</li>
+</ul>
+</li>
+<li><p class="first">Comparing what we write to our earlier non-recursive version of merge
+sort shows that the primary job of the recursion is to organize the
+merging process!</p>
+</li>
+</ul>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Functions that call themselves are known as “recursive functions”.</li>
+<li>Use of a function call stack allows Python to handle recursive
+functions correctly.</li>
+<li>Many structures and functions important to computer science are
+defined recursively.</li>
+<li>Fundamentally, recursion is about defining a problem solution as a
+function of the solution to a simpler/shorter/smaller version of the
+problem.</li>
+<li>A base case (or cases) is (are) always needed to make a recursion
+function succeed.</li>
+<li>Infinite recursion is avoided by ensuring that progress is made toward
+the base case or cases in every recursive call.</li>
+<li>While many recursive functions are easily rewritten to remove the
+recursion, some advanced problems are difficult to solve without
+recursion.</li>
+</ul>
+</div>
+<div class="section" id="additional-practice-exercises">
+<h2>Additional Practice Exercises<a class="headerlink" href="#additional-practice-exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Euclid’s algorithm for finding the greatest common divisor is one of
+the oldest known algorithms. If <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are positive
+integers, with <span class="math">\(a \geq b\)</span>, then let <span class="math">\(r\)</span> be the remainder
+of dividing <span class="math">\(a\)</span> by <span class="math">\(b\)</span>. If <span class="math">\(r == 0\)</span>, then <span class="math">\(b\)</span>
+is the GCD of the two integers. Otherwise, the GCD of <span class="math">\(a\)</span> and
+<span class="math">\(b\)</span> equals the GCD of <span class="math">\(b\)</span> and <span class="math">\(r\)</span>. Here is the
+Python code:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">:</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span>
+    <span class="k">if</span> <span class="n">r</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">b</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="loweralpha">
+<li><p class="first">What is the output of:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="mi">24</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="mi">84</span><span class="p">,</span> <span class="mi">65</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="mi">84</span><span class="p">,</span> <span class="mi">66</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Why do we know that <code class="xref py py-func docutils literal"><span class="pre">gcd()</span></code> is proceeding toward the base case (as
+required by our “rules” of writing recursive functions)?</p>
+</li>
+</ol>
+</li>
+<li><p class="first">Specify the recursive calls and return values from our <code class="xref py py-func docutils literal"><span class="pre">merge_sort()</span></code>
+implementation for the list:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lec23_recursion_exercises/exercises.html" class="btn btn-neutral float-right" title="Lecture 23 — Exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lec22_tkinter_exercises/exercises.html" class="btn btn-neutral float-left" title="Lecture 22 — Exercises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Imran Ali
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

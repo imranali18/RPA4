@@ -1,0 +1,713 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lecture 13 — Data from Files and Web Pages &mdash; RPA  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 13 — Exercises" href="lec13_files_exercises/exercises.html" />
+    <link rel="prev" title="Lecture 12 — Exercises" href="lec12_loops2_exercises/exercises.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RPA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Detailed schedule of topics for this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_lecture_lab.html">Weekly lecture and lab schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_oh_alac.html">Weekly office hour and tutoring schedule</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../lecture_notes.html">Lecture notes and exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lec01_intro.html">Lecture 1 — Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator.html">Lecture 2 — Python as a Calculator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator_exercises/exercises.html">Lecture 2 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings.html">Lecture 3 — Python Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings_exercises/exercises.html">Lecture 3 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1.html">Lecture 4 — Using functions and modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1_exercises/exercises.html">Lecture 4 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2.html">Lecture 5 — Python Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2_exercises/exercises.html">Lecture 5 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1.html">Lecture 6 — Decisions Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1_exercises/exercises.html">Lecture 6 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images.html">Lecture 7 — Tuples, Modules, and Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images_exercises/exercises.html">Lecture 7 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1.html">Lecture 8 — Lists Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1_exercises/exercises.html">Lecture 8 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while.html">Lecture 9 — While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while_exercises/exercises.html">Lecture 9 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2.html">Lecture 10 — Lists Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2_exercises/exercises.html">Lecture 10 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals2.html">Lecture 11 — Decisions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals_exercises/exercises.html">Lecture 11 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_for_double.html">Lecture 12 — Controlling Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_exercises/exercises.html">Lecture 12 — Exercises</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lecture 13 — Data from Files and Web Pages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#review-string-operations-often-used-in-file-parsing">Review — String operations often used in file parsing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opening-and-reading-files">Opening and Reading Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-the-contents-of-a-file">Reading the Contents of a File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#closing-and-reopening-files">Closing and Reopening Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-computing-the-average-score">Example: Computing the Average Score</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-to-a-file">Writing to a File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lecture-exercise-1">Lecture Exercise 1:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#opening-static-web-pages">Opening Static Web Pages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parsing">Parsing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#short-tour-of-data-formats">Short Tour of Data Formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parsing-ad-hoc-data-formats-regular-tabular-data">Parsing Ad-hoc Data Formats - Regular Tabular Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parsing-ad-hoc-data-formats-irregular-tabular-data">Parsing Ad-hoc Data Formats - Irregular Tabular Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_exercises/exercises.html">Lecture 13 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec14_design_part1.html">Lecture 14 — Problem Solving and Design, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets.html">Lecture 15 — Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets_exercises/exercises.html">Lecture 15 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1.html">Lecture 16 — Dictionaries, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1_exercises/exercises.html">Lecture 16 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2.html">Lecture 17 — Dictionaries, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2_exercises/exercises.html">Lecture 17 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1.html">Lecture 18 — Classes, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1_exercises/exercises.html">Lecture 18 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2.html">Lecture 19 — Classes, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2_exercises/exercises.html">Lecture 19 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching.html">Lecture 20 — Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching_exercises/exercises.html">Lecture 20 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting.html">Lecture 21 — Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting_exercises/exercises.html">Lecture 21 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter.html">Lecture 22 — TKInter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter_exercises/exercises.html">Lecture 22 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion.html">Lecture 23 — Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion_exercises/exercises.html">Lecture 23 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional.html">Lecture 24 — Advanced Python Topics and Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional_exercises/exercises.html">Lecture 24 — Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../class_code.html">Code written in class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_environment.html">Software installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../lecture_notes.html">Lecture Notes</a> &raquo;</li>
+        
+      <li>Lecture 13 — Data from Files and Web Pages</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/lecture_notes/lec13_files_web.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lecture-13-data-from-files-and-web-pages">
+<h1>Lecture 13 — Data from Files and Web Pages<a class="headerlink" href="#lecture-13-data-from-files-and-web-pages" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Review of string operations</li>
+<li>Files on your computer<ul>
+<li>Opening and reading files</li>
+<li>Closing</li>
+<li>Writing files</li>
+</ul>
+</li>
+<li>Accessing files across the web</li>
+<li>Parsing basics</li>
+<li>Parsing HMTL</li>
+</ul>
+<p>Our discussion is only loosely tied to Chapter 8 of the text.</p>
+</div>
+<div class="section" id="review-string-operations-often-used-in-file-parsing">
+<h2>Review — String operations often used in file parsing<a class="headerlink" href="#review-string-operations-often-used-in-file-parsing" title="Permalink to this headline">¶</a></h2>
+<p>Let’s review and go over some very common string operations that are
+particularly useful in parsing files.</p>
+<ul>
+<li><p class="first">Remove characters from the beginning, end, or both sides of a
+string with <code class="xref py py-func docutils literal"><span class="pre">lstrip()</span></code>, <code class="xref py py-func docutils literal"><span class="pre">rstrip()</span></code>, and <code class="xref py py-func docutils literal"><span class="pre">strip()</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;red! Let&#39;s go red! Go red! Go red!&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;red!&quot;</span><span class="p">)</span>
+<span class="go">&quot; Let&#39;s go red! Go red! Go &quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;edr!&quot;</span><span class="p">)</span>
+<span class="go">&quot; Let&#39;s go red! Go red! Go &quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;red!&quot;</span><span class="p">)</span>
+<span class="go">&quot; Let&#39;s go red! Go red! Go red!&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;red!&quot;</span><span class="p">)</span>
+<span class="go">&quot;red! Let&#39;s go red! Go red! Go &quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;    Go red!      &quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="go">&#39;Go red!&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot; </span><span class="se">\n</span><span class="s2">   Go red!    </span><span class="se">\t</span><span class="s2">  &quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="go">&#39;Go red!&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot; </span><span class="se">\n</span><span class="s2">   Go red!    </span><span class="se">\t</span><span class="s2">  &quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="go">&#39;\n   Go red!    \t&#39;</span>
+</pre></div>
+</div>
+<p>With no arguments, the strip functions remove all white space characters.</p>
+</li>
+<li><p class="first">Split a string using a delimiter, and get a list of strings. Whitespace
+is the default delimiter:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Let&#39;s go red! Let&#39;s go red! Go red! Go red!&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="go">[&quot;Let&#39;s&quot;, &#39;go&#39;, &#39;red!&#39;, &quot;Let&#39;s&quot;, &#39;go&#39;, &#39;red!&#39;, &#39;Go&#39;, &#39;red!&#39;, &#39;Go&#39;, &#39;red!&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;!&quot;</span><span class="p">)</span>
+<span class="go">[&quot;Let&#39;s go red&quot;, &quot; Let&#39;s go red&quot;, &#39; Go red&#39;, &#39; Go red&#39;, &#39;&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;red!&quot;</span><span class="p">)</span>
+<span class="go">[&quot;Let&#39;s go &quot;, &quot; Let&#39;s go &quot;, &#39; Go &#39;, &#39; Go &#39;, &#39;&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;Let&#39;s go red! </span><span class="se">\n</span><span class="s2"> Let&#39;s go    red! Go red! </span><span class="se">\t</span><span class="s2"> Go red!&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="go">[&quot;Let&#39;s&quot;, &#39;go&#39;, &#39;red!&#39;, &#39;\n&#39;, &quot;Let&#39;s&quot;, &#39;go&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;red!&#39;, &#39;Go&#39;, &#39;red!&#39;, &#39;\t&#39;, &#39;Go&#39;, &#39;red!&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;Let&#39;s go red! </span><span class="se">\n</span><span class="s2"> Let&#39;s go    red! Go red! </span><span class="se">\t</span><span class="s2"> Go red!&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="go">[&quot;Let&#39;s&quot;, &#39;go&#39;, &#39;red!&#39;, &quot;Let&#39;s&quot;, &#39;go&#39;, &#39;red!&#39;, &#39;Go&#39;, &#39;red!&#39;, &#39;Go&#39;, &#39;red!&#39;]</span>
+</pre></div>
+</div>
+<p><code class="xref py py-func docutils literal"><span class="pre">split()</span></code> returns the strings before and after the delimiter string in a
+list.</p>
+</li>
+<li><p class="first">The <code class="xref py py-func docutils literal"><span class="pre">find()</span></code> function returns the first location of a substring in a
+string, and returns -1 if the substring is not found. You can also
+optionally give a starting and end point to search from:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">&quot;Let&#39;s go red! Let&#39;s go red! Go red! Go red!&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="go">9</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;Red&#39;</span><span class="p">)</span>
+<span class="go">-1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;edr!&quot;</span><span class="p">)</span>
+<span class="go">-1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="go">23</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="go">-1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;red&#39;</span> <span class="ow">in</span> <span class="n">x</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;Red&#39;</span> <span class="ow">in</span> <span class="n">x</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="opening-and-reading-files">
+<h2>Opening and Reading Files<a class="headerlink" href="#opening-and-reading-files" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">On to our main topic….</p>
+</li>
+<li><p class="first">Given the name of a file as a string, we can open it to read:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;abc.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is the same as:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;abc.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Variable <code class="docutils literal"><span class="pre">f</span></code> now “points” to the first line of file <code class="docutils literal"><span class="pre">abc.txt</span></code>.</li>
+<li>The <code class="docutils literal"><span class="pre">'r'</span></code> tells Python we will be reading from this file — this
+is the default.</li>
+</ul>
+</li>
+<li><p class="first">One way to access the contents of a file is by doing so one input line
+at a time. In particular,</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>reads in the next line up to and including the end-of-line character,
+and “advances” <code class="docutils literal"><span class="pre">f</span></code> to point to the next line of file <code class="docutils literal"><span class="pre">abc.txt</span></code>.</p>
+</li>
+<li><p class="first">By contrast:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>reads the entire <strong>remainder</strong> of the input file as a single string,</p>
+<ul class="simple">
+<li>storing the one (big) string in <code class="docutils literal"><span class="pre">s</span></code>, and</li>
+<li>advancing <code class="docutils literal"><span class="pre">f</span></code> to the end of the file!</li>
+</ul>
+</li>
+<li><p class="first">When you are at the end of a file, <code class="docutils literal"><span class="pre">f.read()</span></code> and <code class="docutils literal"><span class="pre">f.readline()</span></code> will
+both return the empty string: <code class="docutils literal"><span class="pre">&quot;&quot;</span></code>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="reading-the-contents-of-a-file">
+<h2>Reading the Contents of a File<a class="headerlink" href="#reading-the-contents-of-a-file" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">The most common way to read a file is illustrated in the following
+example that reads each line from a file and prints it on the screen:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;abc.txt&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(Of course you can replace the call to <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a> with any other
+processing code since each <code class="docutils literal"><span class="pre">line</span></code> is just a string!)</p>
+</li>
+<li><p class="first">You can combine the above steps into a single for loop:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;abc.txt&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="closing-and-reopening-files">
+<h2>Closing and Reopening Files<a class="headerlink" href="#closing-and-reopening-files" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">The code below opens, reads, closes, and reopens a file:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;abc.txt&#39;</span><span class="p">)</span>
+
+<span class="c1"># Insert whatever code is need to read from the file</span>
+<span class="c1"># and use its contents ...</span>
+
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;abc.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">f</span></code> now points again to the beginning of the file.</p>
+</li>
+<li><p class="first">This can be used to read the same file multiple times.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="example-computing-the-average-score">
+<h2>Example: Computing the Average Score<a class="headerlink" href="#example-computing-the-average-score" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">We are given a file that contains a sequence of integers
+representing test scores, one score per line. We need to write a
+program that computes the average of these scores.</p>
+</li>
+<li><p class="first">Here is one solution:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">file_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the name of the scores file: &quot;</span><span class="p">)</span>
+<span class="n">file_name</span> <span class="o">=</span> <span class="n">file_name</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>    <span class="c1"># Elminate extra white space that the user may have typed</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+
+<span class="n">num_scores</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">sum_scores</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+    <span class="n">sum_scores</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">num_scores</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Average score is </span><span class="si">{:.1f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sum_scores</span> <span class="o">/</span> <span class="n">num_scores</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">In class we will discuss:</p>
+<ul class="simple">
+<li>Getting the file name from the user.</li>
+<li>The importance of using <code class="xref py py-func docutils literal"><span class="pre">strip()</span></code>.</li>
+<li>The rest of the program.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="writing-to-a-file">
+<h2>Writing to a File<a class="headerlink" href="#writing-to-a-file" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">In order to write to a file we must first open it and associate it
+with a file variable, e.g.:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">f_out</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;outfile.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">The <code class="docutils literal"><span class="pre">&quot;w&quot;</span></code> signifies <em>write mode</em> which causes Python to completely
+delete the previous contents of <code class="docutils literal"><span class="pre">outfile.txt</span></code> (if the file
+previously existed).</p>
+</li>
+<li><p class="first">It is also possible to use <em>append mode</em>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">f_out</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;outfile.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>which means that the contents of <code class="docutils literal"><span class="pre">outfile.txt</span></code> are kept and new
+output is added to the end of the file.</p>
+</li>
+<li><p class="first">Write mode is much more common than append mode.</p>
+</li>
+<li><p class="first">To actually write to a file, we use the <code class="xref py py-func docutils literal"><span class="pre">write()</span></code> method:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">f_out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Hello world!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Each call to <code class="xref py py-func docutils literal"><span class="pre">write()</span></code> passes only a <strong>single string</strong>.</li>
+<li>Unlike what happens when using <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a>, spacing and newline
+characters are required explicitly.</li>
+<li>You can use the <a class="reference external" href="https://docs.python.org/3/library/functions.html#format" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">format()</span></code></a> method of each string before you
+print it.</li>
+</ul>
+</li>
+<li><p class="first">You must close the files you write! Otherwise, the changes you made
+will not be recorded!</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">f_out</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="lecture-exercise-1">
+<h2>Lecture Exercise 1:<a class="headerlink" href="#lecture-exercise-1" title="Permalink to this headline">¶</a></h2>
+<p>You will have a few minutes to work on the first lecture exercise.</p>
+</div>
+<div class="section" id="opening-static-web-pages">
+<h2>Opening Static Web Pages<a class="headerlink" href="#opening-static-web-pages" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">We can use the <a class="reference external" href="https://docs.python.org/3/library/urllib.html#module-urllib" title="(in Python v3.7)"><code class="xref py py-mod docutils literal"><span class="pre">urllib</span></code></a> module to access web pages.</p>
+</li>
+<li><p class="first">We did this with our very first “real” example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="n">word_url</span> <span class="o">=</span> <span class="s1">&#39;http://www.greenteapress.com/thinkpython/code/words.txt&#39;</span>
+<span class="n">word_file</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">word_url</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Once we have <code class="docutils literal"><span class="pre">words_file</span></code> we can use the <code class="xref py py-func docutils literal"><span class="pre">read()</span></code>, <code class="xref py py-func docutils literal"><span class="pre">readline()</span></code>,
+and <code class="xref py py-func docutils literal"><span class="pre">close()</span></code> methods just like we did with “ordinary” files.</p>
+</li>
+<li><p class="first">When the web page is dynamic, we usually need to work through a
+separate API (application program interface) to access the contents
+of the web site.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="parsing">
+<h2>Parsing<a class="headerlink" href="#parsing" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Before writing code to read a data file or to read the contents of a
+web page, we must know the format of the data in the file.</li>
+<li>The work of reading a data file or a web page is referred to as
+<em>parsing</em>.</li>
+<li>Files can be of a fixed well-known format:<ul>
+<li>Python code</li>
+<li>C++ code</li>
+<li>HTML (HyperText Markup Language, used in all web pages)</li>
+<li>JSON (Javascript Object Notation, a common data exchange format)</li>
+<li>RDF (resource description framework)</li>
+</ul>
+</li>
+<li>Often there is a parser module for these formats that you can
+simply use instead of implementing them from scratch.</li>
+<li>For code, parsers check for syntax errors.</li>
+</ul>
+</div>
+<div class="section" id="short-tour-of-data-formats">
+<h2>Short Tour of Data Formats<a class="headerlink" href="#short-tour-of-data-formats" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Python code:</p>
+<ul class="simple">
+<li>Each statement is on a separate line.</li>
+<li>Changes in indentation are used to indicate entry/exit to blocks
+of code, e.g.&nbsp;within <code class="docutils literal"><span class="pre">def</span></code>, <code class="docutils literal"><span class="pre">for</span></code>, <code class="docutils literal"><span class="pre">if</span></code>, <code class="docutils literal"><span class="pre">while</span></code>…</li>
+</ul>
+</li>
+<li><p class="first">HTML: Basic structure is a mix of text with commands that are
+inside “tags”  <code class="docutils literal"><span class="pre">&lt;</span> <span class="pre">...</span> <span class="pre">&gt;</span></code>.</p>
+<p>Example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">head</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">HTML</span> <span class="n">example</span> <span class="k">for</span> <span class="n">CSCI</span><span class="o">-</span><span class="mi">100</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+   <span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span>
+      <span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">page</span> <span class="n">about</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;http://python.org&quot;</span><span class="o">&gt;</span><span class="n">Python</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;.</span>
+      <span class="n">It</span> <span class="n">contains</span> <span class="n">links</span> <span class="ow">and</span> <span class="n">other</span> <span class="n">information</span><span class="o">.</span>
+   <span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Despite the clean formatting of this example, HTML is in fact
+free-form, so that, for example, the following produces exactly the
+same web page:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">html</span><span class="o">&gt;&lt;</span><span class="n">head</span><span class="o">&gt;&lt;</span><span class="n">title</span><span class="o">&gt;</span><span class="n">HTML</span>   <span class="n">example</span> <span class="k">for</span> <span class="n">CSCI</span><span class="o">-</span><span class="mi">100</span><span class="o">&lt;/</span><span class="n">title</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">head</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">page</span> <span class="n">about</span> <span class="o">&lt;</span><span class="n">a</span>
+<span class="n">href</span><span class="o">=</span><span class="s2">&quot;http://python.org&quot;</span><span class="o">&gt;</span><span class="n">Python</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;.</span>  <span class="n">It</span> <span class="n">contains</span>   <span class="n">links</span>
+<span class="ow">and</span> <span class="n">other</span>   <span class="n">information</span><span class="o">.</span> <span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span> <span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">JSON: used often with Python in many Web based APIs:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">&quot;class_name&quot;</span><span class="p">:</span> <span class="s2">&quot;CSCI 1100&quot;</span>
+   <span class="p">,</span> <span class="s2">&quot;lab_sections&quot;</span> <span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Section 01&quot;</span>
+             <span class="p">,</span> <span class="s2">&quot;scheduled&quot;</span><span class="p">:</span> <span class="s2">&quot;T 10AM-12PM&quot;</span>
+             <span class="p">,</span> <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Sage 2704&quot;</span>
+          <span class="p">}</span>
+          <span class="p">,</span> <span class="p">{</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Section 02&quot;</span>
+             <span class="p">,</span> <span class="s2">&quot;scheduled&quot;</span><span class="p">:</span> <span class="s2">&quot;T 12PM-2PM&quot;</span>
+             <span class="p">,</span> <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Sage 2112&quot;</span>
+          <span class="p">}</span> <span class="p">]</span>
+
+ <span class="p">}</span>
+</pre></div>
+</div>
+<p>Similar to HTML, spaces do not matter.</p>
+<ul>
+<li><p class="first">Json is a simple module for converting between a string in
+JSON format and a Python variable:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">json</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39; [ &quot;a&quot;, [ &quot;b&quot;, 3 ] ] &#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">[&#39;a&#39;, [&#39;b&#39;, 3]]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="parsing-ad-hoc-data-formats-regular-tabular-data">
+<h2>Parsing Ad-hoc Data Formats - Regular Tabular Data<a class="headerlink" href="#parsing-ad-hoc-data-formats-regular-tabular-data" title="Permalink to this headline">¶</a></h2>
+<p>We will examine some simple formats that you may have already seen in
+various contexts.</p>
+<ul>
+<li><p class="first">Parsing files with fixed format in each line, delimited by a
+character.</p>
+<p>Often used: comma (CSV), tab, or space.</p>
+<ul>
+<li><p class="first">One example is a file of comma separated values. Each line has a label of a soup type and
+a number of cans we have available:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">chicken</span> <span class="n">noodle</span><span class="p">,</span> <span class="mi">2</span>
+<span class="n">clam</span> <span class="n">chowder</span><span class="p">,</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Here is pseudo code for processing such files:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">each</span> <span class="n">line</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span>
+  <span class="n">split</span> <span class="n">into</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">using</span> <span class="n">the</span> <span class="n">separator</span>
+  <span class="n">process</span> <span class="n">the</span> <span class="n">entries</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">list</span> <span class="n">into</span> <span class="n">the</span> <span class="n">desired</span> <span class="n">form</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>Practice Problem:</strong> write a simple parser for the soup list that returns a
+list of the form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;chicken noodle&quot;</span><span class="p">,</span> <span class="s2">&quot;chicken noodle&quot;</span><span class="p">,</span> <span class="s2">&quot;clam chowder&quot;</span><span class="p">,</span> <span class="s2">&quot;clam chowder&quot;</span><span class="p">,</span> <span class="s2">&quot;clam chowder&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="parsing-ad-hoc-data-formats-irregular-tabular-data">
+<h2>Parsing Ad-hoc Data Formats - Irregular Tabular Data<a class="headerlink" href="#parsing-ad-hoc-data-formats-irregular-tabular-data" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Parsing files with one line per row of information, different
+columns containing unknown amount of information separated with a
+secondary delimiter.</p>
+<ul>
+<li><p class="first">Example: Yelp data with the name of a restaurant, the latitude,
+the longitude, the address, the URL, and a sequence of reviews:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Meka</span><span class="s1">&#39;s Lounge|42.74|-73.69|407 River Street+Troy, NY 12180|http://www.yelp.com/biz/mekas-lounge-troy|Bars|5|2|4|4|3|4|5</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Information after column 5 are all reviews.</p>
+<p>The address field is separated with a plus sign.</p>
+<p>Pseudo code:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">each</span> <span class="n">line</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span>
+    <span class="n">split</span> <span class="n">using</span> <span class="n">the</span> <span class="n">separator</span>
+    <span class="n">split</span> <span class="n">the</span> <span class="n">entry</span> <span class="k">with</span> <span class="n">secondary</span> <span class="n">separator</span>
+    <span class="k">for</span> <span class="n">each</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">column</span>
+        <span class="n">handle</span> <span class="n">value</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>Practice Problem:</strong> Write a function that returns a list of lists for a file
+containing Yelp data. Each list should contain the name of the
+restaurant and the average review.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>You should now have enough information to easily write code to open,
+read, write, and close files on local computers.</li>
+<li>Once text (or HTML) files found on the web are opened, the same
+reading methods apply just as though the files were local. Binary
+files such as images require special modules.</li>
+<li>Parsing a file requires understanding its format, which is, in a
+sense, the “language” in which it is written.</li>
+<li>You will practice with file reading and writing in future labs and
+homework assignments.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lec13_files_exercises/exercises.html" class="btn btn-neutral float-right" title="Lecture 13 — Exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lec12_loops2_exercises/exercises.html" class="btn btn-neutral float-left" title="Lecture 12 — Exercises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Imran Ali
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

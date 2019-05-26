@@ -1,0 +1,92 @@
+{
+    "assignment_message" : "Submit each part of your lecture 3 exercises to the right bucket.",
+    "part_names" : [ "Problem 1: Valid Strings", "Problem 2: 25/25", "Problem 3: Formatting" ],
+
+    // FIXME:  This section of resource limits should go away soon
+    "resource_limits" : {
+        "RLIMIT_CPU" : 60,
+        "RLIMIT_NPROC" : 100,
+        "RLIMIT_AS" : "RLIM_INFINITY"
+    },
+
+    "testcases" : [
+        {
+            "type" : "FileCheck",
+            "title" : "Which are valid strings?",
+            "points" : 2,
+            "validation" : [
+                {
+                    // verify correctness of answer
+                    "method" : "myersDiffbyLinebyWord",
+                    "actual_file" : "part1/*.txt",
+                    "description" : "Does the list of variable names match?",
+		    "expected_file" : "p1_sol.txt"
+                }
+            ]
+        },
+        {
+            "title" : "25 *, 25 +",
+            "command" : [ "python3 part2/*.py",
+                          "submitty_count_function -l python3 print part2/*.py",
+                          "submitty_count_node -l python3 mul part2/*.py" ],
+            "points" : 3,
+            "validation" : [
+                {
+                    // verify program output
+                    "method" : "myersDiffbyLinebyChar",
+                    "actual_file" : "STDOUT_0.txt",
+                    "description" : "Program Output",
+                    "expected_file" : "p2_out.txt"
+                },
+                {
+                    // number of print statements must be == 1
+                    "method" : "intComparison",
+                    "actual_file" : "STDOUT_1.txt",
+                    "description" : "Number of print statements",
+		    "comparison" : "eq",
+                    "term" : 1
+                },
+                {
+                    // number of multiplications must be >= 2
+                    "method" : "intComparison",
+                    "actual_file" : "STDOUT_2.txt",
+                    "description" : "Number of multiplications",
+		    "comparison" : "ge",
+                    "term" : 2
+                }
+            ]
+        },
+        {
+            "title" : "Print x and y",
+            "command" : [ "python3 part3/*.py",
+                          "submitty_count_node -l python3 assign part3/*.py",
+                          "submitty_count_function -l python3 print part3/*.py" ],
+            "points" : 3,
+            "validation" : [
+                {
+                    // verify program output
+                    "method" : "myersDiffbyLinebyChar",
+                    "actual_file" : "STDOUT_0.txt",
+                    "description" : "Program Output",
+                    "expected_file" : "p3_out.txt"
+                },
+                {
+                    // number of assignments must be == 2
+                    "method" : "intComparison",
+                    "actual_file" : "STDOUT_1.txt",
+                    "description" : "Number of assignments",
+		    "comparison" : "eq",
+                    "term" : 2
+                },
+                {
+                    // number of print statements must be == 3
+                    "method" : "intComparison",
+                    "actual_file" : "STDOUT_2.txt",
+                    "description" : "Number of print calls",
+		    "comparison" : "eq",
+                    "term" : 3
+                }
+            ]
+        }
+    ]
+}

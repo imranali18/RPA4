@@ -1,0 +1,7 @@
+Magnitude 11.18
+Distance is 7.81
+After scaling p = (0,12)
+After scaling r = (6,11.0)
+p dominates r: False
+r dominates p: False
+r dominates q: True

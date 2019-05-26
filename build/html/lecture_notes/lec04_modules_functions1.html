@@ -1,0 +1,733 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lecture 4 — Using functions and modules &mdash; RPA  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 4 — Exercises" href="lec04_modules_functions1_exercises/exercises.html" />
+    <link rel="prev" title="Lecture 3 — Exercises" href="lec03_strings_exercises/exercises.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RPA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Detailed schedule of topics for this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_lecture_lab.html">Weekly lecture and lab schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_oh_alac.html">Weekly office hour and tutoring schedule</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../lecture_notes.html">Lecture notes and exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lec01_intro.html">Lecture 1 — Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator.html">Lecture 2 — Python as a Calculator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator_exercises/exercises.html">Lecture 2 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings.html">Lecture 3 — Python Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings_exercises/exercises.html">Lecture 3 — Exercises</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lecture 4 — Using functions and modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reading">Reading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-have-we-learned-so-far">What have we learned so far?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-about-numerical-functions">How about numerical functions?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#objects-and-methods">Objects and Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-methods">String Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#practice-problems-part-1">Practice Problems - Part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-format-method">String Format Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#built-in-functions">Built-In Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modules">Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#different-ways-of-importing">Different Ways of Importing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#program-structure">Program Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#putting-it-all-together">Putting It All Together</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#practice-problems-part-2">Practice Problems - Part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1_exercises/exercises.html">Lecture 4 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2.html">Lecture 5 — Python Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2_exercises/exercises.html">Lecture 5 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1.html">Lecture 6 — Decisions Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1_exercises/exercises.html">Lecture 6 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images.html">Lecture 7 — Tuples, Modules, and Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images_exercises/exercises.html">Lecture 7 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1.html">Lecture 8 — Lists Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1_exercises/exercises.html">Lecture 8 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while.html">Lecture 9 — While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while_exercises/exercises.html">Lecture 9 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2.html">Lecture 10 — Lists Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2_exercises/exercises.html">Lecture 10 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals2.html">Lecture 11 — Decisions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals_exercises/exercises.html">Lecture 11 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_for_double.html">Lecture 12 — Controlling Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_exercises/exercises.html">Lecture 12 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_web.html">Lecture 13 — Data from Files and Web Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_exercises/exercises.html">Lecture 13 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec14_design_part1.html">Lecture 14 — Problem Solving and Design, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets.html">Lecture 15 — Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets_exercises/exercises.html">Lecture 15 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1.html">Lecture 16 — Dictionaries, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1_exercises/exercises.html">Lecture 16 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2.html">Lecture 17 — Dictionaries, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2_exercises/exercises.html">Lecture 17 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1.html">Lecture 18 — Classes, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1_exercises/exercises.html">Lecture 18 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2.html">Lecture 19 — Classes, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2_exercises/exercises.html">Lecture 19 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching.html">Lecture 20 — Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching_exercises/exercises.html">Lecture 20 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting.html">Lecture 21 — Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting_exercises/exercises.html">Lecture 21 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter.html">Lecture 22 — TKInter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter_exercises/exercises.html">Lecture 22 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion.html">Lecture 23 — Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion_exercises/exercises.html">Lecture 23 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional.html">Lecture 24 — Advanced Python Topics and Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional_exercises/exercises.html">Lecture 24 — Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../class_code.html">Code written in class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_environment.html">Software installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../lecture_notes.html">Lecture Notes</a> &raquo;</li>
+        
+      <li>Lecture 4 — Using functions and modules</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/lecture_notes/lec04_modules_functions1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lecture-4-using-functions-and-modules">
+<h1>Lecture 4 — Using functions and modules<a class="headerlink" href="#lecture-4-using-functions-and-modules" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="reading">
+<h2>Reading<a class="headerlink" href="#reading" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Material for this lecture is drawn from Sections 3.1, 6.1, and
+7.1-7.3 of <em>Practical Programming</em>.</li>
+<li>Topics that we will discuss include:<ul>
+<li>Python functions for different data types.</li>
+<li>String functions and calling functions on objects.</li>
+<li>Using modules provided with Python.</li>
+</ul>
+</li>
+<li>We will revisit all these concepts several times throughout the semester.</li>
+</ul>
+</div>
+<div class="section" id="what-have-we-learned-so-far">
+<h2>What have we learned so far?<a class="headerlink" href="#what-have-we-learned-so-far" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">So far, we have learned about three basic data types: integer, float,
+and string.</p>
+</li>
+<li><p class="first">We also learned some valuable functions that operate on strings
+(<a class="reference external" href="https://docs.python.org/3/library/functions.html#len" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">len()</span></code></a>) and that convert between data types (<code class="docutils literal"><span class="pre">int</span></code>, <code class="docutils literal"><span class="pre">str</span></code>, <code class="docutils literal"><span class="pre">float</span></code>):</p>
+<blockquote>
+<div><div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Pickle Rick&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="go">11</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">The functions that Python provides are called <em>built-in</em> functions.</p>
+</li>
+<li><p class="first">We will see examples of these functions and experiment with their
+use in this class.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="how-about-numerical-functions">
+<h2>How about numerical functions?<a class="headerlink" href="#how-about-numerical-functions" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Many numerical functions also exist. Let us experiment with some of
+these first. You should make a note of what they do:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/3/library/functions.html#abs" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">abs()</span></code></a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/functions.html#pow" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">pow()</span></code></a></li>
+<li><code class="xref py py-func docutils literal"><span class="pre">int()</span></code></li>
+<li><code class="xref py py-func docutils literal"><span class="pre">float()</span></code></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/functions.html#round" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">round()</span></code></a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/functions.html#max" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">max()</span></code></a></li>
+<li><a class="reference external" href="https://docs.python.org/3/library/functions.html#min" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">min()</span></code></a></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">We will look carefully in class at how these work.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="objects-and-methods">
+<h2>Objects and Methods<a class="headerlink" href="#objects-and-methods" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">All variables in Python are objects.</p>
+</li>
+<li><p class="first">Objects are abstractions:</p>
+<ul class="simple">
+<li>Each object defines an organization and structure to the data they
+store.</li>
+<li>They have operations/functions — we call them <strong>methods</strong> —
+that we can apply to access and manipulate this data.</li>
+<li>We don’t think about how they are implemented; instead we just
+think about how to use them.  This is why they are called
+abstractions.</li>
+</ul>
+</li>
+<li><p class="first">Methods associated with objects often use a function call syntax of
+the form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">variable</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;good morning&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This also works on particular values instead of variables:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">value</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>as in:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;good morning&#39;</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">You can see all the methods that apply to an object type with <a class="reference external" href="https://docs.python.org/3/library/functions.html#help" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">help()</span></code></a>,
+as well. Try:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="string-methods">
+<h2>String Methods<a class="headerlink" href="#string-methods" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Here are a few more (of many) string methods:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Neil Degrasse Tyson&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="go">&#39;neil degrasse tyson&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lowername</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lowername</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="go">&#39;NEIL DEGRASSE TYSON&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lowername</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+<span class="go">&#39;Neil degrasse tyson&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lowername</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+<span class="go">&#39;Neil Degrasse Tyson&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;abracadabra&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;br&quot;</span><span class="p">,</span> <span class="s2">&quot;dr&quot;</span><span class="p">)</span>
+<span class="go">&#39;adracadadra&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;abracadabra&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="go">&#39;brcdbr&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;Neil Degrasse Tyson&quot;</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;Neil Degrasse Tyson&quot;</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="go">9</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;Neil Degrasse Tyson&quot;</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="go">-1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;Monty Python&quot;</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;aaabbbfsassassaaaa&quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="go">&#39;bbbfsassass&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">As described above, all of these are called in the form of
+<code class="docutils literal"><span class="pre">object.method(arguments)</span></code>, where <code class="docutils literal"><span class="pre">object</span></code> is either a string
+variable or a string value.</p>
+</li>
+<li><p class="first">Not all functions on objects are called this way. Some are called
+using more of a function form, while others are called as
+operators:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">episode</span> <span class="o">=</span> <span class="s2">&quot;Cheese Shop&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">episode</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="go">&#39;cheese shop&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">episode</span><span class="p">)</span>
+<span class="go">11</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">episode</span> <span class="o">+</span> <span class="s2">&quot;!&quot;</span>
+<span class="go">&#39;Cheese Shop!&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>We will see the reason for the differences later in the semester.</li>
+</ul>
+</li>
+<li><p class="first">Note of caution:  none of these functions change the variable that they
+are applied to.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="practice-problems-part-1">
+<h2>Practice Problems - Part 1<a class="headerlink" href="#practice-problems-part-1" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Write code that takes a string in a variable called <code class="docutils literal"><span class="pre">phrase</span></code> and
+prints the string with all vowels removed.</p>
+</li>
+<li><p class="first">Create a string and assign it to a variable called
+<code class="docutils literal"><span class="pre">name</span></code>.  Write code to create a new string that repeats each
+letter <code class="docutils literal"><span class="pre">a</span></code> in <code class="docutils literal"><span class="pre">name</span></code> as many times as <code class="docutils literal"><span class="pre">a</span></code> appears in <code class="docutils literal"><span class="pre">name</span></code>
+(assume the word is all lower case).</p>
+<p>For example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;amos eaton&quot;</span>
+<span class="go">## your code goes here</span>
+
+
+
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">name</span>
+<span class="go">&#39;aamos eaaton&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Given a string in a variable called <code class="docutils literal"><span class="pre">name</span></code>, switch all letters
+<code class="docutils literal"><span class="pre">a</span></code> and <code class="docutils literal"><span class="pre">e</span></code> (only lowercase versions). Assume the variable
+contains only letters and spaces.</p>
+<p>Hint: first replace each ‘a’ with ‘1’.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Rensselaer Polytechnic Institute&quot;</span>
+<span class="go">## your code goes here</span>
+
+
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">name</span>
+<span class="go">&#39;Ranssalear Polytachnic Instituta&#39;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="string-format-method">
+<h2>String Format Method<a class="headerlink" href="#string-format-method" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">The <a class="reference external" href="https://docs.python.org/3/library/functions.html#format" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">format()</span></code></a> method provides a nice way to produce clean
+looking output.</p>
+</li>
+<li><p class="first">For example, consider the code:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mf">0.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">volume</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">r</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">h</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A cylinder of radius&#39;</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="s1">&#39;and height&#39;</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="s1">&#39;has volume&#39;</span><span class="p">,</span> <span class="n">volume</span><span class="p">)</span>
+<span class="go">A cylinder of radius 2.5 and height 3.1622776601683795 has volume 62.09112421505237</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Now look at what we can do with the <a class="reference external" href="https://docs.python.org/3/library/functions.html#format" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">format()</span></code></a> method:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">out_string</span> <span class="o">=</span> <span class="s1">&#39;A cylinder of radius </span><span class="si">{0:.2f}</span><span class="s1"> and height </span><span class="si">{1:.2f}</span><span class="s1"> has volume </span><span class="si">{2:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">volume</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">out_string</span><span class="p">)</span>
+<span class="go">A cylinder of radius 2.50 and height 3.16 has volume 62.09</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Method <a class="reference external" href="https://docs.python.org/3/library/functions.html#format" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">format()</span></code></a> replaces the substrings between { } with
+values from the argument list.</p>
+<ul class="simple">
+<li><em>{0:.2f}</em> means argument 0, will be formatted as a float with 2
+digits shown to the right of the decimal place.<ul>
+<li>Notice it applies rounding.</li>
+</ul>
+</li>
+<li>We can leave off the <em>0</em>, the <em>1</em>, and the <em>2</em> from before the <em>:</em> unless
+we want to change the order of the output.</li>
+<li>We can leave off the <em>:.2f</em> if we want to accept print’s normal
+formatting on float outputs.</li>
+</ul>
+</li>
+<li><p class="first">There are many variations on this and we will see quite a few as we
+progress through the semester.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="built-in-functions">
+<h2>Built-In Functions<a class="headerlink" href="#built-in-functions" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">All the functions we have seen so far are <em>built-in</em> to the core
+Python. It means that these functions are available when you start
+Python.</p>
+</li>
+<li><p class="first">Type:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">__builtins__</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>to see the full list.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Now we will begin to look at using functions that are not built
+into the core of Python but rather imported as <strong>modules</strong>.</p>
+</li>
+<li><p class="first">Modules are collections of functions and constants that
+provide additional power to Python programs.</p>
+</li>
+<li><p class="first">Some modules come with Python, but are not loaded automatically. For
+example the <a class="reference external" href="https://docs.python.org/3/library/math.html#module-math" title="(in Python v3.7)"><code class="xref py py-mod docutils literal"><span class="pre">math</span></code></a> module.</p>
+</li>
+<li><p class="first">Other modules need to be installed first. When we installed software
+in Lab 0, we installed a library called <code class="xref py py-mod docutils literal"><span class="pre">pillow</span></code> that has a
+number of image manipulation modules.</p>
+</li>
+<li><p class="first">To use a function in a module, first you must load it into your
+program using <code class="docutils literal"><span class="pre">import</span></code>. Let’s see the <a class="reference external" href="https://docs.python.org/3/library/math.html#module-math" title="(in Python v3.7)"><code class="xref py py-mod docutils literal"><span class="pre">math</span></code></a> module:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">2.2360679774997898</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">trunc</span><span class="p">(</span><span class="mf">4.5</span><span class="p">)</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mf">4.5</span><span class="p">)</span>
+<span class="go">5.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">10.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+<span class="go">3.141592653589793</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">We can get an explanation of what functions and variables are
+provided in a module using the <a class="reference external" href="https://docs.python.org/3/library/functions.html#help" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">help()</span></code></a> function:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">math</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="different-ways-of-importing">
+<h2>Different Ways of Importing<a class="headerlink" href="#different-ways-of-importing" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">The way you import a module determines what syntax you need to use
+the contents of the module in your program.</p>
+</li>
+<li><p class="first">We can import only a selection of functions and variables:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">pi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pi</span>
+<span class="go">3.141592653589793</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">2.0</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Or we can give a new name to the module within our program:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">pi</span>
+<span class="go">3.141592653589793</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">2.0</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Both of these methods help us distinguish between the function
+<code class="xref py py-func docutils literal"><span class="pre">sqrt()</span></code> and the data <code class="docutils literal"><span class="pre">pi</span></code> defined in the <a class="reference external" href="https://docs.python.org/3/library/math.html#module-math" title="(in Python v3.7)"><code class="xref py py-mod docutils literal"><span class="pre">math</span></code></a> module from a
+function with the same name (if we had one) in our program.</p>
+</li>
+<li><p class="first">We can also do this (which is NOT recommended!):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>Now, there is no name difference between the <a class="reference external" href="https://docs.python.org/3/library/math.html#module-math" title="(in Python v3.7)"><code class="xref py py-mod docutils literal"><span class="pre">math</span></code></a> module functions
+and ours. Since this leads to confusion when the same name appears
+in two different modules it is almost always avoided.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="program-structure">
+<h2>Program Structure<a class="headerlink" href="#program-structure" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>We have now seen several components of a program:
+<code class="docutils literal"><span class="pre">import</span></code>, comments, and our own code, including input,
+computation, and output statements.  We will add more components,
+such as our own functions, as we proceed through the semester.</li>
+<li>You should organize these components in your program files to make it
+easy to see the flow of the program.</li>
+<li>We will use the following convention to order the program
+components:<ul>
+<li>an initial comment explaining the purpose of the program,</li>
+<li>all <code class="docutils literal"><span class="pre">import</span></code> statements,</li>
+<li>then all variables and input commands,</li>
+<li>then all computation,</li>
+<li>finally all output.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="putting-it-all-together">
+<h2>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>In the rest of this class we will write a program that first asks
+the user for a name, then asks for the radius and height of a
+cylinder, and finally prints the surface area and volume of the cylinder,
+nicely formatted.</li>
+</ul>
+</div>
+<div class="section" id="practice-problems-part-2">
+<h2>Practice Problems - Part 2<a class="headerlink" href="#practice-problems-part-2" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">The <a class="reference external" href="https://docs.python.org/3/library/math.html#module-math" title="(in Python v3.7)"><code class="xref py py-mod docutils literal"><span class="pre">math</span></code></a> module contains the constant <code class="docutils literal"><span class="pre">e</span></code> as well as <code class="docutils literal"><span class="pre">pi</span></code>.
+Write code that prints these values accurate to 3 decimal places
+and then write code that computes and outputs:</p>
+<div class="math">
+\[\pi^e\]</div>
+<p>and</p>
+<div class="math">
+\[e^\pi\]</div>
+<p>both accurate to 2 decimal places.</p>
+</li>
+<li><p class="first">Write a short program to ask the user to input height
+values (in cm) three times.  After reading these values (as
+integers), the program should output the largest, the smallest, and
+the average of the height values.</p>
+</li>
+<li><p class="first">What happens when we type:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<p>and then use <code class="docutils literal"><span class="pre">math.pi</span></code>?</p>
+</li>
+</ol>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Python provides many functions that perform useful operations on
+strings, integers, and floats.</p>
+</li>
+<li><p class="first">Some of these functions are <em>built in</em> while others are organized
+into modules.</p>
+</li>
+<li><p class="first">Be aware of the differences between how functions are called. You
+must remember them to call them correctly.</p>
+<ul class="simple">
+<li>Functions that require dot notation, applying the function
+to an object (or a variable containing an object):</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;abc&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="go">&#39;ABC&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Functions that are called with arguments (no dot notation):</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mf">4.6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">4.6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">-5</span>
+</pre></div>
+</div>
+<p>Note that these functions are actually aliases. The same function
+also exists in dot notation:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mf">4.6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="fm">__abs__</span><span class="p">()</span>
+<span class="go">4.6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="fm">__round__</span><span class="p">()</span>
+<span class="go">-5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">4.6</span><span class="o">.</span><span class="fm">__round__</span><span class="p">()</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="fm">__abs__</span><span class="p">()</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">After a module is imported, the functions in the module can be
+used by a call of the form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">module_name</span><span class="o">.</span><span class="n">function_name</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">You can see the details of a function by:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">module_name</span><span class="o">.</span><span class="n">function_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Python has many modules that make it easy to do
+complicated tasks. If you do not believe it, try typing:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">antigravity</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lec04_modules_functions1_exercises/exercises.html" class="btn btn-neutral float-right" title="Lecture 4 — Exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lec03_strings_exercises/exercises.html" class="btn btn-neutral float-left" title="Lecture 3 — Exercises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Imran Ali
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

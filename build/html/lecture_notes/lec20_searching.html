@@ -1,0 +1,561 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lecture 20 — Searching &mdash; RPA  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 20 — Exercises" href="lec20_searching_exercises/exercises.html" />
+    <link rel="prev" title="Lecture 19 — Exercises" href="lec19_classes2_exercises/exercises.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RPA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Detailed schedule of topics for this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_lecture_lab.html">Weekly lecture and lab schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_oh_alac.html">Weekly office hour and tutoring schedule</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../lecture_notes.html">Lecture notes and exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lec01_intro.html">Lecture 1 — Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator.html">Lecture 2 — Python as a Calculator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator_exercises/exercises.html">Lecture 2 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings.html">Lecture 3 — Python Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings_exercises/exercises.html">Lecture 3 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1.html">Lecture 4 — Using functions and modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1_exercises/exercises.html">Lecture 4 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2.html">Lecture 5 — Python Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2_exercises/exercises.html">Lecture 5 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1.html">Lecture 6 — Decisions Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1_exercises/exercises.html">Lecture 6 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images.html">Lecture 7 — Tuples, Modules, and Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images_exercises/exercises.html">Lecture 7 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1.html">Lecture 8 — Lists Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1_exercises/exercises.html">Lecture 8 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while.html">Lecture 9 — While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while_exercises/exercises.html">Lecture 9 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2.html">Lecture 10 — Lists Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2_exercises/exercises.html">Lecture 10 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals2.html">Lecture 11 — Decisions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals_exercises/exercises.html">Lecture 11 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_for_double.html">Lecture 12 — Controlling Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_exercises/exercises.html">Lecture 12 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_web.html">Lecture 13 — Data from Files and Web Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_exercises/exercises.html">Lecture 13 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec14_design_part1.html">Lecture 14 — Problem Solving and Design, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets.html">Lecture 15 — Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets_exercises/exercises.html">Lecture 15 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1.html">Lecture 16 — Dictionaries, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1_exercises/exercises.html">Lecture 16 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2.html">Lecture 17 — Dictionaries, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2_exercises/exercises.html">Lecture 17 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1.html">Lecture 18 — Classes, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1_exercises/exercises.html">Lecture 18 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2.html">Lecture 19 — Classes, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2_exercises/exercises.html">Lecture 19 — Exercises</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lecture 20 — Searching</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#algorithm">Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-algorithms">Multiple Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#problem-1-finding-the-two-smallest-values-in-a-list">Problem 1: Finding the Two Smallest Values in a List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#brainstorming-session">Brainstorming Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#evaluating-our-solutions-analytically">Evaluating Our Solutions Analytically</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#evaluating-our-solutions-experimentally">Evaluating Our Solutions Experimentally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#completing-the-solutions">Completing the Solutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#searching-for-a-value">Searching for a Value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#binary-search">Binary Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#algorithm-and-implementation">Algorithm and Implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#practice">Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching_exercises/exercises.html">Lecture 20 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting.html">Lecture 21 — Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting_exercises/exercises.html">Lecture 21 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter.html">Lecture 22 — TKInter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter_exercises/exercises.html">Lecture 22 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion.html">Lecture 23 — Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion_exercises/exercises.html">Lecture 23 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional.html">Lecture 24 — Advanced Python Topics and Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional_exercises/exercises.html">Lecture 24 — Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../class_code.html">Code written in class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_environment.html">Software installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../lecture_notes.html">Lecture Notes</a> &raquo;</li>
+        
+      <li>Lecture 20 — Searching</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/lecture_notes/lec20_searching.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lecture-20-searching">
+<h1>Lecture 20 — Searching<a class="headerlink" href="#lecture-20-searching" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Notion of an algorithm</li>
+<li>Problems:<ul>
+<li>Finding the two smallest values in a list</li>
+<li>Finding the index of a particular value in a list</li>
+<li>Finding the index of a particular value in a <strong>sorted</strong> list</li>
+<li>Sorting a list (Lecture 21)</li>
+</ul>
+</li>
+<li>Analyzing our solutions:<ul>
+<li>Mathematically</li>
+<li>Experimental timing</li>
+</ul>
+</li>
+</ul>
+<p>Material for Lectures 20 and 21 is in Chapters 12 and 13 of the text.</p>
+</div>
+<div class="section" id="algorithm">
+<h2>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Precise description of the steps necessary to solve a computing
+problem.</li>
+<li>Description is intended for people to read and understand.</li>
+<li>Gradual refinement:<ul>
+<li>Starts with English sentences.</li>
+<li>Gradually, the sentences are made more detailed and more like
+programming statements.</li>
+<li>Allows us to lay out the basic steps of the program before getting
+to the details.</li>
+</ul>
+</li>
+<li>A program is an <em>implementation</em> of one or more algorithms.</li>
+</ul>
+</div>
+<div class="section" id="multiple-algorithms">
+<h2>Multiple Algorithms<a class="headerlink" href="#multiple-algorithms" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Often there are many different algorithms that can solve a problem.</li>
+<li>They differ in:<ul>
+<li>Ease of understanding</li>
+<li>Ease of implementation</li>
+<li>Efficiency</li>
+</ul>
+</li>
+<li>All three considerations are important and their relative weight
+depends on the context.</li>
+</ul>
+</div>
+<div class="section" id="problem-1-finding-the-two-smallest-values-in-a-list">
+<h2>Problem 1: Finding the Two Smallest Values in a List<a class="headerlink" href="#problem-1-finding-the-two-smallest-values-in-a-list" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Given a list of integers, floats, or any other values that can be
+compared with a less than operation, find the two smallest values in
+the list AND their indices in the list.</li>
+<li>We need to be careful with this problem formulation: are duplicates
+allowed? does it matter?</li>
+</ul>
+</div>
+<div class="section" id="brainstorming-session">
+<h2>Brainstorming Session<a class="headerlink" href="#brainstorming-session" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Outline two or more approaches to finding the indices of the two
+smallest values in a list.</li>
+<li>Think through the advantages and disadvantages of each approach.</li>
+<li>Write a more detailed description of the solutions.</li>
+<li>How might your approaches change if we just have to find the values
+and not the indices?</li>
+</ol>
+</div>
+<div class="section" id="evaluating-our-solutions-analytically">
+<h2>Evaluating Our Solutions Analytically<a class="headerlink" href="#evaluating-our-solutions-analytically" title="Permalink to this headline">¶</a></h2>
+<p>We’ve already covered this briefly in Lecture&nbsp;15.</p>
+<ul class="simple">
+<li>Count the number of steps as a function of the size of the list.<ul>
+<li>Usually we use <span class="math">\(N\)</span> as a variable to indicate this size.</li>
+</ul>
+</li>
+<li>Informally, if the number of operations is (roughly) proportional to
+<span class="math">\(N\)</span> we write <span class="math">\(O(N)\)</span> (read as “order of N”).</li>
+<li>If the number of operations is proportional to <span class="math">\(N log N\)</span> we
+write <span class="math">\(O(N log N)\)</span>.<ul>
+<li>Importantly, the best sorting algorithms, including the one
+implemented in Python for lists, are <span class="math">\(O(N log N)\)</span>.</li>
+</ul>
+</li>
+<li>We will informally apply this analysis to our solution approaches.</li>
+</ul>
+</div>
+<div class="section" id="evaluating-our-solutions-experimentally">
+<h2>Evaluating Our Solutions Experimentally<a class="headerlink" href="#evaluating-our-solutions-experimentally" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Needs:<ul>
+<li>generate example data, and</li>
+<li>time our algorithm implementations.</li>
+</ul>
+</li>
+<li>Experimental data can be generated using the <a class="reference external" href="https://docs.python.org/3/library/random.html#module-random" title="(in Python v3.7)"><code class="xref py py-mod docutils literal"><span class="pre">random</span></code></a> module. We
+will make use of:<ul>
+<li><code class="xref py py-func docutils literal"><span class="pre">randrange()</span></code></li>
+<li><code class="xref py py-func docutils literal"><span class="pre">shuffle()</span></code></li>
+</ul>
+</li>
+<li>Timing uses the <a class="reference external" href="https://docs.python.org/3/library/time.html#module-time" title="(in Python v3.7)"><code class="xref py py-mod docutils literal"><span class="pre">time</span></code></a> module and its <code class="xref py py-func docutils literal"><span class="pre">time()</span></code> function, which
+returns the number of seconds (as a float) since an arbitrary start
+time called an “epoch”.<ul>
+<li>We will compute the difference between a start time and an end
+time as our timing measurement.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="completing-the-solutions">
+<h2>Completing the Solutions<a class="headerlink" href="#completing-the-solutions" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">We will implement two of the algorithms we came up with to find the
+indices of the two smallest values in the list:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">index_two_v1</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+    <span class="k">pass</span>  <span class="c1"># not implemented yet</span>
+
+
+
+
+<span class="k">def</span> <span class="nf">index_two_v2</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+    <span class="k">pass</span> <span class="c1"># not implemented yet</span>
+
+
+
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the number of values to test ==&gt; &quot;</span><span class="p">))</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+    <span class="n">s1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="p">(</span><span class="n">i0</span><span class="p">,</span> <span class="n">i1</span><span class="p">)</span> <span class="o">=</span> <span class="n">index_two_v1</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">s1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ver 1:  indices (</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">); time </span><span class="si">{:.3f}</span><span class="s2"> seconds&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i0</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="n">t1</span><span class="p">))</span>
+
+    <span class="n">s2</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="p">(</span><span class="n">j0</span><span class="p">,</span> <span class="n">j1</span><span class="p">)</span> <span class="o">=</span> <span class="n">index_two_v2</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">t2</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">s2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ver 2:  indices (</span><span class="si">{}</span><span class="s2">,</span><span class="si">{}</span><span class="s2">); time </span><span class="si">{:.3f}</span><span class="s2"> seconds&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">j0</span><span class="p">,</span> <span class="n">j1</span><span class="p">,</span> <span class="n">t2</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>We will experiment with these implementations.</p>
+</div>
+<div class="section" id="searching-for-a-value">
+<h2>Searching for a Value<a class="headerlink" href="#searching-for-a-value" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Problem: given a list of values, <code class="docutils literal"><span class="pre">L</span></code>, and given a single value,
+<code class="docutils literal"><span class="pre">x</span></code>, find the (first) index of <code class="docutils literal"><span class="pre">x</span></code> in <code class="docutils literal"><span class="pre">L</span></code> or determine that
+<code class="docutils literal"><span class="pre">x</span></code> is not in <code class="docutils literal"><span class="pre">L</span></code>.</li>
+<li>Basic algorithm is straightforward, and requires <span class="math">\(O(N)\)</span> steps.</li>
+<li>We can solve this in Python using a combination of <code class="docutils literal"><span class="pre">in</span></code> and
+<code class="xref py py-func docutils literal"><span class="pre">index()</span></code>, or by writing our own loop.<ul>
+<li>The text book discusses a number of variations of the algorithm.</li>
+</ul>
+</li>
+<li>We will implement our own variation as an exercise.</li>
+</ul>
+</div>
+<div class="section" id="binary-search">
+<h2>Binary Search<a class="headerlink" href="#binary-search" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>If the list is <strong>ordered</strong>, do we have to search it by looking at
+location 0, then 1, then 2, then 3, …?</li>
+<li>What if we looked at the middle location first?<ul>
+<li>If the value of <code class="docutils literal"><span class="pre">x</span></code> is greater than that value, we know that the
+first location for <code class="docutils literal"><span class="pre">x</span></code> is in the <strong>upper half of the list</strong>.</li>
+<li>Otherwise, the first location for <code class="docutils literal"><span class="pre">x</span></code> is in the <strong>lower half</strong>
+of the list.</li>
+</ul>
+</li>
+<li>In other words, by making one comparison, we have eliminated half the
+list in our search!</li>
+<li>We can repeat this process of “halving” the list until we reach just
+one location.</li>
+</ul>
+</div>
+<div class="section" id="algorithm-and-implementation">
+<h2>Algorithm and Implementation<a class="headerlink" href="#algorithm-and-implementation" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">We need to keep track of two indices:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">low</span></code>: all values in the list at locations 0..<code class="docutils literal"><span class="pre">low</span></code>-1 are
+less than <code class="docutils literal"><span class="pre">x</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">high</span></code>: all values in the list at locations <code class="docutils literal"><span class="pre">high</span></code> ..<code class="docutils literal"><span class="pre">N</span></code>
+are greater than or equal to <code class="docutils literal"><span class="pre">x</span></code>. Write <code class="docutils literal"><span class="pre">N</span></code> as the length of
+the list.</li>
+</ul>
+</li>
+<li><p class="first">Initialize <code class="docutils literal"><span class="pre">low</span> <span class="pre">=</span> <span class="pre">0</span></code> and <code class="docutils literal"><span class="pre">high</span> <span class="pre">=</span> <span class="pre">N</span></code>.</p>
+</li>
+<li><p class="first">In each iteration of a while loop:</p>
+<ul class="simple">
+<li>Set <code class="docutils literal"><span class="pre">mid</span></code> to be the average of <code class="docutils literal"><span class="pre">low</span></code> and <code class="docutils literal"><span class="pre">high</span></code>.</li>
+<li>Update the value of <code class="docutils literal"><span class="pre">low</span></code> or <code class="docutils literal"><span class="pre">high</span></code> based on comparing <code class="docutils literal"><span class="pre">x</span></code>
+to <code class="docutils literal"><span class="pre">L[mid]</span></code>.</li>
+</ul>
+</li>
+<li><p class="first">Here is the actual code:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">L</span><span class="p">):</span>
+    <span class="n">low</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">high</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">low</span> <span class="o">!=</span> <span class="n">high</span><span class="p">:</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">L</span><span class="p">[</span><span class="n">mid</span><span class="p">]:</span>
+            <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span>
+    <span class="k">return</span> <span class="n">low</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="practice">
+<h2>Practice<a class="headerlink" href="#practice" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Using</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">7.9</span><span class="p">,</span> <span class="mf">11.2</span><span class="p">,</span> <span class="mf">15.3</span><span class="p">,</span> <span class="mf">18.5</span><span class="p">,</span> <span class="mf">18.9</span><span class="p">,</span> <span class="mf">19.7</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>what are the values of <code class="docutils literal"><span class="pre">low</span></code>, <code class="docutils literal"><span class="pre">high</span></code>, and <code class="docutils literal"><span class="pre">mid</span></code> each time
+through the while loop for the calls:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">binary_search</span><span class="p">(</span><span class="mf">11.2</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
+
+
+
+<span class="n">binary_search</span><span class="p">(</span><span class="mf">19.1</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
+
+
+
+<span class="n">binary_search</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
+
+
+
+
+<span class="n">binary_search</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">How many times will the loop execute for <span class="math">\(N = 1,000\)</span> or
+<span class="math">\(N = 1,000,000\)</span>? (You will not be able to come up with an exact number,
+but you should be able to come close.) How does this compare to the
+linear search?</p>
+</li>
+<li><p class="first">Would the code still work if we changed the <code class="docutils literal"><span class="pre">&gt;</span></code> to the <code class="docutils literal"><span class="pre">&gt;=</span></code>? Why?</p>
+</li>
+<li><p class="first">Modify the code to return a tuple that includes both the index where
+<code class="docutils literal"><span class="pre">x</span></code> is or should be inserted <code class="docutils literal"><span class="pre">and</span></code> a boolean that indicates
+whether or not <code class="docutils literal"><span class="pre">x</span></code> is in the list.</p>
+</li>
+</ol>
+<p>We will also perform experimental timing runs if we have time at the end
+of class.</p>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Algorithm vs.&nbsp;implementation.</li>
+<li>Criteria for choosing an algorithm: speed, clarity, ease of
+implementation.</li>
+<li>Timing/speed evaluations can be either analytical or experimental.</li>
+<li>Searching for indices of two smallest values.</li>
+<li>Linear search.</li>
+<li>Binary search of a list that is ordered.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lec20_searching_exercises/exercises.html" class="btn btn-neutral float-right" title="Lecture 20 — Exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lec19_classes2_exercises/exercises.html" class="btn btn-neutral float-left" title="Lecture 19 — Exercises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Imran Ali
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

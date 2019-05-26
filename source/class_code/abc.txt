@@ -1,0 +1,6 @@
+ This is our 
+first test file.
+
+  It contains      extra space
+and blank lines.
+

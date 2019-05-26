@@ -1,0 +1,714 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lecture 3 — Python Strings &mdash; RPA  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 3 — Exercises" href="lec03_strings_exercises/exercises.html" />
+    <link rel="prev" title="Lecture 2 — Exercises" href="lec02_calculator_exercises/exercises.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RPA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Detailed schedule of topics for this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_lecture_lab.html">Weekly lecture and lab schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_oh_alac.html">Weekly office hour and tutoring schedule</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../lecture_notes.html">Lecture notes and exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lec01_intro.html">Lecture 1 — Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator.html">Lecture 2 — Python as a Calculator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator_exercises/exercises.html">Lecture 2 — Exercises</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lecture 3 — Python Strings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reading">Reading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#more-than-just-numbers">More Than Just Numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#topics-for-today">Topics for Today</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#strings-definition">Strings — Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#combining-single-and-double-quotes-in-a-string">Combining Single and Double Quotes in a String</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multi-line-strings">Multi-Line Strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#escape-characters">Escape Characters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-operations-concatenation">String Operations — Concatenation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-operations-replication">String Operations — Replication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#practice-problems-part-1">Practice Problems - Part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string-operations-functions">String Operations — Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-string-functions">Example String Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-print-function-in-more-detail">The <code class="docutils literal"><span class="pre">print()</span></code> Function in More Detail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-input">User Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#practice-problems-part-2">Practice Problems - Part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings_exercises/exercises.html">Lecture 3 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1.html">Lecture 4 — Using functions and modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1_exercises/exercises.html">Lecture 4 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2.html">Lecture 5 — Python Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2_exercises/exercises.html">Lecture 5 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1.html">Lecture 6 — Decisions Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1_exercises/exercises.html">Lecture 6 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images.html">Lecture 7 — Tuples, Modules, and Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images_exercises/exercises.html">Lecture 7 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1.html">Lecture 8 — Lists Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1_exercises/exercises.html">Lecture 8 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while.html">Lecture 9 — While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while_exercises/exercises.html">Lecture 9 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2.html">Lecture 10 — Lists Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2_exercises/exercises.html">Lecture 10 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals2.html">Lecture 11 — Decisions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals_exercises/exercises.html">Lecture 11 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_for_double.html">Lecture 12 — Controlling Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_exercises/exercises.html">Lecture 12 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_web.html">Lecture 13 — Data from Files and Web Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_exercises/exercises.html">Lecture 13 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec14_design_part1.html">Lecture 14 — Problem Solving and Design, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets.html">Lecture 15 — Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets_exercises/exercises.html">Lecture 15 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1.html">Lecture 16 — Dictionaries, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1_exercises/exercises.html">Lecture 16 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2.html">Lecture 17 — Dictionaries, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2_exercises/exercises.html">Lecture 17 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1.html">Lecture 18 — Classes, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1_exercises/exercises.html">Lecture 18 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2.html">Lecture 19 — Classes, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2_exercises/exercises.html">Lecture 19 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching.html">Lecture 20 — Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching_exercises/exercises.html">Lecture 20 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting.html">Lecture 21 — Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting_exercises/exercises.html">Lecture 21 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter.html">Lecture 22 — TKInter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter_exercises/exercises.html">Lecture 22 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion.html">Lecture 23 — Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion_exercises/exercises.html">Lecture 23 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional.html">Lecture 24 — Advanced Python Topics and Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional_exercises/exercises.html">Lecture 24 — Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../class_code.html">Code written in class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_environment.html">Software installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../lecture_notes.html">Lecture Notes</a> &raquo;</li>
+        
+      <li>Lecture 3 — Python Strings</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/lecture_notes/lec03_strings.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lecture-3-python-strings">
+<h1>Lecture 3 — Python Strings<a class="headerlink" href="#lecture-3-python-strings" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="reading">
+<h2>Reading<a class="headerlink" href="#reading" title="Permalink to this headline">¶</a></h2>
+<p>This material is drawn from Chapter 4 of <em>Practical Programming</em>, 2nd
+edition.</p>
+</div>
+<div class="section" id="more-than-just-numbers">
+<h2>More Than Just Numbers<a class="headerlink" href="#more-than-just-numbers" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Much of what we do today with computers revolves around text:</p>
+<ul class="simple">
+<li>Web pages</li>
+<li>Facebook</li>
+<li>Text messages</li>
+</ul>
+<p>These require working with <em>strings</em>.</p>
+</li>
+<li><p class="first">Strings are our third type, after integers and floats.</p>
+</li>
+<li><p class="first">We’ve already seen the use of strings in output:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value of x is&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;value of y is&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="topics-for-today">
+<h2>Topics for Today<a class="headerlink" href="#topics-for-today" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>String basics</li>
+<li>String operations</li>
+<li>Input to and output from your Python programs</li>
+</ul>
+</div>
+<div class="section" id="strings-definition">
+<h2>Strings — Definition<a class="headerlink" href="#strings-definition" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">A string is a sequence of 0 or more characters delimited by single
+quotes or double quotes:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s1">&#39;Rensselaer&#39;</span>
+<span class="s2">&quot;Albany, NY&quot;</span>
+<span class="s1">&#39;4 8 15 16 23 42&#39;</span>
+<span class="s1">&#39;&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">We can print strings:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
+<span class="go">Hello, world!</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Strings may be assigned to variables:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;Hello&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="s2">&quot;Good-bye&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">Hello</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span>
+<span class="go">&#39;Good-bye&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Notice that unlike integers and floats there is now a difference
+between asking the Python function <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a> to output the variable
+and asking the Python interpreter directly for the value of the
+variable.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="combining-single-and-double-quotes-in-a-string">
+<h2>Combining Single and Double Quotes in a String<a class="headerlink" href="#combining-single-and-double-quotes-in-a-string" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">A string that starts with double quotes must end with double quotes,
+and therefore we can have single quotes inside.</p>
+</li>
+<li><p class="first">A string that starts with single quotes must end with single quotes
+and therefore we can have double quotes inside.</p>
+</li>
+<li><p class="first">To illustrate this, we will take a look at:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;He said, &quot;Hello, World!&quot;&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="s2">&quot;Many single quotes here &#39;&#39;&#39;&#39;&#39;&#39;&#39;  and here &#39;&#39;&#39; but correct.&quot;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="multi-line-strings">
+<h2>Multi-Line Strings<a class="headerlink" href="#multi-line-strings" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Ordinarily, strings do not extend across multiple lines, causing an
+error if you try.</p>
+</li>
+<li><p class="first">But, starting and ending a string <code class="docutils literal"><span class="pre">&quot;&quot;&quot;</span></code> or <code class="docutils literal"><span class="pre">'''</span></code> tells Python to
+allow the string to cross multiple lines.</p>
+<ul class="simple">
+<li>Any character other than <code class="docutils literal"><span class="pre">'''</span></code> (or <code class="docutils literal"><span class="pre">&quot;&quot;&quot;</span></code>, if that is how the
+string started) is allowed inside the string.</li>
+</ul>
+</li>
+<li><p class="first">Example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;This</span>
+<span class="go">is a multi-line</span>
+<span class="go">string.&quot;&quot;&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span>
+<span class="go">&#39;This\nis a multi-line\nstring.&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
+<span class="go">This</span>
+<span class="go">is a multi-line</span>
+<span class="go">string.</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Notice the <code class="docutils literal"><span class="pre">\n</span></code> when we ask Python for the value of the string
+(instead of printing it). This is an <em>escape character</em>, as we will
+discuss next.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="escape-characters">
+<h2>Escape Characters<a class="headerlink" href="#escape-characters" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Inserting a <code class="docutils literal"><span class="pre">\</span></code> in the middle of a string tells Python that the
+next character will have special meaning (if it is possible for it to
+have special meaning).</p>
+</li>
+<li><p class="first">Most importantly:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">\n</span></code> — end the current line of text and start a new one.</li>
+<li><code class="docutils literal"><span class="pre">\t</span></code> — skip to the next “tab stop” in the text. This allows
+output in columns.</li>
+<li><code class="docutils literal"><span class="pre">\'</span></code> — do not interpret the <code class="docutils literal"><span class="pre">'</span></code> as a string delimiter.</li>
+<li><code class="docutils literal"><span class="pre">\&quot;</span></code> — do not interpret the <code class="docutils literal"><span class="pre">&quot;</span></code> as a string delimiter.</li>
+<li><code class="docutils literal"><span class="pre">\\</span></code> — put a true back-slash character into the string.</li>
+</ul>
+</li>
+<li><p class="first">We’ll explore the following strings in class:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s0</span> <span class="o">=</span> <span class="s2">&quot;*</span><span class="se">\t</span><span class="s2">*</span><span class="se">\n</span><span class="s2">**</span><span class="se">\t</span><span class="s2">**</span><span class="se">\n</span><span class="s2">***</span><span class="se">\t</span><span class="s2">***</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot;I said, </span><span class="se">\&quot;</span><span class="s2">This is a valid string.</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="string-operations-concatenation">
+<h2>String Operations — Concatenation<a class="headerlink" href="#string-operations-concatenation" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Concatenation: Two (or more) strings may be concatenated to form a
+new string, either with or without the <code class="docutils literal"><span class="pre">+</span></code> operator. We’ll look at:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s0</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot;World&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s0</span> <span class="o">+</span> <span class="n">s1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s0</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">s1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;Good&#39;</span> <span class="s1">&#39;Morning&#39;</span> <span class="s1">&#39;America!&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;Good &#39;</span> <span class="s1">&#39;Morning &#39;</span> <span class="s1">&#39;America!&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Notice that:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s0</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot; World&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s0</span> <span class="n">s1</span>
+</pre></div>
+</div>
+<p>is a syntax error but:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;Hello&quot;</span> <span class="s2">&quot; World&quot;</span>
+</pre></div>
+</div>
+<p>is not. Can you think why?</p>
+</li>
+</ul>
+</div>
+<div class="section" id="string-operations-replication">
+<h2>String Operations — Replication<a class="headerlink" href="#string-operations-replication" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">You can replicate strings by multiplying them by an integer:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;Ha&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>
+<span class="go">HaHaHaHaHaHaHaHaHaHa</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">What do you think multiplying a string by a negative integer or 0
+does? Try it.</p>
+</li>
+<li><p class="first">Many expressions you might try to write involving strings and either
+ints or floats are illegal Python, including the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;Hello&#39;</span> <span class="o">*</span> <span class="mf">8.1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;123&#39;</span> <span class="o">+</span> <span class="mi">4</span>
+</pre></div>
+</div>
+<p>Think about why.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="practice-problems-part-1">
+<h2>Practice Problems - Part 1<a class="headerlink" href="#practice-problems-part-1" title="Permalink to this headline">¶</a></h2>
+<p>We will go over these during lecture:</p>
+<ol class="arabic">
+<li><p class="first">Which are valid Python strings?</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>&gt;&gt;&gt; s1 = &#39;&quot;Hi mom&quot;, I said.  &quot;How are you?&quot;&#39;
+&gt;&gt;&gt; s2 = &#39;&quot;Hi mom&quot;, I said.  &#39;&quot;How are you?&quot;
+&gt;&gt;&gt; s3 = &#39;&quot;Hi mom&quot;, I said.  &#39;&quot;How are you?&quot;&#39;
+&gt;&gt;&gt; s4 = &quot;&quot;&quot;&#39;Hi mom&quot;, I said.  &#39;&quot;How are you?&quot;&#39;&quot;&quot;&quot;
+&gt;&gt;&gt; s5 = &quot;&quot;I want to be a lion tamer!&quot;&#39;
+&gt;&gt;&gt; s6 = &quot;\&quot;Is this a cheese shop?\&quot;\n\t&#39;Yes&#39;\n\t\&quot;We have all kinds!\&quot;&quot;
+</pre></div>
+</div>
+<p>For those that are not valid, what needs to be fixed?  For those
+that are, what is the output when they are passed to the <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a>
+function?</p>
+</li>
+<li><p class="first">What is the output?</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Cats</span><span class="se">\t</span><span class="s2">are</span><span class="se">\n\t</span><span class="s2">good</span><span class="se">\t</span><span class="s2">sources</span><span class="se">\n\t\t</span><span class="s2">of</span><span class="se">\t</span><span class="s2">internet</span><span class="se">\t</span><span class="s2">memes&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">What is the output?</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\\n</span><span class="s1">&#39;</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Good-bye&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Which of the following are legal? For those that are, show what
+Python outputs when these are typed directly into the interpreter:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;abc&#39;</span> <span class="s1">&#39;def&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;abc&#39;</span> <span class="o">+</span> <span class="s1">&#39;def&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;abc &#39;</span> <span class="o">+</span> <span class="s1">&#39;def&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;def&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="n">y</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s2</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="s1">&#39;abc &#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="string-operations-functions">
+<h2>String Operations — Functions<a class="headerlink" href="#string-operations-functions" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Python provides many operations for us to use in the form of
+<strong>functions</strong>. We have already seen <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a>, but now we
+are going to look at other functions that operate on strings.</p>
+</li>
+<li><p class="first">You can compute the length of a string with <a class="reference external" href="https://docs.python.org/3/library/functions.html#len" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">len()</span></code></a>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Hello!&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Here is what happens:</p>
+<ol class="arabic simple">
+<li>Function <a class="reference external" href="https://docs.python.org/3/library/functions.html#len" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">len()</span></code></a> is provided with the value of the string associated
+with variable <code class="docutils literal"><span class="pre">s</span></code>.</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/functions.html#len" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">len()</span></code></a> calculates the number of characters in the provided
+string using its own code, code that is <em>built-in</em> to Python.</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/functions.html#len" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">len()</span></code></a> <em>returns</em> the calculated value (in this case, 6) and
+this value is sent to the <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a> function, which actually
+generates the output.</li>
+</ol>
+</li>
+<li><p class="first">We will learn more about using functions in Lectures 4 and 5.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="example-string-functions">
+<h2>Example String Functions<a class="headerlink" href="#example-string-functions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>We will look at examples of all of the following during lecture.</li>
+<li>You can convert an integer or float to a string with <code class="xref py py-func docutils literal"><span class="pre">str()</span></code>.</li>
+<li>You can convert a string that is in the form of an integer to an
+integer using <code class="xref py py-func docutils literal"><span class="pre">int()</span></code>.</li>
+<li>You can convert a string that is in the form of a float to a float
+using, not surprisingly, <code class="xref py py-func docutils literal"><span class="pre">float()</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="the-print-function-in-more-detail">
+<h2>The <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a> Function in More Detail<a class="headerlink" href="#the-print-function-in-more-detail" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">We already know a bit about how to use <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a>, but we can learn
+more about it using <a class="reference external" href="https://docs.python.org/3/library/functions.html#help" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">help()</span></code></a>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">print</span><span class="p">)</span>
+<span class="n">Help</span> <span class="n">on</span> <span class="n">built</span><span class="o">-</span><span class="ow">in</span> <span class="n">function</span> <span class="nb">print</span> <span class="ow">in</span> <span class="n">module</span> <span class="n">builtins</span><span class="p">:</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">Prints</span> <span class="n">the</span> <span class="n">values</span> <span class="n">to</span> <span class="n">a</span> <span class="n">stream</span><span class="p">,</span> <span class="ow">or</span> <span class="n">to</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="n">by</span> <span class="n">default</span><span class="o">.</span>
+    <span class="n">Optional</span> <span class="n">keyword</span> <span class="n">arguments</span><span class="p">:</span>
+    <span class="n">file</span><span class="p">:</span>  <span class="n">a</span> <span class="n">file</span><span class="o">-</span><span class="n">like</span> <span class="nb">object</span> <span class="p">(</span><span class="n">stream</span><span class="p">);</span> <span class="n">defaults</span> <span class="n">to</span> <span class="n">the</span> <span class="n">current</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span>
+    <span class="n">sep</span><span class="p">:</span>   <span class="n">string</span> <span class="n">inserted</span> <span class="n">between</span> <span class="n">values</span><span class="p">,</span> <span class="n">default</span> <span class="n">a</span> <span class="n">space</span><span class="o">.</span>
+    <span class="n">end</span><span class="p">:</span>   <span class="n">string</span> <span class="n">appended</span> <span class="n">after</span> <span class="n">the</span> <span class="n">last</span> <span class="n">value</span><span class="p">,</span> <span class="n">default</span> <span class="n">a</span> <span class="n">newline</span><span class="o">.</span>
+    <span class="n">flush</span><span class="p">:</span> <span class="n">whether</span> <span class="n">to</span> <span class="n">forcibly</span> <span class="n">flush</span> <span class="n">the</span> <span class="n">stream</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">flush</span></code> is useful when trying to debug. If you are trying to trace your
+program execution using <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a>, adding <code class="docutils literal"><span class="pre">flush=True</span></code> as your final argument
+will give you more accurate results. We will talk about this more later.</p>
+</li>
+<li><p class="first">For now, we will focus on the <code class="docutils literal"><span class="pre">sep</span></code> and <code class="docutils literal"><span class="pre">end</span></code> and illustrate with examples.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="user-input">
+<h2>User Input<a class="headerlink" href="#user-input" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Python programs can ask the user for input using the function called
+<a class="reference external" href="https://docs.python.org/3/library/functions.html#input" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">input()</span></code></a>.</p>
+</li>
+<li><p class="first">This waits for the user to type a line of input, which Python reads
+as a string.</p>
+</li>
+<li><p class="first">This string can be converted to an integer or a float (as long as it
+is properly an int/float).</p>
+</li>
+<li><p class="first">Here is a toy example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Enter a number&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The square of&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">We can also insert the string right into the <a class="reference external" href="https://docs.python.org/3/library/functions.html#input" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">input()</span></code></a> function
+call:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a new number &quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The square of&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">A similar function exists to convert a string to an integer:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter an integer &quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">We will use this idea to modify our area and volume calculation so
+that the user of the program types in the numbers.</p>
+<ul class="simple">
+<li>The result is more useful and feels more like a real program
+(run from the command line).</li>
+<li>It will be posted on the course Website.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="practice-problems-part-2">
+<h2>Practice Problems - Part 2<a class="headerlink" href="#practice-problems-part-2" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">What is the output for this Python program?</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;George&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39; Tom  &#39;</span><span class="p">))</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Hi</span>
+<span class="s2">sis!</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Which of the following are legal? For those that are, show what
+Python outputs when these are typed directly into the interpreter.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;abc&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;abc&#39;</span> <span class="o">*</span> <span class="nb">str</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;abc&#39;</span> <span class="o">+</span> <span class="mi">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;abc&#39;</span> <span class="o">*</span> <span class="mi">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;abc&#39;</span> <span class="o">+</span> <span class="mf">5.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;abc&#39;</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">*</span> <span class="s1">&#39;abc &#39;</span> <span class="o">+</span> <span class="s1">&#39;3&#39;</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="s1">&#39;abc &#39;</span> <span class="o">+</span> <span class="s1">&#39;3&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">What is the output of the following when the user types <code class="docutils literal"><span class="pre">4</span></code> when
+running the following Python program?</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter an integer ==&gt; &#39;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">*=</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x is:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">What is the output when the user types the value <code class="docutils literal"><span class="pre">64</span></code> when running
+the following Python program?</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter an integer ==&gt; &#39;</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">//</span> <span class="mi">10</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">y</span> <span class="o">%</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>What happens when you do not have the call to the <code class="xref py py-func docutils literal"><span class="pre">int()</span></code> function?</p>
+</li>
+<li><p class="first">Write a program that requests an integer from the user as an input
+and stores it in variable <code class="docutils literal"><span class="pre">n</span></code>.  The program should then print
+<em>n</em> 1’s with 0’s in between.  For example if the user input is
+value <code class="docutils literal"><span class="pre">4</span></code> then the output should be:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">1010101</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Strings represent character sequences — our third Python type.</li>
+<li>String operations include addition (concatenation) and replication.</li>
+<li>Functions on strings may be used to determine length and to convert
+back and forth to integers and floats.</li>
+<li>Escape sequences change the meaning of special Python characters or
+make certain characters have special meaning.</li>
+<li>Some special characters of note: <code class="docutils literal"><span class="pre">\n</span></code> for new line, <code class="docutils literal"><span class="pre">\t</span></code> for tab.
+They are each preceded by <code class="docutils literal"><span class="pre">\</span></code>.</li>
+<li>The <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a> function offers significant flexibility.</li>
+<li>We can read input using <a class="reference external" href="https://docs.python.org/3/library/functions.html#input" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">input()</span></code></a>.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lec03_strings_exercises/exercises.html" class="btn btn-neutral float-right" title="Lecture 3 — Exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lec02_calculator_exercises/exercises.html" class="btn btn-neutral float-left" title="Lecture 2 — Exercises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Imran Ali
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

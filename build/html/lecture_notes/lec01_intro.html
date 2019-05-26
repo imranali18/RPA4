@@ -1,0 +1,577 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lecture 1 — Introduction &mdash; RPA  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 2 — Python as a Calculator" href="lec02_calculator.html" />
+    <link rel="prev" title="Lecture Notes" href="../lecture_notes.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RPA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Detailed schedule of topics for this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_lecture_lab.html">Weekly lecture and lab schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_oh_alac.html">Weekly office hour and tutoring schedule</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../lecture_notes.html">Lecture notes and exercises</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lecture 1 — Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#people">People</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#learning-outcomes">Learning Outcomes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#textbook">Textbook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#website-and-online-resources">Website and Online Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-items-from-the-syllabus">Other items from the syllabus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-magic-of-programming">The Magic of Programming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#types-of-problems-we-will-study">Types of Problems We Will Study</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jumping-in-quickly-with-our-first-program-hello-world">Jumping In Quickly with Our First Program — Hello World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#something-a-bit-more-interesting">Something a Bit More Interesting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#looking-back-what-steps-did-we-follow">Looking Back: What Steps Did We Follow?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#programs-compilers-interpreters-abstractions">Programs, Compilers, Interpreters, Abstractions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-python">Why Python?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#two-types-of-errors-in-our-python-programs">Two Types of Errors in Our Python Programs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python-versions">Python Versions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lab-0-tuesday-and-wednesday-next-week">Lab 0 — Tuesday and Wednesday next week!</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator.html">Lecture 2 — Python as a Calculator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator_exercises/exercises.html">Lecture 2 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings.html">Lecture 3 — Python Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings_exercises/exercises.html">Lecture 3 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1.html">Lecture 4 — Using functions and modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1_exercises/exercises.html">Lecture 4 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2.html">Lecture 5 — Python Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2_exercises/exercises.html">Lecture 5 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1.html">Lecture 6 — Decisions Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1_exercises/exercises.html">Lecture 6 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images.html">Lecture 7 — Tuples, Modules, and Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images_exercises/exercises.html">Lecture 7 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1.html">Lecture 8 — Lists Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1_exercises/exercises.html">Lecture 8 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while.html">Lecture 9 — While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while_exercises/exercises.html">Lecture 9 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2.html">Lecture 10 — Lists Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2_exercises/exercises.html">Lecture 10 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals2.html">Lecture 11 — Decisions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals_exercises/exercises.html">Lecture 11 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_for_double.html">Lecture 12 — Controlling Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_exercises/exercises.html">Lecture 12 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_web.html">Lecture 13 — Data from Files and Web Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_exercises/exercises.html">Lecture 13 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec14_design_part1.html">Lecture 14 — Problem Solving and Design, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets.html">Lecture 15 — Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets_exercises/exercises.html">Lecture 15 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1.html">Lecture 16 — Dictionaries, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1_exercises/exercises.html">Lecture 16 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2.html">Lecture 17 — Dictionaries, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2_exercises/exercises.html">Lecture 17 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1.html">Lecture 18 — Classes, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1_exercises/exercises.html">Lecture 18 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2.html">Lecture 19 — Classes, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2_exercises/exercises.html">Lecture 19 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching.html">Lecture 20 — Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching_exercises/exercises.html">Lecture 20 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting.html">Lecture 21 — Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting_exercises/exercises.html">Lecture 21 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter.html">Lecture 22 — TKInter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter_exercises/exercises.html">Lecture 22 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion.html">Lecture 23 — Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion_exercises/exercises.html">Lecture 23 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional.html">Lecture 24 — Advanced Python Topics and Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional_exercises/exercises.html">Lecture 24 — Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../class_code.html">Code written in class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_environment.html">Software installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../lecture_notes.html">Lecture Notes</a> &raquo;</li>
+        
+      <li>Lecture 1 — Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/lecture_notes/lec01_intro.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lecture-1-introduction">
+<h1>Lecture 1 — Introduction<a class="headerlink" href="#lecture-1-introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="people">
+<h2>People<a class="headerlink" href="#people" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Instructor: Konstantin Kuzmin</li>
+<li>Humanities Focused Section: James Malazita</li>
+<li>Instructional Support Coordinator: Erica Eberwein</li>
+<li>TAs and programming mentors:  see course Website</li>
+</ul>
+</div>
+<div class="section" id="learning-outcomes">
+<h2>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Demonstrate proficiency in the purpose and behavior of basic
+programming constructs.</li>
+<li>Design algorithms and programs to solve small-scale computational
+programs.</li>
+<li>Write, test and debug small-scale programs</li>
+<li>Demonstrate an understanding of the widespread application of
+computational thinking to real-world problems.</li>
+</ol>
+</div>
+<div class="section" id="textbook">
+<h2>Textbook<a class="headerlink" href="#textbook" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><em>Practical Programming: An Introduction to Computer Science Using
+Python</em> by Campbell, Gries, and Montojo<ul>
+<li>Available in e-book form</li>
+</ul>
+</li>
+<li>We will be using <strong>second edition</strong> but if you have third edition, it should also be fine.</li>
+</ul>
+</div>
+<div class="section" id="website-and-online-resources">
+<h2>Website and Online Resources<a class="headerlink" href="#website-and-online-resources" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Course notes and lecture exercises will be posted at:</p>
+<blockquote>
+<div><p><a class="reference external" href="http://www.cs.rpi.edu/academics/courses/spring19/csci1100">http://www.cs.rpi.edu/academics/courses/spring19/csci1100</a></p>
+</div></blockquote>
+</li>
+<li><p class="first">Submitty will be used for posting homework assignments and labs, and as a
+public discussion site:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://submitty.cs.rpi.edu/index.php?semester=s19&amp;course=csci1100&amp;component=forum&amp;page=view_thread">https://submitty.cs.rpi.edu/index.php?semester=s19&amp;course=csci1100&amp;component=forum&amp;page=view_thread</a></p>
+</div></blockquote>
+<p>You will be automatically added when you enroll. Let an instructor or TA know if you cannot log into this site more than <strong>48 hours</strong> after you receive notice from the registrar that you are enrolled. The site is updated daily, not immediately, so there might be some lag.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="other-items-from-the-syllabus">
+<h2>Other items from the syllabus<a class="headerlink" href="#other-items-from-the-syllabus" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Dr. Kuzmin’s office hours are:<ul>
+<li>Tues 4:00 pm - 5:30 pm and Thurs 11:30 am - 1:00 pm, both in AE112</li>
+</ul>
+</li>
+<li>Other office hours are posted online</li>
+<li>Lab sections are held Tuesdays and Wednesdays. Full credit will be given for
+finishing the lab within your lab period. Checkpoints completed before your
+next lab will receive half credit.<ul>
+<li><strong>Important exception:</strong> For the last checkpoint only… If you show up on time and work through the entire lab period, we will give you full credit for a <strong>final</strong> checkpoint that is completed before your next lab.</li>
+</ul>
+</li>
+<li>Requirements and grading: lecture exercises, labs, homework assignments, tests; letter grades</li>
+<li>Appealing grades</li>
+<li>Class attendance and participation; lecture notes</li>
+<li>Homework late policy:<ul>
+<li>6 LATE DAYS FOR THE WHOLE SEMESTER</li>
+<li>2 LATE DAYS ON ANY ONE ASSIGNMENT</li>
+</ul>
+</li>
+<li>Academic integrity</li>
+<li>Other exceptions: report to me right now or as soon as you know</li>
+<li>Notes on schedule:<ul>
+<li>Labs start next week. As of the end of that lab (Lab 0) you should
+have all the pieces you need to successfully complete
+the remaining labs and homework assignments for the semester. If you have problems
+completing Lab 0, please get help. You have to get it done to proceed and you really need to be
+finished before Lab 1.</li>
+<li>No labs during the weeks of February 17 (President’s Day), March 3 (Spring break), and March 24 (GM week).</li>
+<li>Test dates are February 7, March 14, and April 11, all from 6:15 pm to 7:45 pm (90 minutes). You must be here or have an excused absence from Student Experience. If you do not have an excused absence for a test, you will get a 0. <strong>No exceptions</strong>!</li>
+<li>Final exam will be held during finals week.  <strong>No exceptions</strong>!  So,
+don’t make departure plans until the final exam schedule is posted.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="the-magic-of-programming">
+<h2>The Magic of Programming<a class="headerlink" href="#the-magic-of-programming" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Cold, harsh logic, and</li>
+<li>Seemingly primitive syntax…</li>
+<li>Leading to soaring creativity!</li>
+</ul>
+</div>
+<div class="section" id="types-of-problems-we-will-study">
+<h2>Types of Problems We Will Study<a class="headerlink" href="#types-of-problems-we-will-study" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Tools used to help you win at <em>Words with Friends</em></li>
+<li>Image processing and manipulation</li>
+<li>Web searching and crawling</li>
+<li>Programs that work with data from Yelp</li>
+<li>Numerical examples, including games and physical simulations</li>
+<li>Perhaps even a simple version of (part of) Pokemon Go.</li>
+</ul>
+</div>
+<div class="section" id="jumping-in-quickly-with-our-first-program-hello-world">
+<h2>Jumping In Quickly with Our First Program — Hello World<a class="headerlink" href="#jumping-in-quickly-with-our-first-program-hello-world" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">We create a text file called <code class="docutils literal"><span class="pre">hello.py</span></code> containing just the two lines of Python code:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is Python&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">This is done by launching the Wing IDE, which is specific to creating
+and running Python programs</p>
+<ul>
+<li><p class="first">IDE stands for ’Integrated Development Environment’</p>
+<blockquote>
+<div><ul class="simple">
+<li>Two windows will appear — the top being the editor and the bottom
+being the Python interpreter</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p class="first">Load the <code class="docutils literal"><span class="pre">hello.py</span></code> program</p>
+</li>
+<li><p class="first">Run it using the interpreter</p>
+</li>
+<li><p class="first">We can also type Python code directly into the interpreter.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="something-a-bit-more-interesting">
+<h2>Something a Bit More Interesting<a class="headerlink" href="#something-a-bit-more-interesting" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">We are going to emphasize computational thinking throughout the
+semester, so let’s look at a fun little problem and get started.</p>
+</li>
+<li><p class="first">This problem is posed in <em>Think Python</em> and taken from the NPR show
+<em>Car Talk</em>. If you know the answer, do NOT say it!</p>
+<blockquote>
+<div><p>“Find the one word in the English language that contains three
+consecutive double letters.”</p>
+</div></blockquote>
+</li>
+<li><p class="first">We will talk through the steps needed to develop and test a Python
+program to solve this problem.</p>
+<ul class="simple">
+<li>The file containing this program will be posted on the course
+website after class.</li>
+</ul>
+</li>
+<li><p class="first">We do <strong>not</strong> intend that you will understand the details of the
+program at this time. Rather, this is just an exercise that
+illustrates the steps of solving a fun problem computationally.</p>
+</li>
+<li><p class="first">On the other hand, it does introduce some elements that will be
+seeing repeatedly throughout the semester:</p>
+<ul class="simple">
+<li>Files</li>
+<li>Functions</li>
+<li>Loops</li>
+<li>Logic</li>
+<li>Counting</li>
+<li>Output</li>
+<li>Libraries</li>
+</ul>
+</li>
+<li><p class="first">In about six weeks, you will understand all parts of this program!</p>
+</li>
+<li><p class="first">You can see the code in <code class="xref py py-mod docutils literal"><span class="pre">three_doubles</span></code> from <a class="reference internal" href="../class_code.html"><span class="doc">Code Developed in CSCI-1100 Spring 2019</span></a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="looking-back-what-steps-did-we-follow">
+<h2>Looking Back: What Steps Did We Follow?<a class="headerlink" href="#looking-back-what-steps-did-we-follow" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Developing an understanding of what the problem is really asking.
+This usually involves playing around with small examples.</li>
+<li>Developing and describing a recipe (an “algorithm”) for solving the
+problem<ul>
+<li>Most recipes will involve multiple parts — multiple functional
+steps</li>
+</ul>
+</li>
+<li>Turning this recipe into a program in the formal language of Python,
+one of many different programming languages.<ul>
+<li>English is too imprecise for specification of programs.</li>
+</ul>
+</li>
+<li>Running this program using the Python interpreter.</li>
+</ol>
+</div>
+<div class="section" id="programs-compilers-interpreters-abstractions">
+<h2>Programs, Compilers, Interpreters, Abstractions<a class="headerlink" href="#programs-compilers-interpreters-abstractions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Python is an interpreted language — run immediately and interactively
+by the Python interpreter, which is itself another (very complex)
+program</li>
+<li>Programs in some other (non-interpreted) languages like C, C++ and
+Java must be compiled (by a “compiler” — another program) into a new
+program in machine assembly language and then executed.</li>
+<li>In both cases, we write programs that require other programs to run.<ul>
+<li>And, we don’t just need just the compiler or interpreter — we need
+the file system, the operating system, and the command-line
+interpreter, each of them complicated, multi-part programs
+themselves.</li>
+</ul>
+</li>
+<li>We don’t really think about the details of these programs; we just
+think of what they do for us.<ul>
+<li>This is called an “abstraction”.</li>
+<li>It allows us to think about a problem we are trying to solve
+without thinking about all the details of all the other systems we
+are depending on.</li>
+<li>Thinking in terms of abstractions is fundamental to computer
+science.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="why-python">
+<h2>Why Python?<a class="headerlink" href="#why-python" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Python has a very simple syntax<ul>
+<li>The roles of indentation and blank lines cause the most confusion.</li>
+</ul>
+</li>
+<li>Interpreted languages provide immediate, useful feedback</li>
+<li>Python has a powerful set of tools — abstractions</li>
+<li>Python is widely used in science, engineering, and industry.</li>
+<li>Python is good for rapid prototyping<ul>
+<li>Sometimes, after a Python program is written and working, the
+most time-consuming steps are rewritten in either C or C++ and
+then integrated with the Python code.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="two-types-of-errors-in-our-python-programs">
+<h2>Two Types of Errors in Our Python Programs<a class="headerlink" href="#two-types-of-errors-in-our-python-programs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>A <em>syntax error</em> is a mistake in the form of the Python code that
+will not allow it to run.</li>
+<li>A <em>semantic error</em> is a mistake in the “meaning” of the program,
+causing it to produce incorrect output, even if it runs.</li>
+<li>We will demonstrate both types of errors by deliberately introducing
+errors in our triple double example program.</li>
+</ul>
+</div>
+<div class="section" id="python-versions">
+<h2>Python Versions<a class="headerlink" href="#python-versions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Python, like all programming languages, is continually under
+development.</li>
+<li>We will be using the latest version installed by the <em>conda</em> package.</li>
+</ul>
+</div>
+<div class="section" id="lab-0-tuesday-and-wednesday-next-week">
+<h2>Lab 0 — Tuesday and Wednesday next week!<a class="headerlink" href="#lab-0-tuesday-and-wednesday-next-week" title="Permalink to this headline">¶</a></h2>
+<p>By the end of Lab&nbsp;0, you should have:</p>
+<ol class="arabic">
+<li><p class="first">Visited the Submitty site and browsed the forum and file repositories</p>
+<blockquote>
+<div><p><a class="reference external" href="https://submitty.cs.rpi.edu/index.php?semester=s19&amp;course=csci1100">https://submitty.cs.rpi.edu/index.php?semester=s19&amp;course=csci1100</a></p>
+</div></blockquote>
+</li>
+<li><p class="first">Gone to the course page</p>
+<blockquote>
+<div><p><a class="reference external" href="http://www.cs.rpi.edu/academics/courses/spring19/csci1100/python_environment.html">http://www.cs.rpi.edu/academics/courses/spring19/csci1100/python_environment.html</a></p>
+</div></blockquote>
+<p>and followed the instructions to install the Python environment on
+your computer.</p>
+<ul class="simple">
+<li>There are installers for “native” versions of the environment for
+Windows, Mac OS X, and Linux machines.</li>
+</ul>
+</li>
+<li><p class="first">Created a Dropbox account to store back-up copies “in the cloud” of
+homework and lab solutions and lab for the course.</p>
+<ul class="simple">
+<li>Other cloud-based back-up copies are acceptable.</li>
+<li>This is required. Do not come to us the day your homework is due and tell us you lost your data! Dropbox gives you a <strong>private</strong> cloud backup and version control.</li>
+<li>I love <em>github</em> and <em>gitlab</em>. <strong>Do not use them for your coursework</strong>. We take academic integrity seriously in this course. If you publish your code online and someone copies it, you are responsible.</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lec02_calculator.html" class="btn btn-neutral float-right" title="Lecture 2 — Python as a Calculator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../lecture_notes.html" class="btn btn-neutral float-left" title="Lecture Notes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Imran Ali
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+('Spring', 2015) earlier than ('Spring', 2014)? False
+('Spring', 2015) earlier than ('Spring', 2015)? False
+('Spring', 2015) earlier than ('Fall', 2015)? True
+('Fall', 2015) earlier than ('Spring', 2015)? False
+('Fall', 2014) earlier than ('Fall', 2015)? True
+('Spring', 2015) earlier than ('Fall', 2014)? False

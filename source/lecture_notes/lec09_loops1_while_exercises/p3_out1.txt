@@ -1,0 +1,7 @@
+Enter a value (0 to end): 5
+Enter a value (0 to end): 3
+Enter a value (0 to end): 11
+Enter a value (0 to end): 0
+Min: 3
+Max: 11
+Avg: 6.3

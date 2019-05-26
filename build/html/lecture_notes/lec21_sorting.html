@@ -1,0 +1,687 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lecture 21 — Sorting &mdash; RPA  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 21 — Exercises" href="lec21_sorting_exercises/exercises.html" />
+    <link rel="prev" title="Lecture 20 — Exercises" href="lec20_searching_exercises/exercises.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RPA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Detailed schedule of topics for this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_lecture_lab.html">Weekly lecture and lab schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_oh_alac.html">Weekly office hour and tutoring schedule</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../lecture_notes.html">Lecture notes and exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lec01_intro.html">Lecture 1 — Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator.html">Lecture 2 — Python as a Calculator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator_exercises/exercises.html">Lecture 2 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings.html">Lecture 3 — Python Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings_exercises/exercises.html">Lecture 3 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1.html">Lecture 4 — Using functions and modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1_exercises/exercises.html">Lecture 4 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2.html">Lecture 5 — Python Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2_exercises/exercises.html">Lecture 5 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1.html">Lecture 6 — Decisions Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1_exercises/exercises.html">Lecture 6 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images.html">Lecture 7 — Tuples, Modules, and Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images_exercises/exercises.html">Lecture 7 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1.html">Lecture 8 — Lists Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1_exercises/exercises.html">Lecture 8 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while.html">Lecture 9 — While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while_exercises/exercises.html">Lecture 9 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2.html">Lecture 10 — Lists Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2_exercises/exercises.html">Lecture 10 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals2.html">Lecture 11 — Decisions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals_exercises/exercises.html">Lecture 11 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_for_double.html">Lecture 12 — Controlling Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_exercises/exercises.html">Lecture 12 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_web.html">Lecture 13 — Data from Files and Web Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_exercises/exercises.html">Lecture 13 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec14_design_part1.html">Lecture 14 — Problem Solving and Design, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets.html">Lecture 15 — Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets_exercises/exercises.html">Lecture 15 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1.html">Lecture 16 — Dictionaries, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1_exercises/exercises.html">Lecture 16 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2.html">Lecture 17 — Dictionaries, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2_exercises/exercises.html">Lecture 17 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1.html">Lecture 18 — Classes, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1_exercises/exercises.html">Lecture 18 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2.html">Lecture 19 — Classes, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2_exercises/exercises.html">Lecture 19 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching.html">Lecture 20 — Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching_exercises/exercises.html">Lecture 20 — Exercises</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lecture 21 — Sorting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#algorithms-to-study">Algorithms to Study</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#experimental-analysis">Experimental Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#insertion-sort">Insertion Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#steps-to-testing">Steps to Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rough-analysis-of-time-required">Rough Analysis of Time Required</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#breaking-the-n-squared-barrier">Breaking the N-Squared Barrier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#merging-two-sorted-lists">Merging Two Sorted Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#merge-sort">Merge Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#analysis-of-merge-sort">Analysis of Merge Sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#final-comparison-across-all-sorts">Final Comparison Across All Sorts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#practice-questions">Practice Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting_exercises/exercises.html">Lecture 21 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter.html">Lecture 22 — TKInter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter_exercises/exercises.html">Lecture 22 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion.html">Lecture 23 — Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion_exercises/exercises.html">Lecture 23 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional.html">Lecture 24 — Advanced Python Topics and Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional_exercises/exercises.html">Lecture 24 — Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../class_code.html">Code written in class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_environment.html">Software installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../lecture_notes.html">Lecture Notes</a> &raquo;</li>
+        
+      <li>Lecture 21 — Sorting</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/lecture_notes/lec21_sorting.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lecture-21-sorting">
+<h1>Lecture 21 — Sorting<a class="headerlink" href="#lecture-21-sorting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Sorting is a fundamental operation.</li>
+<li>Provides good practice in implementing and testing small functions.</li>
+<li>Leads to a better understanding of algorithm efficiency.</li>
+<li>Allows us to consider the fundamental notion of a merge of two sorted
+sequences.</li>
+<li>During testing, we will see an example of the important notion of
+passing functions as arguments.</li>
+</ul>
+</div>
+<div class="section" id="algorithms-to-study">
+<h2>Algorithms to Study<a class="headerlink" href="#algorithms-to-study" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Insertion sort</li>
+<li>Merge sort<ul>
+<li>This is our primary focus.</li>
+</ul>
+</li>
+<li>Python’s built-in sort</li>
+</ul>
+</div>
+<div class="section" id="experimental-analysis">
+<h2>Experimental Analysis<a class="headerlink" href="#experimental-analysis" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">The code <code class="docutils literal"><span class="pre">lec21_test_sort.py</span></code> posted in Course Materials on the Submitty Webite and attached to
+the end of these notes, will be used to do timing experiments on all
+the sorts we write.</p>
+</li>
+<li><p class="first">Makes use of the <a class="reference external" href="https://docs.python.org/3/library/random.html#module-random" title="(in Python v3.7)"><code class="xref py py-mod docutils literal"><span class="pre">random</span></code></a> module.</p>
+</li>
+<li><p class="first">Includes two main functions:</p>
+<ul class="simple">
+<li><code class="xref py py-func docutils literal"><span class="pre">run_and_time()</span></code></li>
+<li><code class="xref py py-func docutils literal"><span class="pre">generate_local_perm()</span></code></li>
+</ul>
+<p>We will discuss each of these in turn.</p>
+</li>
+<li><p class="first">Sorting functions themselves are functions in module <code class="xref py py-mod docutils literal"><span class="pre">sorts</span></code>.</p>
+</li>
+<li><p class="first">Notice that the sorting function is <em>passed as an argument</em> to
+<code class="xref py py-func docutils literal"><span class="pre">run_and_time()</span></code>:</p>
+<ul class="simple">
+<li>First time that we have passed a function as an argument to
+another function!</li>
+</ul>
+</li>
+<li><p class="first">We will start with experiments to analyze selection sort (see
+textbook) and insertion sort.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="insertion-sort">
+<h2>Insertion Sort<a class="headerlink" href="#insertion-sort" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Idea:</p>
+<ul class="simple">
+<li>If we already have a sorted list and we want to insert a new
+value, we can shift values one location higher until we find the
+proper location for the new value.</li>
+<li>Insert the new value.</li>
+<li>Start with a just a list of length 1 and repeat until all values
+have been inserted.</li>
+</ul>
+</li>
+<li><p class="first">Algorithm:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">each</span> <span class="n">index</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">the</span> <span class="nb">list</span><span class="p">,</span> <span class="n">starting</span> <span class="n">at</span> <span class="mi">1</span> <span class="n">do</span>
+    <span class="n">Save</span> <span class="n">the</span> <span class="n">value</span> <span class="n">stored</span> <span class="n">at</span> <span class="n">location</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">variable</span> <span class="n">x</span>
+    <span class="n">Initialize</span> <span class="n">j</span> <span class="n">at</span> <span class="n">location</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span>
+    <span class="k">while</span> <span class="n">j</span> <span class="ow">is</span> <span class="n">non</span><span class="o">-</span><span class="n">negative</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">location</span> <span class="n">to</span> <span class="n">insert</span> <span class="n">x</span> <span class="n">has</span> <span class="ow">not</span> <span class="n">been</span> <span class="n">found</span> <span class="n">do</span>
+        <span class="n">Shift</span> <span class="n">the</span> <span class="n">value</span> <span class="n">at</span> <span class="n">location</span> <span class="n">j</span> <span class="n">up</span> <span class="n">to</span> <span class="n">location</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span>
+        <span class="n">Decrement</span> <span class="n">j</span>
+    <span class="n">Insert</span> <span class="n">the</span> <span class="n">value</span> <span class="n">stored</span> <span class="ow">in</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">location</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Code (in-class exercise):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ins_sort</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="steps-to-testing">
+<h2>Steps to Testing<a class="headerlink" href="#steps-to-testing" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Re-read and mentally simulate.</li>
+<li>Insert print statements and/or view with debugger to see what it is
+actually doing.</li>
+<li>Run on “test cases” that capture challenging conditions:<ul>
+<li>Empty list.</li>
+<li>Singleton list.</li>
+<li>List of repeated values.</li>
+<li>List where the largest value is at the beginning or the smallest
+value is at the end.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="rough-analysis-of-time-required">
+<h2>Rough Analysis of Time Required<a class="headerlink" href="#rough-analysis-of-time-required" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>For any particular value of <code class="docutils literal"><span class="pre">i</span></code> in the outer <code class="docutils literal"><span class="pre">for</span></code> loop, there
+can be up to <code class="docutils literal"><span class="pre">i</span> <span class="pre">-</span> <span class="pre">1</span></code> comparisons/shifts:<ul>
+<li>When <code class="docutils literal"><span class="pre">i</span> <span class="pre">==</span> <span class="pre">1</span></code> this is not much, but…</li>
+<li>When <code class="docutils literal"><span class="pre">i</span> <span class="pre">==</span> <span class="pre">N-1</span></code>, this is a lot.</li>
+</ul>
+</li>
+<li>Adding across the different values of <code class="docutils literal"><span class="pre">i</span></code>, this results in at most
+(roughly) <span class="math">\(N^2/2\)</span> comparisons.</li>
+<li>We write this as <span class="math">\(O(N^2)\)</span> because (informally) the number of
+comparisons done is proportional to <span class="math">\(N^2\)</span>.</li>
+</ul>
+</div>
+<div class="section" id="breaking-the-n-squared-barrier">
+<h2>Breaking the N-Squared Barrier<a class="headerlink" href="#breaking-the-n-squared-barrier" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The fundamental problem with both selection sort (discussed in the
+textbook, but not in these notes) and insertion sort:<ul>
+<li>We need to do up to <span class="math">\(N\)</span> comparisons by scanning through the
+list to find the proper location of the next value in the sorted
+list.</li>
+<li>For insertion sort, we could use binary search to find the
+insertion location, but we would still have up to <span class="math">\(N\)</span> shifts
+of values.</li>
+</ul>
+</li>
+<li>Do better than selection sort and insertion sort by using algorithms
+that don’t scan the entire list to assign one value.</li>
+<li>Examples:<ul>
+<li>Quick sort</li>
+<li>Heap sort</li>
+<li>Merge sort</li>
+</ul>
+</li>
+<li>We’ll study merge sort, in part because it is the easiest of these to
+understand and in part because of the importance of the idea of a
+merge.</li>
+</ul>
+</div>
+<div class="section" id="merging-two-sorted-lists">
+<h2>Merging Two Sorted Lists<a class="headerlink" href="#merging-two-sorted-lists" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Given two lists each of which is already sorted, our problem is to
+generate a new sorted list containing all of the items from both
+lists.</p>
+</li>
+<li><p class="first">For example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>must be merged into a new list containing:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Idea:</p>
+<ul class="simple">
+<li>Since both lists are sorted, the first item in the new list must
+be the first item in one of the lists!</li>
+<li>If we “remove” the smallest item (3 in <code class="docutils literal"><span class="pre">L1</span></code> in this case), the
+next item will again be the first non-copied item in one of the
+two lists!</li>
+<li>We repeat this process until one of the lists has no more items to
+copy.</li>
+<li>Then, copy the remainder of the other list to the back of our new
+list.</li>
+</ul>
+</li>
+<li><p class="first">We don’t actually remove the items from <code class="docutils literal"><span class="pre">L1</span></code> or <code class="docutils literal"><span class="pre">L2</span></code>. Instead we
+keep an index to the next location of <code class="docutils literal"><span class="pre">L1</span></code> and <code class="docutils literal"><span class="pre">L2</span></code> that has not
+yet been copied.</p>
+</li>
+<li><p class="first">We’ll write the code in class, starting from here:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span> <span class="n">L2</span><span class="p">):</span>
+    <span class="n">i1</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">i2</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="k">return</span> <span class="n">L</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Studying the solution:</p>
+<ol class="arabic simple">
+<li>Write the values of the index variables, <code class="docutils literal"><span class="pre">i1</span></code> and <code class="docutils literal"><span class="pre">i2</span></code>, each
+time through the loop for lists <code class="docutils literal"><span class="pre">L1</span></code> and <code class="docutils literal"><span class="pre">L2</span></code> above.</li>
+<li>What are the values of <code class="docutils literal"><span class="pre">i1</span></code> and <code class="docutils literal"><span class="pre">i2</span></code> when the loop terminates?</li>
+</ol>
+</li>
+</ul>
+</div>
+<div class="section" id="merge-sort">
+<h2>Merge Sort<a class="headerlink" href="#merge-sort" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Key observation: all lists of length 1 are sorted.</p>
+</li>
+<li><p class="first">Therefore, for a list of length <span class="math">\(N\)</span> that is to be sorted:</p>
+<ul class="simple">
+<li>Create <span class="math">\(N\)</span> lists of length 1 from the values in the list.</li>
+<li>Start to merge these “singleton” lists in pairs to create longer,
+sorted lists.</li>
+<li>Repeat on pairs of longer lists in succession.</li>
+</ul>
+</li>
+<li><p class="first">Requires:</p>
+<ul class="simple">
+<li>Keeping a list of sorted sublists, initialized with each singleton
+list.</li>
+<li>Rather than deleting the sorted sublists, just keep track of which
+we need to work on.</li>
+</ul>
+</li>
+<li><p class="first">Code (in class):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge_sort</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="analysis-of-merge-sort">
+<h2>Analysis of Merge Sort<a class="headerlink" href="#analysis-of-merge-sort" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Check for correctness.</li>
+<li>We’ll give an informal analysis explaining why there are only
+<span class="math">\(O(N \log N)\)</span> comparisons.</li>
+<li>Experimental timings.</li>
+<li>Can you think of ways to improve our implementation of the merge sort
+idea?</li>
+</ul>
+</div>
+<div class="section" id="final-comparison-across-all-sorts">
+<h2>Final Comparison Across All Sorts<a class="headerlink" href="#final-comparison-across-all-sorts" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Selection sort and insertion sort are dramatically slower than merge
+sort, which in turn is dramatically slower than Python’s built-in
+sort, a highly optimized, C language implementation of a hybrid
+sorting algorithm derived from merge sort and insertion sort.</p>
+</li>
+<li><p class="first">Shows:</p>
+<ul class="simple">
+<li>the difference between <span class="math">\(O(N^2)\)</span> sorting and
+<span class="math">\(O(N log N)\)</span> sorting.</li>
+<li>the difference between a straightforward Python implementation
+and a careful, optimized implementation of the same algorithm.</li>
+</ul>
+<p>Both of these are important!</p>
+</li>
+<li><p class="first">Final question: what happens when values are “almost” sorted?</p>
+<ul class="simple">
+<li>Experimentally, we can explore this using the
+<code class="xref py py-func docutils literal"><span class="pre">generate_local_perm()</span></code> function in <code class="docutils literal"><span class="pre">test_sort.py</span></code>.</li>
+<li>Insertion sort becomes much faster, far outstripping selection
+sort. Why?</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="practice-questions">
+<h2>Practice Questions<a class="headerlink" href="#practice-questions" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">For our insertion sort code, show the contents of the following list
+after each iteration of the outer <code class="docutils literal"><span class="pre">for</span></code> loop:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>While you can and should use the implementation to test your answers,
+you should start by manually generating the answers on your own.</p>
+</li>
+<li><p class="first">Show the contents of the <code class="docutils literal"><span class="pre">lists</span></code> list at the end of the
+<code class="xref py py-func docutils literal"><span class="pre">merge_sort()</span></code> implementation developed in class when it is called
+with:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">17</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">33</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Consider the following function:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">extract</span><span class="p">(</span><span class="n">comp</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">comp</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">x</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+<p>Note that <code class="xref py py-func docutils literal"><span class="pre">comp()</span></code> is a function that has been passed to <code class="xref py py-func docutils literal"><span class="pre">extract()</span></code>.</p>
+<ol class="arabic">
+<li><p class="first">Write a function called <code class="docutils literal"><span class="pre">compare_lower(a,</span> <span class="pre">b)</span></code> such that if <code class="docutils literal"><span class="pre">L</span></code>
+is a list then the call:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">extract</span><span class="p">(</span><span class="n">compare_lower</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>returns the smallest value in <code class="docutils literal"><span class="pre">L</span></code>.</p>
+</li>
+<li><p class="first">Write a function called <code class="docutils literal"><span class="pre">compare_upper(a,</span> <span class="pre">b)</span></code> such that if <code class="docutils literal"><span class="pre">L</span></code>
+is a list then the call:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">extract</span><span class="p">(</span><span class="n">compare_upper</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>returns the largest value in <code class="docutils literal"><span class="pre">L</span></code>.</p>
+</li>
+</ol>
+</li>
+<li><p class="first">Write a version of <code class="xref py py-func docutils literal"><span class="pre">merge()</span></code> that does all of the work inside the
+<code class="docutils literal"><span class="pre">while</span></code> loop and does not use <code class="xref py py-func docutils literal"><span class="pre">extend()</span></code>. This is a good test
+of your logic skills.</p>
+</li>
+<li><p class="first">Based on your previous solution write a function to merge three
+sorted lists. This is an even greater challenge to your logic skills.</p>
+</li>
+</ol>
+<p>Note that when it comes to the Final, you will not be required to have
+memorized the code of the sorting functions, but you should know the
+algorithms!</p>
+<p>Sort Testing Code:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Testing code for Computer Science 1, Lecture 21 on sorting. This</span>
+<span class="sd">assumes that the sort functions are all in file lec21_sorts.py, each taking</span>
+<span class="sd">one list as its only argument, and that their names are sel_sort</span>
+<span class="sd">ins_sort merge_sort</span>
+
+<span class="sd">All tests are based on random permutations of integers.</span>
+
+<span class="sd">. In most of our tests, these permutations are completely random,</span>
+<span class="sd">  meaning that a value is equally likely to end up anywhere in the</span>
+<span class="sd">  list.</span>
+
+<span class="sd">. In the final test we will explore the implications of working</span>
+<span class="sd">  with lists that are &quot;almost sorted&quot; by only moving values a small</span>
+<span class="sd">  distance from the correct location.  You can see that insertion sort</span>
+<span class="sd">  is very fast in this case by removing the # char in front of</span>
+<span class="sd">  generate_local_perm</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">lec21_sorts</span> <span class="k">as</span> <span class="nn">sorts</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+
+<span class="k">def</span> <span class="nf">run_and_time</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">sort_fcn</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">known_v</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Run the function passed as sort_fcn, timing its performance and</span>
+<span class="sd">    double-checking if it correct.  The correctness check is probably</span>
+<span class="sd">    not necessary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Testing &quot;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">sort_fcn</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time: </span><span class="si">{:.4f}</span><span class="s2"> seconds&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="n">t0</span><span class="p">))</span>
+    <span class="c1"># print(&quot;Is correct?&quot;, v==known_v</span>
+    <span class="nb">print</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">generate_local_perm</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">max_shift</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function modifies a list so values are only a small amount</span>
+<span class="sd">    out of order.  Each one  Generate a local permutation by randomly moving each</span>
+<span class="sd">    value up to max_shift locations in the list.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)):</span>
+        <span class="n">min_i</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="n">max_shift</span><span class="p">)</span>
+        <span class="n">max_i</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">max_shift</span><span class="p">)</span>
+        <span class="n">new_i</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">min_i</span><span class="p">,</span> <span class="n">max_i</span><span class="p">)</span>
+        <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="n">new_i</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">new_i</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+
+<span class="c1">####################################################</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the number of values ==&gt; &quot;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running on </span><span class="si">{:d}</span><span class="s2"> values&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------&quot;</span><span class="p">)</span>
+
+    <span class="n">v</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="n">v1</span> <span class="o">=</span> <span class="n">v</span><span class="p">[:]</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span>
+    <span class="c1"># generate_local_perm(v1, 10)</span>
+    <span class="n">v2</span> <span class="o">=</span> <span class="n">v1</span><span class="p">[:]</span>
+    <span class="n">v3</span> <span class="o">=</span> <span class="n">v1</span><span class="p">[:]</span>
+    <span class="n">v4</span> <span class="o">=</span> <span class="n">v1</span><span class="p">[:]</span>
+
+    <span class="n">run_and_time</span><span class="p">(</span><span class="s2">&quot;Merge sort&quot;</span><span class="p">,</span> <span class="n">sorts</span><span class="o">.</span><span class="n">merge_sort</span><span class="p">,</span> <span class="n">v3</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>   <span class="c1"># passing functions as an arg to a fcn</span>
+    <span class="n">run_and_time</span><span class="p">(</span><span class="s2">&quot;Python sort&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="o">.</span><span class="n">sort</span><span class="p">,</span> <span class="n">v4</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="n">run_and_time</span><span class="p">(</span><span class="s2">&quot;Selection sort&quot;</span><span class="p">,</span> <span class="n">sorts</span><span class="o">.</span><span class="n">sel_sort</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="n">run_and_time</span><span class="p">(</span><span class="s2">&quot;Insertion sort&quot;</span><span class="p">,</span> <span class="n">sorts</span><span class="o">.</span><span class="n">ins_sort</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lec21_sorting_exercises/exercises.html" class="btn btn-neutral float-right" title="Lecture 21 — Exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lec20_searching_exercises/exercises.html" class="btn btn-neutral float-left" title="Lecture 20 — Exercises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Imran Ali
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

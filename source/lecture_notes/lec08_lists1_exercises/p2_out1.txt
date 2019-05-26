@@ -1,0 +1,6 @@
+Enter a value: 15
+Enter another value: 23
+8 15
+Difference: 16
+Average: 13.6
+Median: 13.5

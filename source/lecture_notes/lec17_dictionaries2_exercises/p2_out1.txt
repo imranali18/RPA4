@@ -1,0 +1,4 @@
+Enter the name of the IMDB file ==> hanks.txt
+2
+Charlie and the Talking Buzzard
+60

@@ -1,0 +1,618 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lecture 15 — Sets &mdash; RPA  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 15 — Exercises" href="lec15_sets_exercises/exercises.html" />
+    <link rel="prev" title="Lecture 14 — Problem Solving and Design, Part 1" href="lec14_design_part1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RPA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Detailed schedule of topics for this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_lecture_lab.html">Weekly lecture and lab schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_oh_alac.html">Weekly office hour and tutoring schedule</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../lecture_notes.html">Lecture notes and exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lec01_intro.html">Lecture 1 — Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator.html">Lecture 2 — Python as a Calculator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator_exercises/exercises.html">Lecture 2 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings.html">Lecture 3 — Python Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings_exercises/exercises.html">Lecture 3 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1.html">Lecture 4 — Using functions and modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1_exercises/exercises.html">Lecture 4 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2.html">Lecture 5 — Python Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2_exercises/exercises.html">Lecture 5 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1.html">Lecture 6 — Decisions Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1_exercises/exercises.html">Lecture 6 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images.html">Lecture 7 — Tuples, Modules, and Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images_exercises/exercises.html">Lecture 7 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1.html">Lecture 8 — Lists Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1_exercises/exercises.html">Lecture 8 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while.html">Lecture 9 — While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while_exercises/exercises.html">Lecture 9 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2.html">Lecture 10 — Lists Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2_exercises/exercises.html">Lecture 10 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals2.html">Lecture 11 — Decisions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals_exercises/exercises.html">Lecture 11 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_for_double.html">Lecture 12 — Controlling Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_exercises/exercises.html">Lecture 12 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_web.html">Lecture 13 — Data from Files and Web Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_exercises/exercises.html">Lecture 13 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec14_design_part1.html">Lecture 14 — Problem Solving and Design, Part 1</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lecture 15 — Sets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#finding-all-persons-in-the-imdb-file">Finding All Persons in the IMDB file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-test">How To Test?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-happens">What Happens?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sets">Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-methods">Set Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exercises">Exercises</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#back-to-our-problem">Back to Our Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#side-by-side-comparison-of-the-two-solutions">Side-by-Side Comparison of the Two Solutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comparison-of-running-times-for-our-two-solutions">Comparison of Running Times for Our Two Solutions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#discussion">Discussion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extra-practice-problems">Extra Practice Problems</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets_exercises/exercises.html">Lecture 15 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1.html">Lecture 16 — Dictionaries, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1_exercises/exercises.html">Lecture 16 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2.html">Lecture 17 — Dictionaries, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2_exercises/exercises.html">Lecture 17 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1.html">Lecture 18 — Classes, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1_exercises/exercises.html">Lecture 18 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2.html">Lecture 19 — Classes, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2_exercises/exercises.html">Lecture 19 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching.html">Lecture 20 — Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching_exercises/exercises.html">Lecture 20 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting.html">Lecture 21 — Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting_exercises/exercises.html">Lecture 21 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter.html">Lecture 22 — TKInter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter_exercises/exercises.html">Lecture 22 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion.html">Lecture 23 — Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion_exercises/exercises.html">Lecture 23 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional.html">Lecture 24 — Advanced Python Topics and Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional_exercises/exercises.html">Lecture 24 — Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../class_code.html">Code written in class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_environment.html">Software installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../lecture_notes.html">Lecture Notes</a> &raquo;</li>
+        
+      <li>Lecture 15 — Sets</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/lecture_notes/lec15_sets.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lecture-15-sets">
+<h1>Lecture 15 — Sets<a class="headerlink" href="#lecture-15-sets" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Example: finding all individuals listed in the Internet Movie
+Database (IMDB).</li>
+<li>A solution based on lists.</li>
+<li>Sets and set operations.</li>
+<li>A solution based on sets.</li>
+<li>Efficiency and set representation.</li>
+</ul>
+<p>Reading is Section&nbsp;11.1 of <em>Practical Programming</em>.</p>
+</div>
+<div class="section" id="finding-all-persons-in-the-imdb-file">
+<h2>Finding All Persons in the IMDB file<a class="headerlink" href="#finding-all-persons-in-the-imdb-file" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">We are given a file extracted from the Internet Movie Database (IMDB)
+called <code class="docutils literal"><span class="pre">imdb_data.txt</span></code> containing, on each line, a person’s name, a
+movie name, and a year. For example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Kishiro</span><span class="p">,</span> <span class="n">Yukito</span>   <span class="o">|</span> <span class="n">Battle</span> <span class="n">Angel</span>    <span class="o">|</span> <span class="mi">2016</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Goal:</p>
+<ul class="simple">
+<li>Find all persons named in the file.</li>
+<li>Count the number of different persons named.</li>
+<li>Ask if a particular person is named in the file.</li>
+</ul>
+</li>
+<li><p class="first">The challenge in doing this is that many names appear multiple times.</p>
+</li>
+<li><p class="first">First solution: store names in a list. We’ll start from the
+following code,
+<code class="docutils literal"><span class="pre">lec15_find_names_start.py</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">imdb_file</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the name of the IMDB file ==&gt; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">name_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="n">imdb_file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">):</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>and complete the code in class.</p>
+</li>
+<li><p class="first">The challenge is that we need to check that a name is not already in
+the list before adding it.</p>
+</li>
+<li><p class="first">You may access the data files we are using from and the starting code .py file from
+<code class="docutils literal"><span class="pre">lecture15_files.zip</span></code> on the Course Materials page of the Submitty site.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="how-to-test">
+<h2>How To Test?<a class="headerlink" href="#how-to-test" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The file <code class="docutils literal"><span class="pre">imdb_data.txt</span></code> has about 260k entries. How will we know
+our results are correct?</li>
+<li>Even if we restrict it to movies released in 2010-2012 (the file
+<code class="docutils literal"><span class="pre">imdb_2010-12.txt</span></code>), we still have 25k entries!</li>
+<li>We need to generate a smaller file with results we can test by hand:<ul>
+<li>I have generated <code class="docutils literal"><span class="pre">hanks.txt</span></code> for you and will use it to test our
+program before testing on the larger files.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="what-happens">
+<h2>What Happens?<a class="headerlink" href="#what-happens" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Very slow on large files because we need to scan through the list
+to see if a name is already there.</li>
+<li>We’ll write a faster implementation based on Python <em>sets</em>.</li>
+<li>We’ll start with the basics of sets.</li>
+</ul>
+</div>
+<div class="section" id="sets">
+<h2>Sets<a class="headerlink" href="#sets" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>A Python set is an implementation of the mathematical notion of a
+set:<ul>
+<li>No order to the values (and therefore no indexing)</li>
+<li>Contains no duplicates</li>
+<li>Contains whatever type of values we wish; including values of
+different types.</li>
+</ul>
+</li>
+<li>Python set methods are exactly what you would expect.<ul>
+<li>Each has a function call syntax and many have operator syntax in
+addition.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="set-methods">
+<h2>Set Methods<a class="headerlink" href="#set-methods" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Initialization comes from a list, a range, or from just <code class="docutils literal"><span class="pre">set()</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span>
+<span class="go">set()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s2</span>
+<span class="go">{0, 2, 4, 6, 8, 10}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="s1">&#39;spam&#39;</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">256</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="go">9</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s3</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">s3</span><span class="p">)</span>
+<span class="go">7</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s3</span>
+<span class="go">{32, 64, 4, &#39;spam&#39;, 8, 256, &#39;hello&#39;}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">The actual methods are</p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">s.add(x)</span></code> — add an element if it is not already there.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">s.clear()</span></code> — clear out the set, making it empty.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">s1.difference(s2)</span></code> — create a new set with the values from
+<code class="docutils literal"><span class="pre">s1</span></code> that are not in <code class="docutils literal"><span class="pre">s2</span></code>.</p>
+<ul class="simple">
+<li>Python also has an “operator syntax” for this:</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">-</span> <span class="n">s2</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">s1.intersection(s2)</span></code> — create a new set that contains only the
+values that are in <strong>both</strong> sets.</p>
+<ul class="simple">
+<li>Operator syntax:</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">&amp;</span> <span class="n">s2</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">s1.union(s2)</span></code> — create a new set that contains values that are
+in either set.</p>
+<ul class="simple">
+<li>Operator syntax:</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">|</span> <span class="n">s2</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">s1.issubset(s2)</span></code> — are all elements of <code class="docutils literal"><span class="pre">s1</span></code> also in <code class="docutils literal"><span class="pre">s2</span></code>?</p>
+<ul class="simple">
+<li>Operator syntax:</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">&lt;=</span> <span class="n">s2</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">s1.issuperset(s2)</span></code> — are all elements of <code class="docutils literal"><span class="pre">s2</span></code> also in <code class="docutils literal"><span class="pre">s1</span></code>?</p>
+<ul class="simple">
+<li>Operator syntax:</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">&gt;=</span> <span class="n">s2</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">s1.symmetric_difference(s2)</span></code> — create a new set that contains
+values that are in <code class="docutils literal"><span class="pre">s1</span></code> or <code class="docutils literal"><span class="pre">s2</span></code> but <strong>not in both</strong>.</p>
+<ul class="simple">
+<li>Operator syntax:</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">^</span> <span class="n">s2</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">x</span> <span class="pre">in</span> <span class="pre">s</span></code> - evaluates to <code class="docutils literal"><span class="pre">True</span></code> if the value associated with
+<code class="docutils literal"><span class="pre">x</span></code> is in set <code class="docutils literal"><span class="pre">s</span></code>.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">We will explore the intuitions behind these set operations by
+considering:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">s1</span></code> to be the set of actors in <em>comedies</em>,</li>
+<li><code class="docutils literal"><span class="pre">s2</span></code> to be the set of actors in <em>action movies</em></li>
+</ul>
+<p>and then consider who is in the sets</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">-</span> <span class="n">s2</span>
+
+<span class="n">s1</span> <span class="o">&amp;</span> <span class="n">s2</span>
+
+<span class="n">s1</span> <span class="o">|</span> <span class="n">s2</span>
+
+<span class="n">s1</span> <span class="o">^</span> <span class="n">s2</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Sets should be relatively intuitive, so rather than demo them in
+class, we’ll work through these as an exercise:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span>
+
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s2</span>
+
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">-</span> <span class="n">s2</span>
+
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">&amp;</span> <span class="n">s2</span>
+
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">|</span> <span class="n">s2</span>
+
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">&lt;=</span> <span class="n">s2</span>
+
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s3</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s3</span> <span class="o">&lt;=</span> <span class="n">s2</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="back-to-our-problem">
+<h2>Back to Our Problem<a class="headerlink" href="#back-to-our-problem" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>We’ll modify our code to find the actors in the IMDB. The code is
+actually very simple and only requires a few set operations.</li>
+</ul>
+</div>
+<div class="section" id="side-by-side-comparison-of-the-two-solutions">
+<h2>Side-by-Side Comparison of the Two Solutions<a class="headerlink" href="#side-by-side-comparison-of-the-two-solutions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Neither the set nor the list is ordered. We can fix this at the end by
+sorting.<ul>
+<li>The list can be sorted directly.</li>
+<li>The set must be converted to a list first. Function <a class="reference external" href="https://docs.python.org/3/library/functions.html#sorted" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">sorted()</span></code></a>
+does this for us.</li>
+</ul>
+</li>
+<li>What about speed? The set version is <strong>MUCH FASTER</strong> — to the point
+that the list version is essentially useless on a large data set.<ul>
+<li>We’ll use some timings to demonstrate this quantitatively.</li>
+<li>We’ll then explore why in the rest of this lecture.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="comparison-of-running-times-for-our-two-solutions">
+<h2>Comparison of Running Times for Our Two Solutions<a class="headerlink" href="#comparison-of-running-times-for-our-two-solutions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>List-based solution:<ul>
+<li>Each time before a name is added, the code — through the method
+<code class="docutils literal"><span class="pre">in</span></code> — scans through the entire list to decide if it is there.</li>
+<li>Thus, the work done is proportional to the size of the list.</li>
+<li>The overall running time is therefore roughly proportional to the
+<strong>square</strong> of the number of entries in the list (and the file).</li>
+<li>Letting the mathematical variable <span class="math">\(N\)</span> represent the length
+of the list, we write this more formally as <span class="math">\(O(N^2)\)</span>, or
+“the order of N squared”.</li>
+</ul>
+</li>
+<li>Set-based code:<ul>
+<li>For sets, Python uses a technique called <em>hashing</em> to restrict the
+running time of the <code class="xref py py-func docutils literal"><span class="pre">add()</span></code> method so that it is <em>independent of
+the size of the set</em>.<ul>
+<li>The details of hashing are covered in CSCI 1200, Data
+Structures.</li>
+</ul>
+</li>
+<li>The overall running time is therefore roughly proportional to the
+length of the set (and the number of entries in the file).</li>
+<li>We write this as <span class="math">\(O(N)\)</span>.</li>
+</ul>
+</li>
+<li>We will discuss this type of analysis more, later in the semester.<ul>
+<li>It is covered in much greater detail in Data Structures and again
+in Introduction&nbsp;to Algorithms.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Python largely hides the details of the containers — set and list in
+this case — and therefore it is hard to know which is more efficient
+and why.</li>
+<li>For programs applied to small problems involving small data sets,
+efficiency rarely matters.</li>
+<li>For longer programs and programs that work on larger data sets,
+efficiency does matter, sometimes tremendously. What do we do?<ul>
+<li>In some cases, we still use Python and choose the containers and
+operations that make the code most efficient.</li>
+<li>In others, we must switch to programming languages, such as C++,
+that generate and use compiled code.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Sets in Python realize the notion of a mathematical set, with all the
+associated operations.</li>
+<li>Operations can be used as method calls or, in many cases, operators.</li>
+<li>The combined core operations of finding if a value is in a set and
+adding it to the set are <strong>much faster when using a set</strong> than the
+corresponding operations using a list.</li>
+<li>We will continue to see examples of programming with sets when we
+work with dictionaries.</li>
+</ul>
+</div>
+<div class="section" id="extra-practice-problems">
+<h2>Extra Practice Problems<a class="headerlink" href="#extra-practice-problems" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Write Python code that implements the following set functions using a
+combination of loops, the <code class="docutils literal"><span class="pre">in</span></code> operator, and the <code class="xref py py-func docutils literal"><span class="pre">add()</span></code> function.
+In each case, <code class="docutils literal"><span class="pre">s1</span></code> and <code class="docutils literal"><span class="pre">s2</span></code> are sets and the function call should
+return a set.<ol class="arabic">
+<li><code class="docutils literal"><span class="pre">union(s1,</span> <span class="pre">s2)</span></code></li>
+<li><code class="docutils literal"><span class="pre">intersection(s1,</span> <span class="pre">s2)</span></code></li>
+<li><code class="docutils literal"><span class="pre">symmetric_difference(s1,</span> <span class="pre">s2)</span></code></li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lec15_sets_exercises/exercises.html" class="btn btn-neutral float-right" title="Lecture 15 — Exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lec14_design_part1.html" class="btn btn-neutral float-left" title="Lecture 14 — Problem Solving and Design, Part 1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Imran Ali
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

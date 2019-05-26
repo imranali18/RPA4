@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Setting up C++ for Data Structures &mdash; RPA  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RPA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Detailed schedule of topics for this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_lecture_lab.html">Weekly lecture and lab schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_oh_alac.html">Weekly office hour and tutoring schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lecture_notes.html">Lecture notes and exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class_code.html">Code written in class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_environment.html">Software installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Setting up C++ for Data Structures</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/lecture_notes/setting_up_for_ds.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="setting-up-c-for-data-structures">
+<h1>Setting up C++ for Data Structures<a class="headerlink" href="#setting-up-c-for-data-structures" title="Permalink to this headline">¶</a></h1>
+<p>This material is compiled with the help of many mentors over the
+years. Special thanks to Micheal Gardner and Lee Cattarin for their
+edits on prior versions of this document.</p>
+<p>Remember to leave install fest with the following tools and skills:</p>
+<ul class="simple">
+<li>A compiler that works</li>
+<li>Ability to compile and run a program on the terminal</li>
+</ul>
+<p>It is also a good idea to have an editor or an IDE that works. If you
+have additional time, install an editor and ask a mentor or TA to show
+you how to use it. But this is less important. Below are instructions
+on possible ways to accomplish this.</p>
+<div class="section" id="installing-a-terminal-and-a-compiler">
+<h2>Installing a terminal and a compiler<a class="headerlink" href="#installing-a-terminal-and-a-compiler" title="Permalink to this headline">¶</a></h2>
+<p>Data Structures requires that your C++ code compile and run on the
+<code class="docutils literal"><span class="pre">gcc/g++</span> <span class="pre">4.8.x</span></code> compiler. You may also use <code class="docutils literal"><span class="pre">clang++</span></code>, which
+provides more concise and clear error messages. How you install a
+compiler will depend on your operating system, which requires the
+compiler program and a Terminal to run it on.</p>
+<ul>
+<li><p class="first">If you have <em>Windows 10</em>, you will likely want to install
+Windows Subsystem for Linux (WSL). Detailed instructions to install
+this can be found on the Data Structures course website:</p>
+<p><a class="reference external" href="https://www.cs.rpi.edu/academics/courses/fall18/csci1200/development_environment.php">https://www.cs.rpi.edu/academics/courses/fall18/csci1200/development_environment.php</a></p>
+</li>
+</ul>
+<p>– in particular:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://www.cs.rpi.edu/academics/courses/fall18/csci1200/wsl.php">https://www.cs.rpi.edu/academics/courses/fall18/csci1200/wsl.php</a></p>
+<p>should walk through most if not all of the relevant steps.</p>
+</div></blockquote>
+<ul>
+<li><p class="first">If you have <strong>Windows 7 or 8</strong> WSL is not available and your best
+option is installing <code class="docutils literal"><span class="pre">Cygwin</span></code>. Detailed instructions to install this
+can be found on the Data Structures course website:</p>
+<p><a class="reference external" href="http://www.cs.rpi.edu/academics/courses/fall17/csci1200/cygwin.php">http://www.cs.rpi.edu/academics/courses/fall17/csci1200/cygwin.php</a></p>
+</li>
+</ul>
+<blockquote>
+<div><strong>BUT</strong> it is not necessary to go through “Helpful edits to the
+Cygwin <code class="docutils literal"><span class="pre">.bashrc</span></code> file” right now.</div></blockquote>
+<ul>
+<li><p class="first">If you have a <strong>Mac</strong>, you’ll need <strong>XCode</strong>, which provides both a
+compiler and an IDE for you.</p>
+<p>For Data Structures, <strong>make sure to install XCode’s “Command
+Line Tools”</strong> so that you can compile and run your code in the
+terminal as well as the IDE. Install instructions for XCode and
+XCode Command Line Tools can be found:</p>
+<p><a class="reference external" href="http://railsapps.github.io/xcode-command-line-tools.html">http://railsapps.github.io/xcode-command-line-tools.html</a></p>
+<p>You can then run a Terminal window: Terminal under
+Applications-&gt;Utilities in Macs (black box)</p>
+</li>
+<li><p class="first">If you have a Linux OS such as <strong>Ubuntu</strong>, installing is easy. Run
+the following three commands in a terminal window:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">g</span><span class="o">++</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">clang</span><span class="o">++-</span><span class="mf">3.8</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">gcc</span><span class="o">-</span><span class="n">multilib</span> <span class="n">g</span><span class="o">++-</span><span class="n">multilib</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="choosing-an-editor-or-ide-integrated-development-environment">
+<h2>Choosing an editor or IDE (Integrated Development Environment)<a class="headerlink" href="#choosing-an-editor-or-ide-integrated-development-environment" title="Permalink to this headline">¶</a></h2>
+<p>A text editor will allow you to view and edit your code (often with
+syntax highlighting or other features), but not compile and run - you
+have to do that in a terminal (cygwin, for Windows). An IDE will do
+all of these things, but might take more time to learn how to navigate
+as they are usually fuller-featured. Whichever you choose, <strong>you will
+still have to learn how to compile and run your code in a terminal</strong>,
+as that is the primary method to get help or show completeness in lab.</p>
+<ul>
+<li><p class="first">If you want a text editor, these options are popular:</p>
+<ul>
+<li><p class="first">Sublime Text: <a class="reference external" href="http://www.sublimetext.com/">http://www.sublimetext.com/</a></p>
+</li>
+<li><p class="first">Atom (very similar to Sublime Text): <a class="reference external" href="https://atom.io/">https://atom.io/</a></p>
+</li>
+<li><p class="first">Notepad++: <a class="reference external" href="https://notepad-plus-plus.org/">https://notepad-plus-plus.org/</a>
+Windows only, note that this is <strong>not</strong> Notepad</p>
+</li>
+<li><p class="first">Gedit: <a class="reference external" href="https://wiki.gnome.org/Apps/Gedit">https://wiki.gnome.org/Apps/Gedit</a>#Download
+(this is usually installed by default on some Linux systems)</p>
+</li>
+<li><p class="first">There are also terminal editors like</p>
+<p>Vim: <a class="reference external" href="http://www.vim.org/">http://www.vim.org/</a></p>
+<p>Nano: <a class="reference external" href="https://www.nano-editor.org/">https://www.nano-editor.org/</a></p>
+<p>Emacs: <a class="reference external" href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a></p>
+<p>but these may have a steeper learning curve!</p>
+</li>
+</ul>
+</li>
+<li><p class="first">If you want an IDE, these options work with the compiler you’ll be
+using:</p>
+<ul>
+<li><p class="first">Eclipse: <a class="reference external" href="http://www.eclipse.org/cdt/">http://www.eclipse.org/cdt/</a>
+(this is used in a later Computer Science course as well)</p>
+</li>
+<li><p class="first">Code::Blocks: http://www.codeblocks.org/</p>
+</li>
+<li><p class="first">Xcode (Mac only): <a class="reference external" href="https://developer.apple.com/xcode/">https://developer.apple.com/xcode/</a></p>
+</li>
+<li><p class="first">NetBeans: <a class="reference external" href="https://netbeans.org/features/cpp/">https://netbeans.org/features/cpp/</a></p>
+<p>and from the Data Structures site, notes on using NetBeans with C and C++:</p>
+<p><a class="reference external" href="http://chriseiffel.com/uncategorized/windows-c-compiler-how-to/">http://chriseiffel.com/uncategorized/windows-c-compiler-how-to/</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>If you are having trouble deciding, ask the TAs and mentors what they use!</p>
+<p>Remember: IDEs are useful for debugging with a graphical user
+interface. But, it is likely that no one will be an expert in the
+specific IDE you use. Practice and learn its features before starting
+to use it in class assignments.</p>
+</div>
+<div class="section" id="final-note">
+<h2>Final Note<a class="headerlink" href="#final-note" title="Permalink to this headline">¶</a></h2>
+<p>If you find additional resources that are useful, please feel free to
+let us know. We will include them here.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Imran Ali
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

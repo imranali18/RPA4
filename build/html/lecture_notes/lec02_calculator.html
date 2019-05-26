@@ -1,0 +1,780 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lecture 2 — Python as a Calculator &mdash; RPA  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 2 — Exercises" href="lec02_calculator_exercises/exercises.html" />
+    <link rel="prev" title="Lecture 1 — Introduction" href="lec01_intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RPA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Detailed schedule of topics for this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_lecture_lab.html">Weekly lecture and lab schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_oh_alac.html">Weekly office hour and tutoring schedule</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../lecture_notes.html">Lecture notes and exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lec01_intro.html">Lecture 1 — Introduction</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lecture 2 — Python as a Calculator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aside-lectures-note-taking-and-exercises">Aside: Lectures, Note Taking and Exercises</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python-as-a-calculator">Python As a Calculator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#whole-number-calculations">Whole Number Calculations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python-types">Python Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#float">float</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#int">int</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#precedence">Precedence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-1-practice-problems">Part 1 Practice Problems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-2">Part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variables-and-assignment">Variables and Assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#more-on-variable-assignment">More on Variable Assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#print">print</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variable-names">Variable Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#putting-your-code-in-a-file">Putting Your Code in a File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#syntax-and-semantic-errors">Syntax and Semantic Errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python-keywords">Python Keywords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#do-variables-exist-before-they-are-assigned-a-value">Do Variables Exist Before They Are Assigned a Value?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-to-consider">Example to Consider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mixed-operators">Mixed Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#terminology-expressions">Terminology: Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-2-practice-problems">Part 2 Practice Problems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary-important-points-to-remember">Summary — Important Points to Remember</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator_exercises/exercises.html">Lecture 2 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings.html">Lecture 3 — Python Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings_exercises/exercises.html">Lecture 3 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1.html">Lecture 4 — Using functions and modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1_exercises/exercises.html">Lecture 4 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2.html">Lecture 5 — Python Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2_exercises/exercises.html">Lecture 5 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1.html">Lecture 6 — Decisions Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1_exercises/exercises.html">Lecture 6 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images.html">Lecture 7 — Tuples, Modules, and Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images_exercises/exercises.html">Lecture 7 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1.html">Lecture 8 — Lists Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1_exercises/exercises.html">Lecture 8 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while.html">Lecture 9 — While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while_exercises/exercises.html">Lecture 9 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2.html">Lecture 10 — Lists Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2_exercises/exercises.html">Lecture 10 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals2.html">Lecture 11 — Decisions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals_exercises/exercises.html">Lecture 11 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_for_double.html">Lecture 12 — Controlling Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_exercises/exercises.html">Lecture 12 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_web.html">Lecture 13 — Data from Files and Web Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_exercises/exercises.html">Lecture 13 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec14_design_part1.html">Lecture 14 — Problem Solving and Design, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets.html">Lecture 15 — Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets_exercises/exercises.html">Lecture 15 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1.html">Lecture 16 — Dictionaries, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1_exercises/exercises.html">Lecture 16 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2.html">Lecture 17 — Dictionaries, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2_exercises/exercises.html">Lecture 17 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1.html">Lecture 18 — Classes, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1_exercises/exercises.html">Lecture 18 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2.html">Lecture 19 — Classes, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2_exercises/exercises.html">Lecture 19 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching.html">Lecture 20 — Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching_exercises/exercises.html">Lecture 20 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting.html">Lecture 21 — Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting_exercises/exercises.html">Lecture 21 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter.html">Lecture 22 — TKInter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter_exercises/exercises.html">Lecture 22 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion.html">Lecture 23 — Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion_exercises/exercises.html">Lecture 23 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional.html">Lecture 24 — Advanced Python Topics and Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional_exercises/exercises.html">Lecture 24 — Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../class_code.html">Code written in class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_environment.html">Software installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../lecture_notes.html">Lecture Notes</a> &raquo;</li>
+        
+      <li>Lecture 2 — Python as a Calculator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/lecture_notes/lec02_calculator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lecture-2-python-as-a-calculator">
+<h1>Lecture 2 — Python as a Calculator<a class="headerlink" href="#lecture-2-python-as-a-calculator" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Most of this is covered in Chapter 2 of <em>Practical Programming</em></p>
+<ul class="simple">
+<li>Part 1:<ul>
+<li>Expressions and values</li>
+<li>Types</li>
+<li>Precedence</li>
+</ul>
+</li>
+<li>Part 2:<ul>
+<li>Variables and memory</li>
+<li>Errors</li>
+<li>Typing directly in the interpreter vs. running programs; use of <em>print</em></li>
+<li>Documentation and variable names</li>
+</ul>
+</li>
+</ul>
+<p>Throughout we will pay attention to problems and mistakes, both real and
+potential.</p>
+</div>
+<div class="section" id="aside-lectures-note-taking-and-exercises">
+<h2>Aside: Lectures, Note Taking and Exercises<a class="headerlink" href="#aside-lectures-note-taking-and-exercises" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Lecture notes are outlines.<ul>
+<li>It will help you understand more if you read the notes and work through
+the examples before class.</li>
+<li>Use class time to develop a more thorough
+understand and to clarify difficult issues.</li>
+<li>Hand-write details as we cover them.</li>
+<li>If we don’t fully cover something that you have a question on, make
+sure to ask about it, or research it in your text or online.</li>
+</ul>
+</li>
+<li>We will create and run examples in class.<ul>
+<li>You should write down the shorter ones.</li>
+<li>We will post the longer ones on-line, but you should write down as
+much as you can, especially the results of running the
+examples. If you don’t know what to expect, you can’t debug errors.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="python-as-a-calculator">
+<h2>Python As a Calculator<a class="headerlink" href="#python-as-a-calculator" title="Permalink to this headline">¶</a></h2>
+<p>We will start the class by using Python as an interactive calculator,
+working through a number of examples.</p>
+<ul class="simple">
+<li>The area of a circle.</li>
+<li>The number of minutes in a year.</li>
+<li>The volume of a box.</li>
+<li>The volume of the earth in cubic kilometers.</li>
+<li>In doing so, we will look at the basic operations of <code class="docutils literal"><span class="pre">+</span></code>, <code class="docutils literal"><span class="pre">-</span></code>, <code class="docutils literal"><span class="pre">*</span></code>, <code class="docutils literal"><span class="pre">/</span></code>,
+and <code class="docutils literal"><span class="pre">**</span></code> (exponentiation).</li>
+</ul>
+</div>
+<div class="section" id="whole-number-calculations">
+<h2>Whole Number Calculations<a class="headerlink" href="#whole-number-calculations" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Most of the calculations in the foregoing examples involve numbers
+with fractional values.</li>
+<li>Sometimes we want to use whole number of calculations, for example
+to convert a number of minutes to a number of hours and minutes
+(less than 60).</li>
+<li>In this case, Python offers us different forms of divisions:<ul>
+<li><code class="docutils literal"><span class="pre">//</span></code> is the operator for whole number division</li>
+<li><code class="docutils literal"><span class="pre">%</span></code> is used to find the remainder</li>
+</ul>
+</li>
+<li>For this kind of division, be careful of negative numbers.  Can you
+figure out how they work with <code class="docutils literal"><span class="pre">//</span></code> and <code class="docutils literal"><span class="pre">%</span></code>?<ul>
+<li>This is a case where experimentation with the Python interpreter
+is crucial.  We will encourage you to do this throughout the
+semester.</li>
+<li><strong>Hint:</strong> Consider 4 cases:<ul>
+<li>8 and 3</li>
+<li>8 and -3</li>
+<li>-8 and 3</li>
+<li>-8 and -3</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="python-types">
+<h2>Python Types<a class="headerlink" href="#python-types" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>We have seen what real numbers and whole numbers look like. These
+are two different <em>types</em> in Python.</li>
+<li>A type is a set of possible values — also called a “representation” —
+and a set of operations on those values.<ul>
+<li>Our first examples are the “operators” such as <code class="docutils literal"><span class="pre">+</span></code>, <code class="docutils literal"><span class="pre">-</span></code>, <code class="docutils literal"><span class="pre">*</span></code>, <code class="docutils literal"><span class="pre">/</span></code> and <code class="docutils literal"><span class="pre">**</span></code></li>
+</ul>
+</li>
+<li>Common Python types we are working with initially include
+<code class="docutils literal"><span class="pre">float</span></code>, <code class="docutils literal"><span class="pre">int</span></code> (short for integer), and <code class="docutils literal"><span class="pre">str</span></code> (short for string).</li>
+<li>Each value we create will be referred to as an <em>object</em>.</li>
+</ul>
+</div>
+<div class="section" id="float">
+<h2>float<a class="headerlink" href="#float" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The <code class="docutils literal"><span class="pre">float</span></code> type approximates real numbers.  But computers can’t
+represent all of them because computers only dedicate a finite
+amount of memory to each.</li>
+<li>Limited precision:  we’ll look at 2/3, 5/3, and 8/3.</li>
+<li>Any time integers and floats are mixed and any time we apply
+division, the result is always a float.</li>
+</ul>
+</div>
+<div class="section" id="int">
+<h2>int<a class="headerlink" href="#int" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">The <code class="docutils literal"><span class="pre">int</span></code> (integer) type is analogous to whole numbers:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">...</span><span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Python can represent seemingly arbitrarily large integers, which is
+not true of other languages like C, C++, and Java.</p>
+<ul>
+<li><p class="first">Using the Python interpreter, we will look at the examples of:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span><span class="o">**</span><span class="mi">1</span><span class="o">**</span><span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span><span class="o">**</span><span class="mi">2</span><span class="o">**</span><span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span><span class="o">**</span><span class="mi">3</span><span class="o">**</span><span class="mi">3</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="precedence">
+<h2>Precedence<a class="headerlink" href="#precedence" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Consider the formula for converting 45 degrees Fahrenheit to
+Celsius. What is wrong with the following
+computation?</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">45</span> <span class="o">-</span> <span class="mi">32</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">9</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Largely following the standard rules of algebra, Python applies
+operations in order of <em>precedence</em>.  Here is a
+summary of these rules from highest to lowest:</p>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">(</span> <span class="pre">)</span></code> - parentheses</li>
+<li><code class="docutils literal"><span class="pre">**</span></code> - the exponentiation operator, ordered <em>right-to-left</em></li>
+<li><code class="docutils literal"><span class="pre">-</span></code> - the negation (unary minus) operators, as in <code class="docutils literal"><span class="pre">-5**2</span></code></li>
+<li><code class="docutils literal"><span class="pre">*,</span> <span class="pre">/,</span> <span class="pre">//,</span> <span class="pre">%</span></code> - ordered <em>left-to-right</em></li>
+<li><code class="docutils literal"><span class="pre">+,</span> <span class="pre">-</span></code> - ordered <em>left-to-right</em></li>
+</ol>
+</li>
+<li><p class="first">This example also suggests an important question:  how do we know
+we’ve made a mistake - introduced a <em>bug</em> - in our code?</p>
+</li>
+</ul>
+</div>
+<div class="section" id="part-1-practice-problems">
+<h2>Part 1 Practice Problems<a class="headerlink" href="#part-1-practice-problems" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Consider the following evaluations (some of them trivial). Which results
+are <code class="docutils literal"><span class="pre">float</span></code> objects and which are <code class="docutils literal"><span class="pre">int</span></code> objects?</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">9</span>            <span class="c1"># 1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">9.</span>           <span class="c1"># 2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">9.0</span>          <span class="c1"># 3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">9</span> <span class="o">+</span> <span class="mi">3</span>        <span class="c1"># 4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">9</span> <span class="o">-</span> <span class="mf">3.</span>       <span class="c1"># 5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">9</span> <span class="o">/</span> <span class="mi">4</span>        <span class="c1"># 6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">9</span> <span class="o">//</span> <span class="mi">4</span>       <span class="c1"># 7</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">9.</span> <span class="o">//</span> <span class="mi">4</span>      <span class="c1"># 8</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">What is output by the Python interpreter?</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span><span class="o">**</span><span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Write a single line of Python code that calculates the radius of a
+circle with the area of 15 units and prints the value.  The output should
+just be the number that your code produces.  Your code should include
+the use of an expression involving division and exponentiation (to
+compute the square root).  Use the value 3.14159 for <em>pi</em>.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="part-2">
+<h2>Part 2<a class="headerlink" href="#part-2" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="variables-and-assignment">
+<h2>Variables and Assignment<a class="headerlink" href="#variables-and-assignment" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Most calculators have one or several memory keys. Python, and all
+other programming languages, use “variables” as their memory.</p>
+</li>
+<li><p class="first">We’ll start with a simple example of the area of a circle, typed in
+class. You will notice as we go through this that there is no output
+until we use the <em>print</em> function.</p>
+</li>
+<li><p class="first">Here is a more extensive example of computing the volume and surface
+area of a cylinder:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">radius</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">height</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">base_area</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">volume</span> <span class="o">=</span> <span class="n">base_area</span> <span class="o">*</span> <span class="n">height</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">surface_area</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">base_area</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">height</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;volume is&quot;</span><span class="p">,</span> <span class="n">volume</span><span class="p">,</span> <span class="s2">&quot;, surface area is&quot;</span><span class="p">,</span> <span class="n">surface_area</span><span class="p">)</span>
+<span class="go">volume is 125.6636 , surface area is 150.79632</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">A variable is a name that has a value “associated” with it.</p>
+<ul class="simple">
+<li>There are six variables in the above code.</li>
+</ul>
+</li>
+<li><p class="first">The value is substituted for the variable when the variable
+appears on the right hand side of the <code class="docutils literal"><span class="pre">=</span></code>.</p>
+</li>
+<li><p class="first">The value is <strong>assigned to</strong> the variable when the variable name
+appears on the left hand side of the <code class="docutils literal"><span class="pre">=</span></code>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="more-on-variable-assignment">
+<h2>More on Variable Assignment<a class="headerlink" href="#more-on-variable-assignment" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">The operator <code class="docutils literal"><span class="pre">=</span></code> is an assignment of a value (calculated on the
+right side) to a variable (on the left).</p>
+</li>
+<li><p class="first">In the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">base_area</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>Python:</p>
+<ul class="simple">
+<li>accesses the values associated with the variables <code class="docutils literal"><span class="pre">pi</span></code> and <code class="docutils literal"><span class="pre">radius</span></code>,</li>
+<li>squares the value associated with <code class="docutils literal"><span class="pre">radius</span></code> and then multiplies
+the result by the value associated with the variable <code class="docutils literal"><span class="pre">pi</span></code>,</li>
+<li>associates the result with the variable <code class="docutils literal"><span class="pre">base_area</span></code>.</li>
+</ul>
+</li>
+<li><p class="first">Later, Python accesses the value of <code class="docutils literal"><span class="pre">base_area</span></code> when calculating
+the values to assign to <code class="docutils literal"><span class="pre">volume</span></code> and <code class="docutils literal"><span class="pre">surface_area</span></code>.</p>
+</li>
+<li><p class="first">Thus, the meaning of <code class="docutils literal"><span class="pre">=</span></code> in Python is quite different from the
+meaning of <code class="docutils literal"><span class="pre">=</span></code> in mathematics.</p>
+</li>
+<li><p class="first">The statement:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">base_area</span> <span class="o">*</span> <span class="n">height</span> <span class="o">=</span> <span class="n">volume</span>
+</pre></div>
+</div>
+<p>is not legal Python code. Try it!</p>
+</li>
+<li><p class="first">It takes a while to get accustomed to the meaning of an assignment
+statement in Python.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="print">
+<h2>print<a class="headerlink" href="#print" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Consider the line:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;volume is&quot;</span><span class="p">,</span> <span class="n">volume</span><span class="p">,</span> <span class="s2">&quot;, surface area is&quot;</span><span class="p">,</span> <span class="n">surface_area</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">print</span></code>
+is a Python “function” that combines <em>strings</em> (between the
+quotations) and values of variables, separated by commas, to
+generate nice output.</p>
+</li>
+<li><p class="first">We will play with a number of examples in class to illustrate use
+of <code class="docutils literal"><span class="pre">print</span></code>.  As the semester progresses we will learn a lot more
+about it.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="variable-names">
+<h2>Variable Names<a class="headerlink" href="#variable-names" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Notice that our example variable names include letters and the <code class="docutils literal"><span class="pre">_</span></code>
+(underscore) character.</p>
+</li>
+<li><p class="first">Legal variable names in Python must:</p>
+<ul class="simple">
+<li>Start with a letter or a <code class="docutils literal"><span class="pre">_</span></code>, and</li>
+<li>Be followed by any number of letters, underscores, or digits.</li>
+</ul>
+<p>Characters that are none of these, including spaces, signal the end
+of a variable name.</p>
+</li>
+<li><p class="first">Capital letters and small letters are different.</p>
+</li>
+<li><p class="first">We will look at many examples in class.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="putting-your-code-in-a-file">
+<h2>Putting Your Code in a File<a class="headerlink" href="#putting-your-code-in-a-file" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>So far in today’s lecture we have written our code using the <em>Python
+Shell</em>.<ul>
+<li>This sends your Python statements directly to the <em>interpreter</em> to
+execute them</li>
+</ul>
+</li>
+<li>Now we will switch to writing and saving our code in a file and then
+sending the file to the Python interpreter to be run.</li>
+<li>We will demonstrate using the surface area and volume calculations
+from earlier in lecture.</li>
+<li>Almost all code that you write for lecture exercises, labs, and
+homework assignments will be stored in files.</li>
+<li>You will practice in Lab 1 next week.</li>
+<li>Sometimes in class we will still type things directly into the
+shell.  You will know we are doing this when you see <code class="docutils literal"><span class="pre">&gt;&gt;&gt;</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="syntax-and-semantic-errors">
+<h2>Syntax and Semantic Errors<a class="headerlink" href="#syntax-and-semantic-errors" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Python tells us about the errors we make in writing the names of
+variables and in reversing the left and right side of the <code class="docutils literal"><span class="pre">=</span></code>
+operator.</li>
+<li>These are examples of <em>syntax errors</em> — errors in the form of the
+code.</li>
+<li>Programs with syntax errors will not run; the Python interpreter
+inspects the code and tells us about these errors before it tries to
+execute them. We can then fix the errors and try again.</li>
+<li>It is more difficult to find and fix <em>semantic errors</em> — errors in the
+logical meaning of our programs resulting in an incorrect result.<ul>
+<li>We have already seen an example of a semantic error. Can you think
+where?</li>
+<li>Throughout the semester we will discuss strategies for finding and
+fixing semantic errors.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="python-keywords">
+<h2>Python Keywords<a class="headerlink" href="#python-keywords" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">All variable names that follow the above rules are legal Python
+names <em>except</em> for a set of “keywords” that have special
+meaning to Python.</p>
+</li>
+<li><p class="first">Keywords allow us to write more complicated operations
+— involving logic and repetition — than just calculating.</p>
+</li>
+<li><p class="first">You can get a list of Python keywords by typing into the shell:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">keyword</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">keyword</span><span class="o">.</span><span class="n">kwlist</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Over the next few lectures, we will soon understand the detailed
+meaning of the <code class="docutils literal"><span class="pre">.</span></code> in the above statement.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="do-variables-exist-before-they-are-assigned-a-value">
+<h2>Do Variables Exist Before They Are Assigned a Value?<a class="headerlink" href="#do-variables-exist-before-they-are-assigned-a-value" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Suppose we forgot to assign <code class="docutils literal"><span class="pre">pi</span></code> a value? What would happen?<ul>
+<li>Try it out!</li>
+</ul>
+</li>
+<li>Variables do not exist until they are assigned a value.</li>
+<li>This is a simple form of semantic error.</li>
+</ul>
+</div>
+<div class="section" id="example-to-consider">
+<h2>Example to Consider<a class="headerlink" href="#example-to-consider" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Create 2 invalid variable names and 4 valid variable names from the
+<code class="docutils literal"><span class="pre">_</span></code> character, the digit <code class="docutils literal"><span class="pre">0</span></code>, and the letter <code class="docutils literal"><span class="pre">a</span></code>.</li>
+</ol>
+</div>
+<div class="section" id="mixed-operators">
+<h2>Mixed Operators<a class="headerlink" href="#mixed-operators" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Assignments of the form:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>are commonly seen in Python. We will take a careful look at what is
+happening here.</p>
+</li>
+<li><p class="first">Python contains a short-hand for these:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>These two statements are exactly equivalent.</p>
+</li>
+<li><p class="first">Other mixed operators include</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-=</span>     <span class="o">*=</span>    <span class="o">/=</span>    <span class="o">%=</span>    <span class="o">//=</span>
+</pre></div>
+</div>
+<p>but <code class="docutils literal"><span class="pre">+=</span></code> is used most commonly for reasons that will gradually
+become clear over the first half of the semester.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="terminology-expressions">
+<h2>Terminology: Expressions<a class="headerlink" href="#terminology-expressions" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Expressions are formed from combinations of values, variables, and
+operators.</p>
+</li>
+<li><p class="first">In the examples we’ve seen so far, expressions are on the
+right-hand side of an assignment statement, as in:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">surface_area</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">base_area</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">height</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="part-2-practice-problems">
+<h2>Part 2 Practice Problems<a class="headerlink" href="#part-2-practice-problems" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Which of the following are legal Python variable names?</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span>
+<span class="mi">56</span><span class="n">abc</span>
+<span class="n">abc56</span>
+<span class="n">car</span><span class="o">-</span><span class="n">talk</span>
+<span class="n">car_talk</span>
+<span class="n">car</span> <span class="n">talk</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Which of these lines of code contain syntax errors? Once you fix
+the syntax errors, the program (assume this has been typed into a
+file and run in the Wing IDE 101) will still not correctly print the
+area of a circle with radius 6.5.  What two more changes are needed
+to fix these errors?</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pi</span> <span class="o">=</span> <span class="mi">21</span> <span class="o">//</span> <span class="mi">7</span>
+<span class="n">area</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">6.5</span>
+<span class="n">r</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">=</span> <span class="n">r_new</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Assuming you start with $100 and earn 5% interest each year, how
+much will you have at the end of one year, two years and three years?
+Write Python expressions to calculate these, using variables as
+appropriate.  We will write the solution into a file
+and run the file using the interpreter.</p>
+</li>
+<li><p class="first">What is the output of the following Python code (when typed into a
+file and run in the interpreter)? Try to figure it out by hand
+before typing the statements into a file and running in the Python
+interpreter.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">7.4</span>
+<span class="n">x</span> <span class="o">-=</span> <span class="n">y</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">7</span>
+<span class="n">z</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">x</span> <span class="o">*=</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">z</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">+=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="summary-important-points-to-remember">
+<h2>Summary — Important Points to Remember<a class="headerlink" href="#summary-important-points-to-remember" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Expressions are formed from combinations of values, variables, and
+operators.</li>
+<li>Values in Python are one of several different types — integers,
+floats, and strings for now.</li>
+<li>Variables are Python’s form of memory.</li>
+<li>Python keywords cannot be used as variables.</li>
+<li><code class="docutils literal"><span class="pre">=</span></code> is Python’s means of assigning a value to a variable.</li>
+<li>Variables do not exist in Python until they are given a value.</li>
+<li>Make sure you have the precedence correct in your Python expressions.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lec02_calculator_exercises/exercises.html" class="btn btn-neutral float-right" title="Lecture 2 — Exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lec01_intro.html" class="btn btn-neutral float-left" title="Lecture 1 — Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Imran Ali
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

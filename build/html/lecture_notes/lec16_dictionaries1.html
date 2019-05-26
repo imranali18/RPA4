@@ -1,0 +1,552 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lecture 16 — Dictionaries, Part 1 &mdash; RPA  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 16 — Exercises" href="lec16_dictionaries1_exercises/exercises.html" />
+    <link rel="prev" title="Lecture 15 — Exercises" href="lec15_sets_exercises/exercises.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RPA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Detailed schedule of topics for this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_lecture_lab.html">Weekly lecture and lab schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_oh_alac.html">Weekly office hour and tutoring schedule</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../lecture_notes.html">Lecture notes and exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lec01_intro.html">Lecture 1 — Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator.html">Lecture 2 — Python as a Calculator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator_exercises/exercises.html">Lecture 2 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings.html">Lecture 3 — Python Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings_exercises/exercises.html">Lecture 3 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1.html">Lecture 4 — Using functions and modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1_exercises/exercises.html">Lecture 4 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2.html">Lecture 5 — Python Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2_exercises/exercises.html">Lecture 5 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1.html">Lecture 6 — Decisions Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1_exercises/exercises.html">Lecture 6 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images.html">Lecture 7 — Tuples, Modules, and Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images_exercises/exercises.html">Lecture 7 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1.html">Lecture 8 — Lists Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1_exercises/exercises.html">Lecture 8 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while.html">Lecture 9 — While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while_exercises/exercises.html">Lecture 9 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2.html">Lecture 10 — Lists Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2_exercises/exercises.html">Lecture 10 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals2.html">Lecture 11 — Decisions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals_exercises/exercises.html">Lecture 11 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_for_double.html">Lecture 12 — Controlling Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_exercises/exercises.html">Lecture 12 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_web.html">Lecture 13 — Data from Files and Web Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_exercises/exercises.html">Lecture 13 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec14_design_part1.html">Lecture 14 — Problem Solving and Design, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets.html">Lecture 15 — Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets_exercises/exercises.html">Lecture 15 — Exercises</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lecture 16 — Dictionaries, Part 1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-many-movies-each-person-is-involved-in">How Many Movies Each Person Is Involved In?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-based-solution-straightforward-version">List-Based Solution — Straightforward Version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-based-solution-faster-version-based-on-sorting">List-Based Solution — Faster Version Based on Sorting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#introduction-to-dictionaries">Introduction to Dictionaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lecture-exercise-1">Lecture Exercise 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#back-to-our-imdb-problem">Back to Our IMDB Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-types">Key Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#value-types">Value Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#removing-values-sets-and-dictionaries">Removing Values: Sets and Dictionaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-dictionary-methods">Other Dictionary Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary-of-dictionaries">Summary of Dictionaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-practice">Additional Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1_exercises/exercises.html">Lecture 16 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2.html">Lecture 17 — Dictionaries, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2_exercises/exercises.html">Lecture 17 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1.html">Lecture 18 — Classes, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1_exercises/exercises.html">Lecture 18 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2.html">Lecture 19 — Classes, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2_exercises/exercises.html">Lecture 19 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching.html">Lecture 20 — Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching_exercises/exercises.html">Lecture 20 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting.html">Lecture 21 — Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting_exercises/exercises.html">Lecture 21 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter.html">Lecture 22 — TKInter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter_exercises/exercises.html">Lecture 22 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion.html">Lecture 23 — Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion_exercises/exercises.html">Lecture 23 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional.html">Lecture 24 — Advanced Python Topics and Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional_exercises/exercises.html">Lecture 24 — Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../class_code.html">Code written in class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_environment.html">Software installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../lecture_notes.html">Lecture Notes</a> &raquo;</li>
+        
+      <li>Lecture 16 — Dictionaries, Part 1</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/lecture_notes/lec16_dictionaries1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lecture-16-dictionaries-part-1">
+<h1>Lecture 16 — Dictionaries, Part 1<a class="headerlink" href="#lecture-16-dictionaries-part-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>More on IMDB</li>
+<li>Dictionaries and dictionary operations</li>
+<li>Solutions to the problem of counting how many movies are associated with each individual</li>
+<li>Other applications</li>
+</ul>
+</div>
+<div class="section" id="how-many-movies-each-person-is-involved-in">
+<h2>How Many Movies Each Person Is Involved In?<a class="headerlink" href="#how-many-movies-each-person-is-involved-in" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Goals:<ul>
+<li>Count movies for each person.</li>
+<li>Who is the busiest?</li>
+<li>What movies do two people have in common?</li>
+</ul>
+</li>
+<li>Best solved with the notion of a dictionary, but we’ll at least
+consider how to use a list.</li>
+</ul>
+</div>
+<div class="section" id="list-based-solution-straightforward-version">
+<h2>List-Based Solution — Straightforward Version<a class="headerlink" href="#list-based-solution-straightforward-version" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Core data structure is a list of two-item lists, each giving a
+person’s name and the count of movies.</p>
+</li>
+<li><p class="first">For example, after reading the first seven lines of our shortened
+<code class="docutils literal"><span class="pre">hanks.txt</span></code> file, we would have the list:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="s2">&quot;Hanks, Jim&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Hanks, Colin&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">&quot;Hanks, Bethan&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Hanks, Tom&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Just like our solution from the sets lectures, we can start from the
+following code:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">imdb_file</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the name of the IMDB file ==&gt; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">count_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="n">imdb_file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">):</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Like our list solution for finding all IMDB people, this solution is
+VERY slow — once again <span class="math">\(O(N^2)\)</span> (“order of N squared”).</p>
+</li>
+</ul>
+</div>
+<div class="section" id="list-based-solution-faster-version-based-on-sorting">
+<h2>List-Based Solution — Faster Version Based on Sorting<a class="headerlink" href="#list-based-solution-faster-version-based-on-sorting" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>There is an alternate solution that would work for the number of unique names solution from
+lecture 15 as well. It is based on sorting.</li>
+<li>Append each name to the end of the list <strong>without</strong> checking if it is
+already there.</li>
+<li>After reading all of the movies, sort the entire resulting list.<ul>
+<li>As a result, all instances of each name will now be next to each
+other.</li>
+</ul>
+</li>
+<li>Go back through the list, counting the occurrence of each name.</li>
+<li>This solution will be <strong>much</strong> faster than the first, but it is also
+more involved to write than the one we are about to write using
+dictionaries.</li>
+</ul>
+</div>
+<div class="section" id="introduction-to-dictionaries">
+<h2>Introduction to Dictionaries<a class="headerlink" href="#introduction-to-dictionaries" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Association between “keys” (like words in an English dictionary) and
+“values” (like definitions in an English dictionary). The values can
+be <strong>anything</strong>.</p>
+</li>
+<li><p class="first">Examples:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">heights</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">heights</span> <span class="o">=</span> <span class="p">{}</span>    <span class="c1"># either of these works</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">heights</span><span class="p">[</span><span class="s1">&#39;belgian horse&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">162.6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">heights</span><span class="p">[</span><span class="s1">&#39;indian elephant&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">280.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">heights</span><span class="p">[</span><span class="s1">&#39;tiger&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">91.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">heights</span><span class="p">[</span><span class="s1">&#39;lion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">97.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">heights</span>
+<span class="go">{&#39;belgian horse&#39;: 162.6, &#39;tiger&#39;: 91.0, &#39;lion&#39;: 97.0, &#39;indian elephant&#39;: 280.0}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;tiger&#39;</span> <span class="ow">in</span> <span class="n">heights</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;giraffe&#39;</span> <span class="ow">in</span> <span class="n">heights</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">91.0</span> <span class="ow">in</span> <span class="n">heights</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">heights</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="go">[&#39;belgian horse&#39;, &#39;tiger&#39;, &#39;lion&#39;, &#39;indian elephant&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">heights</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="go">[&#39;belgian horse&#39;, &#39;indian elephant&#39;, &#39;lion&#39;, &#39;tiger&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">heights</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<span class="go">dict_values([162.6, 91.0, 97.0, 280.0])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">heights</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="go">[97.0, 162.6, 91.0, 280.0]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Details:</p>
+<ul class="simple">
+<li>Two initializations; either would work.</li>
+<li>Syntax is very much like the subscripting syntax for lists, except
+dictionary subscripting/indexing uses keys instead of integers!</li>
+<li>The keys, in this example, are animal species (or subspecies)
+names; the values are floats.</li>
+<li>The <code class="docutils literal"><span class="pre">in</span></code> method tests only for the presence of the key, like
+looking up a word in the dictionary without checking its
+definition.</li>
+<li>The keys are NOT ordered.</li>
+</ul>
+</li>
+<li><p class="first">Just as in sets, the implementation uses <em>hashing</em> of keys.</p>
+<ul class="simple">
+<li>Conceptually, sets are dictionaries without values.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="lecture-exercise-1">
+<h2>Lecture Exercise 1<a class="headerlink" href="#lecture-exercise-1" title="Permalink to this headline">¶</a></h2>
+<p>You will have five minutes to work on the first lecture exercise.</p>
+</div>
+<div class="section" id="back-to-our-imdb-problem">
+<h2>Back to Our IMDB Problem<a class="headerlink" href="#back-to-our-imdb-problem" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Even though our coverage of dictionaries has been brief, we already
+have enough tools to solve our problem of counting movies.</p>
+</li>
+<li><p class="first">Once again we’ll use the following as a starting point:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">imdb_file</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the name of the IMDB file ==&gt; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="n">imdb_file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">):</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">The solution we give in class will output the counts for the first
+100 individuals in alphabetical order.  It will be up to you as an
+exercise to find the most frequently occurring individual.</p>
+</li>
+<li><p class="first">We will impose an ordering on the output by sorting the keys.</p>
+</li>
+<li><p class="first">We’ll test first on our smaller data set and then again later on our
+larger ones.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="key-types">
+<h2>Key Types<a class="headerlink" href="#key-types" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Thus far, the <em>keys</em> in our dictionary have been strings.</li>
+<li>Keys can be any “hashable” type — string, int, float, boolean, tuple.<ul>
+<li>Lists, sets, and other dictionaries can not be keys.</li>
+</ul>
+</li>
+<li>Strings are by far the most common key type.</li>
+<li>We will see an example of integers as the key type by the end of
+the Lecture 17 (next set of) notes.</li>
+<li>Float and boolean are generally poor choices. Can you think why?</li>
+</ul>
+</div>
+<div class="section" id="value-types">
+<h2>Value Types<a class="headerlink" href="#value-types" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">So far, the <em>values</em> in our dictionaries have been integers and
+floats.</p>
+</li>
+<li><p class="first">But any type can be the values:</p>
+<ul class="simple">
+<li>boolean</li>
+<li>int</li>
+<li>float</li>
+<li>string</li>
+<li>list</li>
+<li>tuple</li>
+<li>set</li>
+<li>other dictionaries</li>
+</ul>
+</li>
+<li><p class="first">Here is an example using our IMDB code and a set:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">people</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">people</span><span class="p">[</span><span class="s1">&#39;Hanks, Tom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">people</span><span class="p">[</span><span class="s1">&#39;Hanks, Tom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;Big&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">people</span><span class="p">[</span><span class="s1">&#39;Hanks, Tom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;Splash&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">people</span><span class="p">[</span><span class="s1">&#39;Hanks, Tom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;Forrest Gump&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">people</span><span class="p">[</span><span class="s1">&#39;Hanks, Tom&#39;</span><span class="p">])</span>
+<span class="go">{&#39;Big&#39;, &#39;Splash&#39;, &#39;Forrest Gump&#39;}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Here is another example where we store the continent and the
+population for a country instead of just the population:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">countries</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">countries</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="n">countries</span><span class="p">[</span><span class="s1">&#39;Algeria&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="p">(</span><span class="mi">37100000</span><span class="p">,</span> <span class="s1">&#39;Africa&#39;</span><span class="p">)</span>
+<span class="n">countries</span><span class="p">[</span><span class="s1">&#39;Canada&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">34945200</span><span class="p">,</span> <span class="s1">&#39;North America&#39;</span><span class="p">)</span>
+<span class="n">countries</span><span class="p">[</span><span class="s1">&#39;Uganda&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">32939800</span><span class="p">,</span> <span class="s1">&#39;Africa&#39;</span><span class="p">)</span>
+<span class="n">countries</span><span class="p">[</span><span class="s1">&#39;Morocco&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">32696600</span><span class="p">,</span> <span class="s1">&#39;Africa&#39;</span><span class="p">)</span>
+<span class="n">countries</span><span class="p">[</span><span class="s1">&#39;Sudan&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">30894000</span><span class="p">,</span> <span class="s1">&#39;Africa&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">We access the values in the entries using <em>two consecutive
+subscripts</em>. For example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Canada&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The population of </span><span class="si">{}</span><span class="s2"> is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">countries</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It is in the continent of&quot;</span><span class="p">,</span> <span class="n">countries</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="removing-values-sets-and-dictionaries">
+<h2>Removing Values: Sets and Dictionaries<a class="headerlink" href="#removing-values-sets-and-dictionaries" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>For a set:<ul>
+<li><code class="xref py py-func docutils literal"><span class="pre">discard()</span></code> removes the specified element, and does nothing if it
+is not there.</li>
+<li><code class="xref py py-func docutils literal"><span class="pre">remove()</span></code> removes the specified element, but fails (throwing an
+exception) if it is not there.</li>
+</ul>
+</li>
+<li>For a dictionary, it is the <code class="docutils literal"><span class="pre">del</span></code> keyword.</li>
+<li>For both sets and dictionaries, the <code class="xref py py-func docutils literal"><span class="pre">clear()</span></code> method empties the
+container.</li>
+<li>We will look at toy examples in class.</li>
+</ul>
+</div>
+<div class="section" id="other-dictionary-methods">
+<h2>Other Dictionary Methods<a class="headerlink" href="#other-dictionary-methods" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The following dictionary methods are useful, but not so much as the
+ones we’ve discussed:<ul>
+<li><code class="xref py py-func docutils literal"><span class="pre">get()</span></code></li>
+<li><code class="xref py py-func docutils literal"><span class="pre">pop()</span></code></li>
+<li><code class="xref py py-func docutils literal"><span class="pre">popitem()</span></code></li>
+<li><code class="xref py py-func docutils literal"><span class="pre">update()</span></code></li>
+</ul>
+</li>
+<li>Use the <a class="reference external" href="https://docs.python.org/3/library/functions.html#help" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">help()</span></code></a> function in Python to figure out how to use them and
+to find other dictionary methods.</li>
+</ul>
+</div>
+<div class="section" id="summary-of-dictionaries">
+<h2>Summary of Dictionaries<a class="headerlink" href="#summary-of-dictionaries" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Associate “keys” with “values”.</li>
+<li>Feels like indexing, except we are using keys instead of integer
+indices.</li>
+<li>Makes counting and a number of other operations simple and fast.</li>
+<li>Keys can be any “hashable” value, usually strings, sometimes
+integers.</li>
+<li>Values can be any type whatsoever.</li>
+</ul>
+</div>
+<div class="section" id="additional-practice">
+<h2>Additional Practice<a class="headerlink" href="#additional-practice" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Write a function that takes the IMDB dictionary — which associates
+strings representing names with integers representing the count of
+movies — and an integer representing a <code class="docutils literal"><span class="pre">min_count</span></code>, and removes all
+individuals from the dictionary involved in fewer than <code class="docutils literal"><span class="pre">min_count</span></code>
+movies.</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lec16_dictionaries1_exercises/exercises.html" class="btn btn-neutral float-right" title="Lecture 16 — Exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lec15_sets_exercises/exercises.html" class="btn btn-neutral float-left" title="Lecture 15 — Exercises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Imran Ali
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

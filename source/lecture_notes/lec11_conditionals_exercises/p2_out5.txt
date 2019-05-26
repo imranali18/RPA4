@@ -1,0 +1,6 @@
+Enter Dale's height: 126
+Enter Erin's height: 121
+Enter Sam's height: 133
+Sam
+Dale
+Erin

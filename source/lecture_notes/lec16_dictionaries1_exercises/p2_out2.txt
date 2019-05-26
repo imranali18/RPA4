@@ -1,0 +1,3 @@
+Enter the name of the IMDB file ==> imdb/imdb_data.txt
+Blanc, Mel appears most often: 934 times
+84568 people appear once

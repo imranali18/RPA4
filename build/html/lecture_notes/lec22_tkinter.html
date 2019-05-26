@@ -1,0 +1,801 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lecture 22 — TKInter &mdash; RPA  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 22 — Exercises" href="lec22_tkinter_exercises/exercises.html" />
+    <link rel="prev" title="Lecture 21 — Exercises" href="lec21_sorting_exercises/exercises.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RPA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Detailed schedule of topics for this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_lecture_lab.html">Weekly lecture and lab schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_oh_alac.html">Weekly office hour and tutoring schedule</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../lecture_notes.html">Lecture notes and exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lec01_intro.html">Lecture 1 — Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator.html">Lecture 2 — Python as a Calculator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator_exercises/exercises.html">Lecture 2 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings.html">Lecture 3 — Python Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings_exercises/exercises.html">Lecture 3 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1.html">Lecture 4 — Using functions and modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1_exercises/exercises.html">Lecture 4 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2.html">Lecture 5 — Python Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2_exercises/exercises.html">Lecture 5 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1.html">Lecture 6 — Decisions Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1_exercises/exercises.html">Lecture 6 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images.html">Lecture 7 — Tuples, Modules, and Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images_exercises/exercises.html">Lecture 7 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1.html">Lecture 8 — Lists Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1_exercises/exercises.html">Lecture 8 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while.html">Lecture 9 — While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while_exercises/exercises.html">Lecture 9 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2.html">Lecture 10 — Lists Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2_exercises/exercises.html">Lecture 10 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals2.html">Lecture 11 — Decisions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals_exercises/exercises.html">Lecture 11 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_for_double.html">Lecture 12 — Controlling Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_exercises/exercises.html">Lecture 12 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_web.html">Lecture 13 — Data from Files and Web Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_exercises/exercises.html">Lecture 13 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec14_design_part1.html">Lecture 14 — Problem Solving and Design, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets.html">Lecture 15 — Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets_exercises/exercises.html">Lecture 15 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1.html">Lecture 16 — Dictionaries, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1_exercises/exercises.html">Lecture 16 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2.html">Lecture 17 — Dictionaries, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2_exercises/exercises.html">Lecture 17 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1.html">Lecture 18 — Classes, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1_exercises/exercises.html">Lecture 18 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2.html">Lecture 19 — Classes, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2_exercises/exercises.html">Lecture 19 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching.html">Lecture 20 — Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching_exercises/exercises.html">Lecture 20 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting.html">Lecture 21 — Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting_exercises/exercises.html">Lecture 21 — Exercises</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lecture 22 — TKInter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#last-three-lectures">Last Three Lectures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview-of-today-s-lecture">Overview of Today’s Lecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#graphical-user-interface">Graphical User Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#event-driven-programming">Event Driven Programming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tkinter-first-program">TkInter First Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#widgets-and-containers">Widgets and Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-use-of-containers-and-buttons">Example use of containers and buttons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-tkinter-programs-using-classes">Running tkinter programs using classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#button-click">Button Click</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-program-with-a-button-click">Example Program with a Button Click</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#canvas-widget">Canvas Widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timing-of-gui-events">Timing of GUI Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#final-program">Final Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter_exercises/exercises.html">Lecture 22 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion.html">Lecture 23 — Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion_exercises/exercises.html">Lecture 23 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional.html">Lecture 24 — Advanced Python Topics and Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional_exercises/exercises.html">Lecture 24 — Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../class_code.html">Code written in class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_environment.html">Software installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../lecture_notes.html">Lecture Notes</a> &raquo;</li>
+        
+      <li>Lecture 22 — TKInter</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/lecture_notes/lec22_tkinter.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lecture-22-tkinter">
+<h1>Lecture 22 — TKInter<a class="headerlink" href="#lecture-22-tkinter" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="last-three-lectures">
+<h2>Last Three Lectures<a class="headerlink" href="#last-three-lectures" title="Permalink to this headline">¶</a></h2>
+<p>Selection of advanced topics:</p>
+<ul class="simple">
+<li>Lecture 22:  Graphical user interfaces</li>
+<li>Lecture 23:  Recursion</li>
+<li>Lecture 24:  Functional programming</li>
+</ul>
+</div>
+<div class="section" id="overview-of-today-s-lecture">
+<h2>Overview of Today’s Lecture<a class="headerlink" href="#overview-of-today-s-lecture" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>We will learn about event driven programming.</li>
+<li>We will discuss graphical user interfaces (GUI).</li>
+<li>We will see how to use the TkInter implementation for Python
+to develop GUIs.</li>
+</ul>
+</div>
+<div class="section" id="graphical-user-interface">
+<h2>Graphical User Interface<a class="headerlink" href="#graphical-user-interface" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">All our programs so far had a terminal based input/output through
+Wing IDE 101. This is the simplest type of user interface: enter some text
+and get some output.</p>
+</li>
+<li><p class="first">In real life, we rarely use such programs. All Web interfaces and
+mobile apps involve elements like buttons, text input fields, radio
+buttons, etc.</p>
+<p>This type of a user interface is called a <strong>graphical user interface</strong>
+or GUI.</p>
+</li>
+<li><p class="first">Designing a GUI is not a simple matter. It requires one to
+understand effective communication of information through visual
+interfaces. It is highly recommend you take a class on Visual
+Communication or Human Computer Interaction to learn more about
+these.</p>
+</li>
+<li><p class="first">Many GUI packages will have some default settings that are meant to
+help you design interfaces that are at least not awful! So, make sure
+you do not override them until you know what you are doing.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="event-driven-programming">
+<h2>Event Driven Programming<a class="headerlink" href="#event-driven-programming" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>A graphical user interface is designed to do something in response
+to an event.</li>
+<li>Example events are:<ul>
+<li>Button push (most popular so far)</li>
+<li>Selection from a list of options</li>
+<li>Mouse movement</li>
+</ul>
+</li>
+<li>The interface usually runs within a main window (often called
+root) and listens continuously for events it knows how to process.<ul>
+<li>Hence, a GUI is always in an infinite loop.</li>
+<li>When an event happens, it executes the function corresponding to
+the event and continues to listen.</li>
+<li>To finish the GUI loop, often an explicit termination command
+has to happen.</li>
+</ul>
+</li>
+<li>TkInter is a Python module implementing the Tk toolkit for building
+graphical user interfaces. Other languages also have Tk
+implementations.</li>
+<li><strong>Note:</strong> The most important distinction between regular and event
+based programming is that the action corresponding to an event gets
+executed in parallel with the rest of the program, it does not
+block the execution of functions in response to other events.</li>
+</ul>
+</div>
+<div class="section" id="tkinter-first-program">
+<h2>TkInter First Program<a class="headerlink" href="#tkinter-first-program" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Let’s see a very basic program.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tkinter</span> <span class="k">import</span> <span class="o">*</span> <span class="c1">### (1)</span>
+
+<span class="n">root</span> <span class="o">=</span> <span class="n">Tk</span><span class="p">()</span>           <span class="c1">### (2)</span>
+<span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>       <span class="c1">### (3)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>        <span class="c1">### (4)</span>
+</pre></div>
+</div>
+<ol class="arabic">
+<li><p class="first">It is common to import everything from Tkinter to make it
+easy to write GUI programs. Compare this with the following
+program that does the same exact thing but requires using
+Tkinter for all calls to the module.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tkinter</span>
+<span class="n">root</span> <span class="o">=</span> <span class="n">tkinter</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
+<span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">We create the main window that the whole application will
+run in. This main window has many properties already: it can be
+resized and moved like any window on your computer.</p>
+</li>
+<li><p class="first">We tell the main window to run in an infinite loop, until it is
+explicitly terminated. In this case, you need to explicitly
+click on the upper left corner to close this application. This
+generates a “destroy” event, which terminates the main window.</p>
+</li>
+<li><p class="first">To understand the infinite loop notice that <code class="docutils literal"><span class="pre">print(&quot;Hello&quot;)</span></code>
+command is not executed until the window terminates and the
+main loop ends.</p>
+</li>
+</ol>
+</li>
+</ul>
+</div>
+<div class="section" id="widgets-and-containers">
+<h2>Widgets and Containers<a class="headerlink" href="#widgets-and-containers" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>GUIs involve two main types of objects: widgets and containers</li>
+<li>Widgets are objects that have a function and are visible. These
+are the main elements of an interface. We will see the following
+main widgets:<ul>
+<li>Buttons: can do something when clicked</li>
+<li>Canvas: you can draw shapes or put shapes in them</li>
+</ul>
+</li>
+<li>There are many other widgets like radio boxes, check boxes, menus of
+items, etc. You can learn these after we get comfortable with these two.</li>
+<li>Containers are invisible, but they allow us to group widgets and
+arrange them in visual groups. We will see only one type of container
+in this lecture:<ul>
+<li>Frames: can contain any of the widgets of the above type</li>
+</ul>
+</li>
+<li>Containers’ size will grow and shrink to fit the objects contained
+within. Containers can contain other containers as well.</li>
+</ul>
+</div>
+<div class="section" id="example-use-of-containers-and-buttons">
+<h2>Example use of containers and buttons<a class="headerlink" href="#example-use-of-containers-and-buttons" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Let’s create a first program to create four buttons, put the first
+pair in one frame, the second pair in another frame, and then
+arrange these two frames on top of each other.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tkinter</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="n">root</span> <span class="o">=</span> <span class="n">Tk</span><span class="p">()</span>
+<span class="n">main_frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+<span class="n">main_frame</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+
+<span class="n">top_frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="n">main_frame</span><span class="p">)</span>
+<span class="n">top_frame</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">TOP</span><span class="p">)</span>
+
+<span class="n">bottom_frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="n">main_frame</span><span class="p">)</span>
+<span class="n">bottom_frame</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">BOTTOM</span><span class="p">)</span>
+
+<span class="n">button1</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">top_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Top 1&quot;</span><span class="p">)</span>
+<span class="n">button1</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">LEFT</span><span class="p">)</span>
+<span class="n">button2</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">top_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Top 2&quot;</span><span class="p">)</span>
+<span class="n">button2</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">RIGHT</span><span class="p">)</span>
+
+<span class="n">button3</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">bottom_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Bottom 1&quot;</span><span class="p">)</span>
+<span class="n">button3</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">LEFT</span><span class="p">)</span>
+<span class="n">button4</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">bottom_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Bottom 2&quot;</span><span class="p">)</span>
+<span class="n">button4</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">RIGHT</span><span class="p">)</span>
+
+<span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">In the above example, the two frames for containing buttons are
+organized inside another frame.</p>
+</li>
+<li><p class="first">The organization between widgets is achieved by a strict hierarchy.
+Each widget or container has a parent:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">GUI Element</th>
+<th class="head">Parent</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>root</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>main_frame</td>
+<td>root</td>
+</tr>
+<tr class="row-even"><td>top_frame</td>
+<td>main_frame</td>
+</tr>
+<tr class="row-odd"><td>bottom_frame</td>
+<td>main_frame</td>
+</tr>
+<tr class="row-even"><td>button1</td>
+<td>top_frame</td>
+</tr>
+<tr class="row-odd"><td>button2</td>
+<td>top_frame</td>
+</tr>
+<tr class="row-even"><td>button3</td>
+<td>bottom_frame</td>
+</tr>
+<tr class="row-odd"><td>button4</td>
+<td>bottom_frame</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p class="first">Whenever you create a frame, button, or canvas, the first argument is the
+parent element.</p>
+<ul class="simple">
+<li>Parent element tells us the placement of the widget, e.g. <code class="docutils literal"><span class="pre">button1</span></code> is
+placed to the left of <code class="docutils literal"><span class="pre">top_frame</span></code> and <code class="docutils literal"><span class="pre">top_frame</span></code> is to the top of
+<code class="docutils literal"><span class="pre">main_frame</span></code> and <code class="docutils literal"><span class="pre">main_frame</span></code> is within the main window of <code class="docutils literal"><span class="pre">root</span></code>.</li>
+<li>Parent container’s size is determined as a function of the sizes of
+its children. If nothing was put in a container, its size may be zero.</li>
+</ul>
+</li>
+<li><p class="first">Pack will make the interface element a part of the GUI, creating them is not
+enough. You must attach them to the interface with packing.</p>
+</li>
+<li><p class="first">By changing the arguments to <code class="xref py py-func docutils literal"><span class="pre">pack()</span></code> we can alter the
+placement of the buttons and the frames.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="running-tkinter-programs-using-classes">
+<h2>Running tkinter programs using classes<a class="headerlink" href="#running-tkinter-programs-using-classes" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Already our programs are becoming long and so far they don’t really
+do anything yet!  What we really want is to have programs
+accomplish tasks when a button is pressed (for example).</p>
+</li>
+<li><p class="first">As it is generally tricky to pass variables between different
+Tkinter events, we often use classes to implement the main Tk
+applications.</p>
+<p>The member attributes will help us pass values between
+events.</p>
+</li>
+<li><p class="first">We will first rewrite the above program using classes as shown
+below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tkinter</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="k">class</span> <span class="nc">MyApp</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">main_frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">main_frame</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">top_frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">main_frame</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">top_frame</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">TOP</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bottom_frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">main_frame</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bottom_frame</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">BOTTOM</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">button1</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">top_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Top 1&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button1</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">LEFT</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button2</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">top_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Top 2&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button2</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">RIGHT</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button3</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bottom_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Bottom 1&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button3</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">LEFT</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button4</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bottom_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Bottom 2&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button4</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">RIGHT</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">Tk</span><span class="p">()</span>
+    <span class="n">myapp</span> <span class="o">=</span> <span class="n">MyApp</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+    <span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">This is the main idea: any object outside of root is defined within
+a class, using root as the parent.</p>
+</li>
+<li><p class="first">We can now add functionality to this class that will modify the
+widgets.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="button-click">
+<h2>Button Click<a class="headerlink" href="#button-click" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">You track many events in a GUI, but we will not see
+them (such as when a specific mouse button, left or right, is
+clicked, when it is released, when the cursor is moved, when
+something is typed on the keyboard, etc.)</p>
+<p>(Note the distinction between the
+widget that is the GUI button, and the physical button on your
+mouse.)</p>
+</li>
+<li><p class="first">Command attribute of <cite>Button</cite> allows you to associate a function name
+with a button click (in GUI terms this is a combination of two
+events: left button click and its release).</p>
+<p>See the following example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bottom_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Quit&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">terminate_program</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">The button we generate in this example has a function binding: when it
+is clicked, it will call function <code class="xref py py-func docutils literal"><span class="pre">self.terminate_program()</span></code>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="example-program-with-a-button-click">
+<h2>Example Program with a Button Click<a class="headerlink" href="#example-program-with-a-button-click" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">This simple program terminates the program by completely destroying the
+root window.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tkinter</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="k">class</span> <span class="nc">MyApp</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">main_frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">main_frame</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">main_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Quit&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">terminate_program</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="s2">&quot;4m&quot;</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="s2">&quot;4m&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">terminate_program</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">Tk</span><span class="p">()</span>
+    <span class="n">myapp</span> <span class="o">=</span> <span class="n">MyApp</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+    <span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Here we see the use of classes for two important functions:</p>
+<ul class="simple">
+<li>Keeping track of the root as the parent of all GUI elements.</li>
+<li>Defining a function that can access the parent object attached to <cite>self</cite> and destroy
+it by ending the application.</li>
+</ul>
+</li>
+<li><p class="first">We also saw that you can control the size of the button by configuring its width. Padding
+on x and y allows us to control how the button is placed inside the frame.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="canvas-widget">
+<h2>Canvas Widget<a class="headerlink" href="#canvas-widget" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">This is the last widget we will see today. Canvas is a blank area. You can continuously
+draw things in it or put text in it. Here are some basic operations.</p>
+</li>
+<li><p class="first">Create canvas:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">canvas</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Draw something in a canvas (an oval within the given box coordinates):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">canvas</span><span class="o">.</span><span class="n">create_oval</span><span class="p">((</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">80</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Remember, like Image objects, (0, 0) represents the top left corner.</p>
+</li>
+<li><p class="first">When you draw multiple things in a canvas, it may not immediately
+show what you draw and a small delay may be noticed. You can force
+the canvas to show you what you draw with:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">canvas</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">You can also draw lines, rectangles, and text. See more on:</p>
+<p><a class="reference external" href="http://effbot.org/tkinterbook/canvas.htm">http://effbot.org/tkinterbook/canvas.htm</a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="timing-of-gui-events">
+<h2>Timing of GUI Events<a class="headerlink" href="#timing-of-gui-events" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Remember, GUI events are triggered when you click a button (or other
+events you watch in more sophisticated systems).</p>
+</li>
+<li><p class="first">They execute in parallel. If the processing of an event takes some
+time, it may overlap with another event.</p>
+</li>
+<li><p class="first">Sometimes drawing events are too fast for the eye to see the progress.
+You can incorporate some delays to make this more pleasing to the eye.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">canvas</span><span class="o">.</span><span class="n">after</span><span class="p">(</span><span class="n">waittime</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>which will add a small delay <cite>waittime</cite> to the program.</p>
+</li>
+<li><p class="first">Note that <code class="xref py py-func docutils literal"><span class="pre">after()</span></code> and <code class="xref py py-func docutils literal"><span class="pre">update()</span></code> functions apply to many other GUI elements.
+Mastering them will help you get the exact timing effect from your interface.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="final-program">
+<h2>Final Program<a class="headerlink" href="#final-program" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Here is a final program to put together a lot of the things we learned. It
+features a private class method (<code class="xref py py-func docutils literal"><span class="pre">new_button()</span></code>) that is only accessible
+to the <code class="xref py py-func docutils literal"><span class="pre">__init__()</span></code> function. It shows how functions can be used to automate
+repetitive tasks.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tkinter</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="k">class</span> <span class="nc">MyApp</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+        <span class="c1">## This method is internal to the initializer method</span>
+        <span class="c1">## and is used for creating buttons. It shortens the program code</span>
+        <span class="k">def</span> <span class="nf">new_button</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">buttontext</span><span class="p">,</span> <span class="n">packlocation</span><span class="p">):</span>
+            <span class="n">button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="n">button</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">buttontext</span><span class="p">)</span>
+            <span class="n">button</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="n">button_width</span><span class="p">,</span>
+                  <span class="n">padx</span><span class="o">=</span><span class="n">button_padx</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="n">button_pady</span><span class="p">)</span>
+            <span class="n">button</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">packlocation</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">button</span>
+
+        <span class="c1">#------ constants for controlling layout ------</span>
+        <span class="n">button_width</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">button_padx</span> <span class="o">=</span> <span class="s2">&quot;2m&quot;</span>
+        <span class="n">button_pady</span> <span class="o">=</span> <span class="s2">&quot;1m&quot;</span>
+        <span class="n">buttons_frame_padx</span> <span class="o">=</span>  <span class="s2">&quot;3m&quot;</span>
+        <span class="n">buttons_frame_pady</span> <span class="o">=</span>  <span class="s2">&quot;2m&quot;</span>
+        <span class="n">buttons_frame_ipadx</span> <span class="o">=</span> <span class="s2">&quot;3m&quot;</span>
+        <span class="n">buttons_frame_ipady</span> <span class="o">=</span> <span class="s2">&quot;1m&quot;</span>
+        <span class="c1"># -------------- end constants ----------------</span>
+
+        <span class="c1">#---------variables for controlling the function-----</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">canvas_dimension</span> <span class="o">=</span> <span class="mi">600</span> <span class="c1">##Canvas will be a square</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wait_time</span> <span class="o">=</span> <span class="mi">8</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">repetitions</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="c1">#----------end of variables--------------------------</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">myParent</span> <span class="o">=</span> <span class="n">parent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">main_frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">main_frame</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+
+        <span class="c1">## Two frames inside the main frame, one for the canvas</span>
+        <span class="c1">## on top and the second one for buttons in the bottom</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">draw_frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">main_frame</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">draw_frame</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">TOP</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">info_canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">draw_frame</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                                   <span class="n">width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas_dimension</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info_canvas</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">TOP</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text_area</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">info_canvas</span><span class="o">.</span><span class="n">create_text</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="s1">&#39;nw&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info_canvas</span><span class="o">.</span><span class="n">itemconfigure</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text_area</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;#circles = </span><span class="si">{:d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">repetitions</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">main_canvas</span> <span class="o">=</span> <span class="n">Canvas</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">draw_frame</span><span class="p">,</span> \
+                                  <span class="n">height</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas_dimension</span><span class="p">,</span>
+                                  <span class="n">width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas_dimension</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">main_canvas</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">button_frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">main_frame</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button_frame</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">BOTTOM</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">draw_button</span> <span class="o">=</span> <span class="n">new_button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">button_frame</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">draw</span><span class="p">,</span> <span class="s1">&#39;Draw&#39;</span><span class="p">,</span> <span class="n">LEFT</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clear_button</span> <span class="o">=</span> <span class="n">new_button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">button_frame</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">,</span> <span class="s1">&#39;Clear&#39;</span><span class="p">,</span> <span class="n">LEFT</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">increase_button</span> <span class="o">=</span> <span class="n">new_button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">button_frame</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">increase</span><span class="p">,</span> <span class="s1">&#39;Increase&#39;</span><span class="p">,</span> <span class="n">LEFT</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reduce_button</span> <span class="o">=</span> <span class="n">new_button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">button_frame</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">reduce</span><span class="p">,</span> <span class="s1">&#39;Reduce&#39;</span><span class="p">,</span> <span class="n">LEFT</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">quit_button</span> <span class="o">=</span> <span class="n">new_button</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">button_frame</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">quit</span><span class="p">,</span> <span class="s1">&#39;Quit&#39;</span><span class="p">,</span> <span class="n">RIGHT</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">main_canvas</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">reduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">repetitions</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">repetitions</span> <span class="o">//=</span> <span class="mi">2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">put_info</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">increase</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">repetitions</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">repetitions</span> <span class="o">*=</span> <span class="mi">2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">put_info</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">put_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">## Change the text field in the canvas</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info_canvas</span><span class="o">.</span><span class="n">itemconfigure</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text_area</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;#circles = </span><span class="si">{:d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">repetitions</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">boundary_offset</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="n">max_radius</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas_dimension</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">boundary_offset</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">xc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas_dimension</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">boundary_offset</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">max_radius</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">repetitions</span>
+        <span class="n">inc</span> <span class="o">=</span> <span class="n">r</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">repetitions</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">main_canvas</span><span class="o">.</span><span class="n">create_oval</span><span class="p">((</span><span class="n">xc</span> <span class="o">-</span> <span class="n">r</span><span class="p">,</span> <span class="n">xc</span> <span class="o">-</span> <span class="n">r</span><span class="p">,</span> <span class="n">xc</span> <span class="o">+</span> <span class="n">r</span><span class="p">,</span> <span class="n">xc</span> <span class="o">+</span> <span class="n">r</span><span class="p">))</span>
+            <span class="n">r</span> <span class="o">+=</span> <span class="n">inc</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">main_canvas</span><span class="o">.</span><span class="n">update</span><span class="p">()</span> <span class="c1"># Actually refresh the drawing on the canvas.</span>
+            <span class="c1"># Pause execution.  This allows the eye to catch up</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">main_canvas</span><span class="o">.</span><span class="n">after</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wait_time</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">quit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myParent</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">Tk</span><span class="p">()</span>
+    <span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Drawing a circle&quot;</span><span class="p">)</span> <span class="c1">##Give a title to the program</span>
+    <span class="n">myapp</span> <span class="o">=</span> <span class="n">MyApp</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+    <span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Graphical user interfaces are event driven. You need to write functions
+to initialize the interface and change the interface when events happen.</li>
+<li>The most common events are button clicks, but many others are possible.</li>
+<li>Most GUI elements are visible and are called widgets.</li>
+<li>Widgets are placed in invisible containers like frames to group them together.</li>
+<li>Many containers have built-in methods for placing multiple widgets in a way
+that is pleasing to the eye.</li>
+<li>When building an interface, some of the challenges involve making the interface
+easy and intuitive to use. Many communications classes concentrate on these
+issues.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lec22_tkinter_exercises/exercises.html" class="btn btn-neutral float-right" title="Lecture 22 — Exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lec21_sorting_exercises/exercises.html" class="btn btn-neutral float-left" title="Lecture 21 — Exercises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Imran Ali
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

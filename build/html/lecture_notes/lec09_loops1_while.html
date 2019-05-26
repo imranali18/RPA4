@@ -1,0 +1,531 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lecture 9 — While Loops &mdash; RPA  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 9 — Exercises" href="lec09_loops1_while_exercises/exercises.html" />
+    <link rel="prev" title="Lecture 8 — Exercises" href="lec08_lists1_exercises/exercises.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RPA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Detailed schedule of topics for this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_lecture_lab.html">Weekly lecture and lab schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_oh_alac.html">Weekly office hour and tutoring schedule</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../lecture_notes.html">Lecture notes and exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lec01_intro.html">Lecture 1 — Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator.html">Lecture 2 — Python as a Calculator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator_exercises/exercises.html">Lecture 2 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings.html">Lecture 3 — Python Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings_exercises/exercises.html">Lecture 3 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1.html">Lecture 4 — Using functions and modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1_exercises/exercises.html">Lecture 4 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2.html">Lecture 5 — Python Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2_exercises/exercises.html">Lecture 5 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1.html">Lecture 6 — Decisions Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1_exercises/exercises.html">Lecture 6 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images.html">Lecture 7 — Tuples, Modules, and Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images_exercises/exercises.html">Lecture 7 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1.html">Lecture 8 — Lists Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1_exercises/exercises.html">Lecture 8 — Exercises</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lecture 9 — While Loops</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-1-the-basics">Part 1: The Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basics-of-while">Basics of While</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-loops-with-lists">Using Loops with Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-1-practice">Part 1 Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accumulation-of-values">Accumulation of values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-2-practice">Part 2 Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loops-that-end-on-other-conditions">Loops that end on other conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-nested-loops">Multiple nested loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while_exercises/exercises.html">Lecture 9 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2.html">Lecture 10 — Lists Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2_exercises/exercises.html">Lecture 10 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals2.html">Lecture 11 — Decisions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals_exercises/exercises.html">Lecture 11 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_for_double.html">Lecture 12 — Controlling Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_exercises/exercises.html">Lecture 12 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_web.html">Lecture 13 — Data from Files and Web Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_exercises/exercises.html">Lecture 13 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec14_design_part1.html">Lecture 14 — Problem Solving and Design, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets.html">Lecture 15 — Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets_exercises/exercises.html">Lecture 15 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1.html">Lecture 16 — Dictionaries, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1_exercises/exercises.html">Lecture 16 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2.html">Lecture 17 — Dictionaries, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2_exercises/exercises.html">Lecture 17 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1.html">Lecture 18 — Classes, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1_exercises/exercises.html">Lecture 18 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2.html">Lecture 19 — Classes, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2_exercises/exercises.html">Lecture 19 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching.html">Lecture 20 — Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching_exercises/exercises.html">Lecture 20 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting.html">Lecture 21 — Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting_exercises/exercises.html">Lecture 21 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter.html">Lecture 22 — TKInter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter_exercises/exercises.html">Lecture 22 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion.html">Lecture 23 — Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion_exercises/exercises.html">Lecture 23 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional.html">Lecture 24 — Advanced Python Topics and Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional_exercises/exercises.html">Lecture 24 — Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../class_code.html">Code written in class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_environment.html">Software installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../lecture_notes.html">Lecture Notes</a> &raquo;</li>
+        
+      <li>Lecture 9 — While Loops</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/lecture_notes/lec09_loops1_while.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lecture-9-while-loops">
+<h1>Lecture 9 — While Loops<a class="headerlink" href="#lecture-9-while-loops" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Loops are used to access and modify information stored in lists and
+are used to repeat computations many times.</li>
+<li>We construct loops using logical conditions: <code class="docutils literal"><span class="pre">while</span></code> loops.</li>
+<li>We will investigate single and multiple loops.</li>
+</ul>
+<p>Reading:  Our coverage of loops is in a different order than that of
+<em>Practical Programming</em>.  A direct reference for reading material is
+Section 9.6.</p>
+</div>
+<div class="section" id="part-1-the-basics">
+<h2>Part 1: The Basics<a class="headerlink" href="#part-1-the-basics" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Loops allow us to repeat a block of code multiple times. This is
+the basis for many sophisticated programming tasks.</li>
+<li>We will see two ways to write loops: using <code class="docutils literal"><span class="pre">while</span></code> loops and <code class="docutils literal"><span class="pre">for</span></code> loops.</li>
+<li>In Python, <code class="docutils literal"><span class="pre">while</span></code> loops are more general because you
+can always write a <code class="docutils literal"><span class="pre">for</span></code> loop using a <code class="docutils literal"><span class="pre">while</span></code> loop.</li>
+<li>We will start with <code class="docutils literal"><span class="pre">while</span></code> loops first and then see how we can
+simplify common tasks with <code class="docutils literal"><span class="pre">for</span></code> loops later.</li>
+</ul>
+</div>
+<div class="section" id="basics-of-while">
+<h2>Basics of While<a class="headerlink" href="#basics-of-while" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Our first <code class="docutils literal"><span class="pre">while</span></code> loop just counts numbers from 1 to 9, and prints them:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>   <span class="c1">## if you forget this, your program will never end</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">General form of a <code class="docutils literal"><span class="pre">while</span></code> loop:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">block</span> <span class="n">a</span>
+<span class="k">while</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="n">block</span> <span class="n">b</span>
+<span class="n">block</span> <span class="n">c</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Steps:</p>
+<ol class="arabic simple">
+<li>Evaluate any code before <code class="docutils literal"><span class="pre">while</span></code> (<strong>block a</strong>).</li>
+<li>Evaluate the <code class="docutils literal"><span class="pre">while</span></code> loop <code class="docutils literal"><span class="pre">condition</span></code>:<ol class="arabic">
+<li>If it is <code class="docutils literal"><span class="pre">True</span></code>, evaluate <strong>block b</strong>, and then repeat
+the evaluation of the condition.</li>
+<li>If it is <code class="docutils literal"><span class="pre">False</span></code>, end the loop, and continue with the code
+after the loop (<strong>block c</strong>).</li>
+</ol>
+</li>
+</ol>
+<p>In other words, the cycle of evaluating the condition followed by
+evaluating the block of code continues until the condition evaluates
+to <code class="docutils literal"><span class="pre">False</span></code>.</p>
+</li>
+<li><p class="first">An important issue that is sometimes easy to answer and sometimes
+very hard to answer is to know that your loop will always
+terminate.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="using-loops-with-lists">
+<h2>Using Loops with Lists<a class="headerlink" href="#using-loops-with-lists" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Often, we use loops to repeat a specific operation on every element of
+a list.</p>
+</li>
+<li><p class="first">We must be careful to create a number that will serve as the index
+of elements of a list. Valid values are: 0 up to (not including)
+the length of list:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">co2_levels</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2001</span><span class="p">,</span> <span class="mf">320.03</span><span class="p">),</span> <span class="p">(</span><span class="mi">2003</span><span class="p">,</span> <span class="mf">322.16</span><span class="p">),</span> <span class="p">(</span><span class="mi">2004</span><span class="p">,</span> <span class="mf">328.07</span><span class="p">),</span>\
+              <span class="p">(</span><span class="mi">2006</span><span class="p">,</span> <span class="mf">323.91</span><span class="p">),</span> <span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mf">341.47</span><span class="p">),</span> <span class="p">(</span><span class="mi">2009</span><span class="p">,</span> <span class="mf">348.92</span><span class="p">),</span>\
+              <span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="mf">357.29</span><span class="p">),</span> <span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mf">363.77</span><span class="p">),</span> <span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mf">361.51</span><span class="p">),</span>\
+              <span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mf">382.47</span><span class="p">)]</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">co2_levels</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="n">co2_levels</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> \
+          <span class="s2">&quot;CO2 levels:&quot;</span><span class="p">,</span> <span class="n">co2_levels</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Let’s make some errors to see what happens to the loop.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="part-1-practice">
+<h2>Part 1 Practice<a class="headerlink" href="#part-1-practice" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Write a while loop to count down from 10 to 1, printing the values
+of the loop counting variable <code class="docutils literal"><span class="pre">i</span></code> (it could be some other variable
+name as well).</li>
+<li>Modify your loop to print the values in the list <code class="docutils literal"><span class="pre">co2_levels</span></code> in
+reverse order.</li>
+</ol>
+</div>
+<div class="section" id="accumulation-of-values">
+<h2>Accumulation of values<a class="headerlink" href="#accumulation-of-values" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Often, we use loops to accumulate some type of information such as
+adding all the values in a list.</p>
+</li>
+<li><p class="first">Let’s change the loop to add numbers from 1 to 9:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="n">i</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(Of course you can and should do this with the <a class="reference external" href="https://docs.python.org/3/library/functions.html#sum" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">sum()</span></code></a>
+function, but guess what that actually does!)</p>
+</li>
+<li><p class="first">Let’s use a loop to add the numbers in a list:</p>
+<ul class="simple">
+<li>Now, we will use the numbers the loop generates to index a list.</li>
+<li>So, the loop must generate numbers from 0 to the length of the list:</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">co2_levels</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2001</span><span class="p">,</span> <span class="mf">320.03</span><span class="p">),</span> <span class="p">(</span><span class="mi">2003</span><span class="p">,</span> <span class="mf">322.16</span><span class="p">),</span> <span class="p">(</span><span class="mi">2004</span><span class="p">,</span> <span class="mf">328.07</span><span class="p">),</span>\
+              <span class="p">(</span><span class="mi">2006</span><span class="p">,</span> <span class="mf">323.91</span><span class="p">),</span> <span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mf">341.47</span><span class="p">),</span> <span class="p">(</span><span class="mi">2009</span><span class="p">,</span> <span class="mf">348.92</span><span class="p">),</span>\
+              <span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="mf">357.29</span><span class="p">),</span> <span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mf">363.77</span><span class="p">),</span> <span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mf">361.51</span><span class="p">),</span>\
+              <span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mf">382.47</span><span class="p">)]</span>
+
+<span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">total</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">co2_levels</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="n">co2_levels</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total co2_levels is&quot;</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Let’s have a more interesting example. Be very careful not to use
+an incorrect index for the list.</p>
+<ul class="simple">
+<li>Count the number of CO2 values in the list that are greater
+than 350.</li>
+<li>Calculate and print the percentage change in each measurement year
+from the previous measurement year.</li>
+<li>Determine the years in which the CO2 levels dropped compared to the
+previous measurement. Output just these years.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="part-2-practice">
+<h2>Part 2 Practice<a class="headerlink" href="#part-2-practice" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Suppose we wanted to print the first, third, fifth, etc. elements
+in a list. Write code to accomplish this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">months</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;jan&#39;</span><span class="p">,</span> <span class="s1">&#39;feb&#39;</span><span class="p">,</span> <span class="s1">&#39;mar&#39;</span><span class="p">,</span> <span class="s1">&#39;apr&#39;</span><span class="p">,</span> <span class="s1">&#39;may&#39;</span><span class="p">,</span> <span class="s1">&#39;jun&#39;</span><span class="p">,</span> <span class="s1">&#39;jul&#39;</span><span class="p">,</span> <span class="s1">&#39;aug&#39;</span><span class="p">,</span> <span class="s1">&#39;sep&#39;</span><span class="p">,</span> <span class="s1">&#39;oct&#39;</span><span class="p">,</span> <span class="s1">&#39;nov&#39;</span><span class="p">,</span> <span class="s1">&#39;dec&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Now, use a similar loop code to print a little evergreen tree:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>    <span class="o">*</span>
+   <span class="o">***</span>
+  <span class="o">*****</span>
+ <span class="o">*******</span>
+<span class="o">*********</span>
+   <span class="o">***</span>
+   <span class="o">***</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Try this later: change your loop to work for any size evergreen.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="loops-that-end-on-other-conditions">
+<h2>Loops that end on other conditions<a class="headerlink" href="#loops-that-end-on-other-conditions" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Here is a while loop to add the non-zero numbers that the user types
+in:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">end_found</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">while</span> <span class="ow">not</span> <span class="n">end_found</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter an integer to add (0 to end) ==&gt; &quot;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">end_found</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">x</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">We will work through this loop by hand in class.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="multiple-nested-loops">
+<h2>Multiple nested loops<a class="headerlink" href="#multiple-nested-loops" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Loops and if statements can both be nested.</p>
+</li>
+<li><p class="first">We’ve already seen this for if statements.</p>
+</li>
+<li><p class="first">Here’s an example where we print every pair of values in a list.</p>
+</li>
+<li><p class="first">First solution:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">31</span><span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">L</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">This solution prints the values from the same pair of indices twice
+-  e.g., the pair 21, 12 is printed once when <em>i=1</em>, <em>j=2</em> and
+once when <em>i=2</em>, <em>j=1</em>.</p>
+</li>
+<li><p class="first">How can we modify it so that we only print each pair once?</p>
+</li>
+<li><p class="first">What has to change if we don’t want to print when <em>i==j</em>?</p>
+</li>
+<li><p class="first">Finally, we will modify the resulting loop to find the two closest
+values in the list.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Loops are especially useful for iterating over a list, accessing its
+contents, and adding or counting the values from a list. This is
+done in the <a class="reference external" href="https://docs.python.org/3/library/functions.html#sum" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">sum()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/functions.html#len" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">len()</span></code></a> functions of Python.</li>
+<li>Each loop has a stopping condition — the boolean expression in
+the <em>while</em> statement.  The loop will end when the condition
+evaluates to <em>True</em>.</li>
+<li>If the stopping condition is never reached, the loop will become
+“infinite”.</li>
+<li>Often a counter variable is used. It (a) is given an initial value
+before the loop starts, (b) is incremented (or decremented) once in
+each loop iteration, and (c) is used to stop the loop when it
+reaches the index of the end (or beginning) of the list.</li>
+<li>We will demonstrate a simple way to write these common loops with a
+<code class="docutils literal"><span class="pre">for</span></code> loop in the next lecture.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lec09_loops1_while_exercises/exercises.html" class="btn btn-neutral float-right" title="Lecture 9 — Exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lec08_lists1_exercises/exercises.html" class="btn btn-neutral float-left" title="Lecture 8 — Exercises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Imran Ali
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

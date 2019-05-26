@@ -1,0 +1,9 @@
+Enter a value (0 to end): 89
+Enter a value (0 to end): 32
+Enter a value (0 to end): 14
+Enter a value (0 to end): 13
+Enter a value (0 to end): 18
+Enter a value (0 to end): 0
+Min: 13
+Max: 89
+Avg: 33.2

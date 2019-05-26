@@ -1,0 +1,944 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lecture 10 — Lists Part 2 &mdash; RPA  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 10 — Exercises" href="lec10_lists2_exercises/exercises.html" />
+    <link rel="prev" title="Lecture 9 — Exercises" href="lec09_loops1_while_exercises/exercises.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RPA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../calendar.html">Detailed schedule of topics for this class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_lecture_lab.html">Weekly lecture and lab schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weekly_oh_alac.html">Weekly office hour and tutoring schedule</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../lecture_notes.html">Lecture notes and exercises</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lec01_intro.html">Lecture 1 — Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator.html">Lecture 2 — Python as a Calculator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec02_calculator_exercises/exercises.html">Lecture 2 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings.html">Lecture 3 — Python Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec03_strings_exercises/exercises.html">Lecture 3 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1.html">Lecture 4 — Using functions and modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec04_modules_functions1_exercises/exercises.html">Lecture 4 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2.html">Lecture 5 — Python Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec05_functions2_exercises/exercises.html">Lecture 5 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1.html">Lecture 6 — Decisions Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec06_conditionals1_exercises/exercises.html">Lecture 6 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images.html">Lecture 7 — Tuples, Modules, and Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec07_modules_images_exercises/exercises.html">Lecture 7 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1.html">Lecture 8 — Lists Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec08_lists1_exercises/exercises.html">Lecture 8 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while.html">Lecture 9 — While Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec09_loops1_while_exercises/exercises.html">Lecture 9 — Exercises</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lecture 10 — Lists Part 2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#topics">Topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-aliasing">List Aliasing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aliasing-and-function-parameters">Aliasing and Function Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-operations-change-a-list-what-operations-create-new-lists">What Operations Change a List? What Operations Create New Lists?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-1-practice">Part 1 Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-2-for-loops-and-operations-on-list-items">Part 2:  For Loops and Operations on List Items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changing-the-values-in-a-list">Changing the Values in a List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-range">Using <code class="docutils literal"><span class="pre">range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-2-practice">Part 2 Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-indices-to-slice-a-list-and-create-a-new-list">Using Indices to “Slice” a List and Create a New List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#more-on-list-slicing">More on List Slicing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#concatenation-and-replication">Concatenation and Replication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-3-practice">Part 3 Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#converting-strings-to-lists">Converting Strings to Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#converting-lists-to-strings">Converting Lists to Strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#indexing-and-slicing-strings">Indexing and Slicing Strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part-4-practice">Part 4 Practice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-review-exercises-what-does-python-output">Additional Review Exercises: What Does Python Output?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lec10_lists2_exercises/exercises.html">Lecture 10 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals2.html">Lecture 11 — Decisions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec11_conditionals_exercises/exercises.html">Lecture 11 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_for_double.html">Lecture 12 — Controlling Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec12_loops2_exercises/exercises.html">Lecture 12 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_web.html">Lecture 13 — Data from Files and Web Pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec13_files_exercises/exercises.html">Lecture 13 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec14_design_part1.html">Lecture 14 — Problem Solving and Design, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets.html">Lecture 15 — Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec15_sets_exercises/exercises.html">Lecture 15 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1.html">Lecture 16 — Dictionaries, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec16_dictionaries1_exercises/exercises.html">Lecture 16 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2.html">Lecture 17 — Dictionaries, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec17_dictionaries2_exercises/exercises.html">Lecture 17 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1.html">Lecture 18 — Classes, Part 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec18_classes1_exercises/exercises.html">Lecture 18 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2.html">Lecture 19 — Classes, Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec19_classes2_exercises/exercises.html">Lecture 19 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching.html">Lecture 20 — Searching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec20_searching_exercises/exercises.html">Lecture 20 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting.html">Lecture 21 — Sorting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec21_sorting_exercises/exercises.html">Lecture 21 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter.html">Lecture 22 — TKInter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec22_tkinter_exercises/exercises.html">Lecture 22 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion.html">Lecture 23 — Recursion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec23_recursion_exercises/exercises.html">Lecture 23 — Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional.html">Lecture 24 — Advanced Python Topics and Functional Programming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lec24_functional_exercises/exercises.html">Lecture 24 — Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../class_code.html">Code written in class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_environment.html">Software installation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RPA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../lecture_notes.html">Lecture Notes</a> &raquo;</li>
+        
+      <li>Lecture 10 — Lists Part 2</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/lecture_notes/lec10_lists2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lecture-10-lists-part-2">
+<h1>Lecture 10 — Lists Part 2<a class="headerlink" href="#lecture-10-lists-part-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="topics">
+<h2>Topics<a class="headerlink" href="#topics" title="Permalink to this headline">¶</a></h2>
+<p>We will cover the first three of these topics during lecture.  The
+fourth is for your own use:</p>
+<ul class="simple">
+<li>List aliasing, lists, and functions</li>
+<li>For loops to operate on lists</li>
+<li>Slicing to create copies of lists and to create sublists</li>
+<li>Converting back and forth between strings and lists</li>
+</ul>
+</div>
+<div class="section" id="list-aliasing">
+<h2>List Aliasing<a class="headerlink" href="#list-aliasing" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Consider the following example Python code:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;RPI&#39;</span><span class="p">,</span> <span class="s1">&#39;WPI&#39;</span><span class="p">,</span> <span class="s1">&#39;MIT&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L2</span> <span class="o">=</span> <span class="n">L1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L3</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;RPI&#39;</span><span class="p">,</span> <span class="s1">&#39;WPI&#39;</span><span class="p">,</span> <span class="s1">&#39;MIT&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;RIT&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;CalTech&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L1</span>
+<span class="go">[&#39;RPI&#39;, &#39;CalTech&#39;, &#39;MIT&#39;, &#39;RIT&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L2</span>
+<span class="go">[&#39;RPI&#39;, &#39;CalTech&#39;, &#39;MIT&#39;, &#39;RIT&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L3</span>
+<span class="go">[&#39;RPI&#39;, &#39;WPI&#39;, &#39;MIT&#39;]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Surprised? This is caused by the creation of what we call an
+<em>alias</em> in computer science:</p>
+<ul class="simple">
+<li>L1 and L2 reference the same list - they are <em>aliases</em> of each
+other and the underlying list - so changes made using either
+name change the underlying list.</li>
+<li>L3 references a different list that just happens to have the
+same string values in the same order: there would have been no
+confusion if the strings in the list had been different.</li>
+<li>We’ll use our memory model for lists to understand what is
+happening here.</li>
+</ul>
+</li>
+<li><p class="first">Python uses aliases for reasons of efficiency: lists can be quite
+long and are frequently changed, so copying of entire lists is
+expensive.</p>
+</li>
+<li><p class="first">This is true for other <em>container</em> data types as well.</p>
+<ul class="simple">
+<li>Assignments create an alias for images, lists, tuples, strings and, as we
+will see later, sets and dictionaries.<ul>
+<li>Aliases of strings and tuples do not create the same confusion
+as other containers because they can not be changed once they
+are created.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Fortunately, if we truly want to copy a list, Python provides a
+<code class="xref py py-func docutils literal"><span class="pre">copy()</span></code> method for lists.  Try the following and see what
+happens:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">L1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">L1</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">L2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L2</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="aliasing-and-function-parameters">
+<h2>Aliasing and Function Parameters<a class="headerlink" href="#aliasing-and-function-parameters" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">When a variable is passed to functions, a copy of its value is
+created if the value is a number or a boolean:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_two</span><span class="p">(</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">):</span>
+    <span class="n">val1</span> <span class="o">+=</span> <span class="n">val2</span>
+    <span class="k">return</span> <span class="n">val1</span>
+
+<span class="n">val1</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">val2</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">add_two</span><span class="p">(</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">When a list is passed to functions, the parameter becomes an alias
+for the argument in the function call.</p>
+</li>
+<li><p class="first">Here is an example of a function that returns a list containing the
+two smallest values in its input list:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">smallest_two</span><span class="p">(</span><span class="n">mylist</span><span class="p">):</span>
+     <span class="n">mylist</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+     <span class="n">newlist</span> <span class="o">=</span> <span class="p">[]</span>
+     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+         <span class="n">newlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mylist</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+             <span class="n">newlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mylist</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+     <span class="k">return</span> <span class="n">newlist</span>
+
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">35</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Before function:&quot;</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result of function:&quot;</span><span class="p">,</span> <span class="n">smallest_two</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After function:&quot;</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">In class we will discuss what happened.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="what-operations-change-a-list-what-operations-create-new-lists">
+<h2>What Operations Change a List? What Operations Create New Lists?<a class="headerlink" href="#what-operations-change-a-list-what-operations-create-new-lists" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Operations that change lists include:<ul>
+<li><code class="xref py py-func docutils literal"><span class="pre">sort()</span></code>, <code class="xref py py-func docutils literal"><span class="pre">insert()</span></code>, <code class="xref py py-func docutils literal"><span class="pre">append()</span></code>, <code class="xref py py-func docutils literal"><span class="pre">pop()</span></code>, <code class="xref py py-func docutils literal"><span class="pre">remove()</span></code></li>
+</ul>
+</li>
+<li>Operations that create new lists:<ul>
+<li>Slicing (discussed below), <code class="xref py py-func docutils literal"><span class="pre">copy()</span></code>, concatenation (<code class="docutils literal"><span class="pre">+</span></code>),
+replication (<code class="docutils literal"><span class="pre">*</span></code>) and <code class="xref py py-func docutils literal"><span class="pre">list()</span></code></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="part-1-practice">
+<h2>Part 1 Practice<a class="headerlink" href="#part-1-practice" title="Permalink to this headline">¶</a></h2>
+<p>Students will be given about 5 minutes to work on the first two
+lecture exercises.</p>
+</div>
+<div class="section" id="part-2-for-loops-and-operations-on-list-items">
+<h2>Part 2:  For Loops and Operations on List Items<a class="headerlink" href="#part-2-for-loops-and-operations-on-list-items" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Although <em>while</em> loops allow us to apply an operation to each entry in a list,
+Python has a construct called a <em>for</em> loop that is often easier
+to use for such operations.</p>
+</li>
+<li><p class="first">Our driving example will be the problem of capitalizing a list of
+names. We’ll start with a simple example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;monkey&#39;</span><span class="p">,</span> <span class="s1">&#39;hawk&#39;</span><span class="p">,</span> <span class="s1">&#39;tiger&#39;</span><span class="p">,</span> <span class="s1">&#39;parrot&#39;</span><span class="p">]</span>
+<span class="n">cap_animals</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">animal</span> <span class="ow">in</span> <span class="n">animals</span><span class="p">:</span>
+    <span class="n">cap_animals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">animal</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cap_animals</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">We can understand what is happening by looking at this
+piece-by-piece:</p>
+<ul class="simple">
+<li>The keyword <code class="docutils literal"><span class="pre">for</span></code> signals the start of a loop.</li>
+<li><code class="docutils literal"><span class="pre">animal</span></code> is a loop variable that takes on the value of each item
+in the list (as indicated by the keyword <code class="docutils literal"><span class="pre">in</span></code>) in
+succession.<ul>
+<li>This is called <em>iterating</em> over the values/elements of the list.</li>
+</ul>
+</li>
+<li>The <code class="docutils literal"><span class="pre">:</span></code> signals the start of a block of code that is the “body
+of the loop”, executed once in succession for each value that
+<code class="docutils literal"><span class="pre">animal</span></code> is assigned.</li>
+<li>The body of the loop here is just a single, indented line of
+code, but in other cases - just as using while loops - there may
+be more than one line of code.</li>
+<li>The end of the loop body is indicated by returning to the same
+level of the indentation as the <code class="docutils literal"><span class="pre">for</span> <span class="pre">...</span></code> line that started
+the loop.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="changing-the-values-in-a-list">
+<h2>Changing the Values in a List<a class="headerlink" href="#changing-the-values-in-a-list" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">What if we wanted to change the list?  We might consider copying
+<code class="docutils literal"><span class="pre">cap_animals</span></code> back to <code class="docutils literal"><span class="pre">animals</span></code> at the end of the code
+sequence.</p>
+</li>
+<li><p class="first">But this does not work if we wanted a function that capitalized all
+strings in a list:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">capitalize_list</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
+    <span class="n">cap_names</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+        <span class="n">cap_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="n">cap_names</span>
+
+<span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;monkey&#39;</span><span class="p">,</span> <span class="s1">&#39;hawk&#39;</span><span class="p">,</span> <span class="s1">&#39;tiger&#39;</span><span class="p">,</span> <span class="s1">&#39;parrot&#39;</span><span class="p">]</span>
+<span class="n">capitalize_list</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>     <span class="c1"># Make sure you understand the output!!!</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">This does not work because <code class="docutils literal"><span class="pre">names</span></code> is an alias for the list
+rather than the list itself!</p>
+</li>
+<li><p class="first">The following does not work either because <code class="docutils literal"><span class="pre">n</span></code> points to a string
+in the list (and when string values are changed, a new string is
+generated, effectively making <code class="docutils literal"><span class="pre">n</span></code> a copy of the value):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">capitalize_list</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">So, based on what we know so far to actually change the values in
+the list we need to use indexing together with a <code class="docutils literal"><span class="pre">while</span></code> loop:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">capitalize_list</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
+        <span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">We can also solve this using a <code class="docutils literal"><span class="pre">for</span></code> loop and indexing, but for
+this we need <code class="xref py py-func docutils literal"><span class="pre">range()</span></code>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="using-range">
+<h2>Using <code class="xref py py-func docutils literal"><span class="pre">range()</span></code><a class="headerlink" href="#using-range" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><code class="xref py py-func docutils literal"><span class="pre">range()</span></code> “generates” values in a sequence, almost-but-not-quite
+like a list:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>prints the values 0 through 4.</p>
+</li>
+<li><p class="first">We can convert a range to an actual list:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">[0, 1, 2, 3, 4]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">The general form is:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="p">(</span><span class="n">bi</span><span class="p">,</span> <span class="n">ei</span><span class="p">,</span> <span class="n">ii</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">bi</span></code> is the initial value (defaults to 0)</li>
+<li><code class="docutils literal"><span class="pre">ei</span></code> is the ending value (never included in the range!)</li>
+<li><code class="docutils literal"><span class="pre">ii</span></code> is the increment, added each time (defaults to 1)</li>
+</ul>
+</li>
+<li><p class="first">We’ll look at a number of examples:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Using <code class="docutils literal"><span class="pre">for</span></code> loops on lists, we often use <a class="reference external" href="https://docs.python.org/3/library/functions.html#len" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">len()</span></code></a> in
+combination with <code class="xref py py-func docutils literal"><span class="pre">range()</span></code> to specify the indices that should be
+used:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">capitalize_list</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)):</span>
+        <span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Now we have our <code class="docutils literal"><span class="pre">for</span></code> loop based solution to capitalizing the
+names in a list.</p>
+</li>
+<li><p class="first">Unlike with a <code class="docutils literal"><span class="pre">while</span></code> loop, there is no need to write code to
+compare our index / counter variable <code class="docutils literal"><span class="pre">i</span></code> directly against the
+bound and no need to write code to increment <code class="docutils literal"><span class="pre">i</span></code>.</p>
+</li>
+<li><p class="first">This use of <code class="docutils literal"><span class="pre">range</span></code> to generate an index list is common:</p>
+<ul class="simple">
+<li>When we want to change the integer, float, or string values of a
+list.</li>
+<li>When we want to work with multiple lists at once.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="part-2-practice">
+<h2>Part 2 Practice<a class="headerlink" href="#part-2-practice" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Recall our list</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">co2_levels</span> <span class="o">=</span> <span class="p">[</span><span class="mf">320.03</span><span class="p">,</span> <span class="mf">322.16</span><span class="p">,</span> <span class="mf">328.07</span><span class="p">,</span> <span class="mf">333.91</span><span class="p">,</span> <span class="mf">341.47</span><span class="p">,</span> \
+  <span class="mf">348.92</span><span class="p">,</span> <span class="mf">357.29</span><span class="p">,</span> <span class="mf">363.77</span><span class="p">,</span> <span class="mf">371.51</span><span class="p">,</span> <span class="mf">382.47</span><span class="p">,</span> <span class="mf">392.95</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>For the purpose of this exercise only, please pretend the Python
+<a class="reference external" href="https://docs.python.org/3/library/functions.html#sum" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">sum()</span></code></a> function does not exist, and then write a short section of
+Python code that uses a <code class="docutils literal"><span class="pre">for</span></code> loop to first compute and then
+print the sum of the values in the <code class="docutils literal"><span class="pre">co2_levels</span></code> list. You do not
+need to use indexing.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="using-indices-to-slice-a-list-and-create-a-new-list">
+<h2>Using Indices to “Slice” a List and Create a New List<a class="headerlink" href="#using-indices-to-slice-a-list-and-create-a-new-list" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Recall:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">co2_levels</span> <span class="o">=</span> <span class="p">[</span><span class="mf">320.03</span><span class="p">,</span> <span class="mf">322.16</span><span class="p">,</span> <span class="mf">328.07</span><span class="p">,</span> <span class="mf">333.91</span><span class="p">,</span> <span class="mf">341.47</span><span class="p">,</span> \
+  <span class="mf">348.92</span><span class="p">,</span> <span class="mf">357.29</span><span class="p">,</span> <span class="mf">363.77</span><span class="p">,</span> <span class="mf">371.51</span><span class="p">,</span> <span class="mf">382.47</span><span class="p">,</span> <span class="mf">392.95</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Now suppose we just want the values at indices 2, 3, and 4 of this in
+a new list:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">three_values</span> <span class="o">=</span> <span class="n">co2_levels</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">three_values</span>
+<span class="go">[328.07, 333.91, 341.47]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">co2_levels</span>
+<span class="go">[320.03, 322.16, 328.07, 333.91, 341.47, 348.92, 357.29, 363.77,</span>
+<span class="go">   371.51, 382.47, 392.95]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">We give the first index and one more than the last index we want.</p>
+</li>
+<li><p class="first">If we leave off the first index, 0 is assumed, and if we leave off
+the second index, the length of the list is assumed.</p>
+</li>
+<li><p class="first">Negative indices are allowed — they are just converted to their
+associated positive values. Some examples:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;hawk&#39;</span><span class="p">,</span> <span class="s1">&#39;tiger&#39;</span><span class="p">,</span> <span class="s1">&#39;parrot&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L1</span>
+<span class="go">[&#39;cat&#39;, &#39;dog&#39;, &#39;hawk&#39;, &#39;tiger&#39;, &#39;parrot&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L1</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">[&#39;dog&#39;, &#39;hawk&#39;, &#39;tiger&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L1</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">[&#39;dog&#39;, &#39;hawk&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L1</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+<span class="go">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L1</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L1</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<span class="go">[&#39;dog&#39;, &#39;hawk&#39;, &#39;tiger&#39;, &#39;parrot&#39;]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="more-on-list-slicing">
+<h2>More on List Slicing<a class="headerlink" href="#more-on-list-slicing" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Specifying indices for slicing and for <code class="xref py py-func docutils literal"><span class="pre">range()</span></code> are very
+similar:</p>
+<ul class="simple">
+<li><code class="xref py py-func docutils literal"><span class="pre">range()</span></code> uses () and is a generator, while slicing
+using [ ] and is applied to a list to create a new list.</li>
+</ul>
+</li>
+<li><p class="first">The most general form of slicing involves three values:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">L</span><span class="p">[</span><span class="n">si</span><span class="p">:</span><span class="n">ei</span><span class="p">:</span><span class="n">inc</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>where</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">L</span></code> is the list</li>
+<li><code class="docutils literal"><span class="pre">si</span></code> is the start index</li>
+<li><code class="docutils literal"><span class="pre">ei</span></code> is the end index</li>
+<li><code class="docutils literal"><span class="pre">inc</span></code> is the increment value</li>
+</ul>
+<p>Any of the three values is optional.</p>
+</li>
+<li><p class="first">We’ll work through some examples in class to:</p>
+<ul class="simple">
+<li>Use slicing to copy an entire list.</li>
+<li>Use negative increments and generate a reversed list.</li>
+<li>Extracting the even indexed values.</li>
+</ul>
+</li>
+<li><p class="first">Note: <code class="docutils literal"><span class="pre">L[:]</span></code> returns a copy of the whole list of <code class="docutils literal"><span class="pre">L</span></code>. This is
+the same using method <code class="xref py py-func docutils literal"><span class="pre">L.copy()</span></code> or the function <code class="xref py py-func docutils literal"><span class="pre">list()</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L2</span> <span class="o">=</span> <span class="n">L1</span><span class="p">[:]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;monkey&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L1</span>
+<span class="go">[&#39;cat&#39;, &#39;dog&#39;, &#39;hawk&#39;, &#39;tiger&#39;, &#39;parrot&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L2</span>
+<span class="go">[&#39;cat&#39;, &#39;monkey&#39;, &#39;hawk&#39;, &#39;tiger&#39;, &#39;parrot&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L3</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L3</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;turtle&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L1</span>
+<span class="go">[&#39;cat&#39;, &#39;dog&#39;, &#39;hawk&#39;, &#39;tiger&#39;, &#39;parrot&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L2</span>
+<span class="go">[&#39;cat&#39;, &#39;monkey&#39;, &#39;hawk&#39;, &#39;tiger&#39;, &#39;parrot&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">L3</span>
+<span class="go">[&#39;cat&#39;, &#39;turtle&#39;, &#39;hawk&#39;, &#39;tiger&#39;, &#39;parrot&#39;]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="concatenation-and-replication">
+<h2>Concatenation and Replication<a class="headerlink" href="#concatenation-and-replication" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Just like with strings, concatenation and replication can be
+applied to lists:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span>
+<span class="go">[1, 2, 3, 4, 5]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">and:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="go">[1, 1, 1]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="part-3-practice">
+<h2>Part 3 Practice<a class="headerlink" href="#part-3-practice" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">What is the output of the following?</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">y</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Write a slicing command to extract values indexed
+by 1, 4, 7, 10, etc from list <code class="docutils literal"><span class="pre">L0</span></code>.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="converting-strings-to-lists">
+<h2>Converting Strings to Lists<a class="headerlink" href="#converting-strings-to-lists" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Version 1: use function <code class="xref py py-func docutils literal"><span class="pre">list()</span></code> to create a list of the
+characters in the string:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Hello world&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="go">[&#39;H&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;, &#39; &#39;, &#39;w&#39;, &#39;o&#39;, &#39;r&#39;, &#39;l&#39;, &#39;d&#39;]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Version 2:  use the string <code class="xref py py-func docutils literal"><span class="pre">split()</span></code> function, which breaks a string up into a
+list of strings based on the character provided as the argument.</p>
+<ul class="simple">
+<li>The default is <code class="docutils literal"><span class="pre">'</span> <span class="pre">'</span></code>.</li>
+<li>Other common splitting characters are <code class="docutils literal"><span class="pre">','</span></code>, <code class="docutils literal"><span class="pre">'|'</span></code> and
+<code class="docutils literal"><span class="pre">'\t'</span></code>.</li>
+</ul>
+</li>
+<li><p class="first">We will play with the <code class="docutils literal"><span class="pre">s</span> <span class="pre">=</span> <span class="pre">&quot;Hello</span> <span class="pre">world&quot;</span></code> example in class:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="go">[&#39;Hello&#39;, &#39;world&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Hello     worl   d&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="go">[&#39;Hello&#39;, &#39;worl&#39;, &#39;d&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="go">[&#39;Hello&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;, &#39;worl&#39;, &#39;&#39;, &#39;&#39;, &#39;d&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;l&#39;</span><span class="p">)</span>
+<span class="go">[&#39;He&#39;, &#39;&#39;, &#39;o     wor&#39;, &#39;   d&#39;]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="converting-lists-to-strings">
+<h2>Converting Lists to Strings<a class="headerlink" href="#converting-lists-to-strings" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">What happens when we type the following?</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Hello world&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s1</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will not concatenate all the strings in the list (assuming they are
+strings).</p>
+</li>
+<li><p class="first">We can write a <code class="docutils literal"><span class="pre">for</span></code> loop to do this, but Python provides
+something simpler that works:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;expects&#39;</span><span class="p">,</span> <span class="s1">&#39;the&#39;</span><span class="p">,</span> <span class="s1">&#39;Spanish&#39;</span><span class="p">,</span> <span class="s1">&#39;Inquisition&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">L1</span><span class="p">))</span>
+<span class="go">NooneexpectstheSpanishInquisition</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">L1</span><span class="p">))</span>
+<span class="go">No one expects the Spanish Inquisition</span>
+</pre></div>
+</div>
+<p>Can you infer from this the role of the string that the <code class="xref py py-func docutils literal"><span class="pre">join()</span></code> function
+is applied to?</p>
+</li>
+</ul>
+</div>
+<div class="section" id="indexing-and-slicing-strings">
+<h2>Indexing and Slicing Strings<a class="headerlink" href="#indexing-and-slicing-strings" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">We can index strings:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Hello, world!&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+<span class="go">,</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">!</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">We can apply all of the slicing operations to strings to create new
+strings:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Hello, world!&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">&#39;Hlo ol!&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Unlike lists, however, we can not use indexing to replace individual
+characters in strings:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;c&#39;</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">TypeError</span>: <span class="n">&#39;str&#39; object does not support item assignment</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="part-4-practice">
+<h2>Part 4 Practice<a class="headerlink" href="#part-4-practice" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Given a list:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;tiger&#39;</span><span class="p">,</span> <span class="s1">&#39;lion&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Rewrite <code class="docutils literal"><span class="pre">L</span></code> so that it is a list of lists, with household pets in
+the 0th (sub)list, zoo animals in the first. Use slicing of
+<code class="docutils literal"><span class="pre">L</span></code> to create this new list and assign L to the result.</p>
+</li>
+<li><p class="first">How can you append an additional list of farm animals (e.g.,
+<code class="docutils literal"><span class="pre">'horse'</span></code>, <code class="docutils literal"><span class="pre">'pig'</span></code>, and <code class="docutils literal"><span class="pre">'cow'</span></code>) to <code class="docutils literal"><span class="pre">L</span></code>?</p>
+</li>
+<li><p class="first">Write code to remove <code class="docutils literal"><span class="pre">'tiger'</span></code> from the sublist of zoo animals.</p>
+</li>
+<li><p class="first">Suppose you have the string:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;cat |  dog  | mouse | rat&quot;</span>
+</pre></div>
+</div>
+<p>and you’d like to have the list of strings:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;mouse&quot;</span><span class="p">,</span> <span class="s2">&quot;rat&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Splitting the list alone does not solve the problem. Instead, you
+need to use a combination of splitting, and a loop that strips off
+the extra space characters from each string and appends to the final
+result. Write this code. It should be at most 4-5 lines of Python.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Assignment of lists and passing of lists as parameters creates
+aliases of lists rather than copies.</li>
+<li>We use <code class="docutils literal"><span class="pre">for</span></code> loops to iterate through a list to work on each entry
+in the list.</li>
+<li>We need to combine <code class="docutils literal"><span class="pre">for</span></code> loops with indices generated by a
+<code class="xref py py-func docutils literal"><span class="pre">range()</span></code> in order to change the contents of a list of integers,
+floats, or strings. These indices are also used to work with
+multiple lists at once.</li>
+<li>Concatenation, replication, and slicing create new lists.</li>
+<li>Most other list functions that modify a list do so without creating a
+new list: <code class="xref py py-func docutils literal"><span class="pre">insert()</span></code>, <code class="xref py py-func docutils literal"><span class="pre">sort()</span></code>, <code class="xref py py-func docutils literal"><span class="pre">append()</span></code>, <code class="xref py py-func docutils literal"><span class="pre">pop()</span></code>, etc.</li>
+<li>Strings may be indexed and sliced, but indexing may not be used to
+change a string.</li>
+<li>Conversion of a string to a list is accomplished using either
+<code class="xref py py-func docutils literal"><span class="pre">list()</span></code> or <code class="xref py py-func docutils literal"><span class="pre">split()</span></code>; conversion of a list of strings to a string
+uses <code class="xref py py-func docutils literal"><span class="pre">join()</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="additional-review-exercises-what-does-python-output">
+<h2>Additional Review Exercises: What Does Python Output?<a class="headerlink" href="#additional-review-exercises-what-does-python-output" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Without typing into the Python interpreter, find the outputs from
+the following operations:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+<span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+<span class="gp">...</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">What about these operations?</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;cat&#39;</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;cat&#39;</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;pig&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;ant&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z1</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z1</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Write a function that returns a list containing the smallest and
+largest values in the list that is passed to it as an argument
+<em>without changing the list</em>? Can you think of several ways to do
+this?</p>
+<ol class="arabic simple">
+<li>Using <a class="reference external" href="https://docs.python.org/3/library/functions.html#min" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">min()</span></code></a> and <a class="reference external" href="https://docs.python.org/3/library/functions.html#max" title="(in Python v3.7)"><code class="xref py py-func docutils literal"><span class="pre">max()</span></code></a>.</li>
+<li>Using sorting (but remember, you can’t change the original list).</li>
+<li>Using a <code class="docutils literal"><span class="pre">for</span></code> loop that searches for the smallest and largest
+values.</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lec10_lists2_exercises/exercises.html" class="btn btn-neutral float-right" title="Lecture 10 — Exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lec09_loops1_while_exercises/exercises.html" class="btn btn-neutral float-left" title="Lecture 9 — Exercises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Imran Ali
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
